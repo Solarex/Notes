@@ -1554,233 +1554,6 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10" data-path="../flutter-introduction-and-practice/readme.html">
-            
-                <a href="../flutter-introduction-and-practice/readme.html">
-            
-                    
-                    Flutter技术入门与实战
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.10.1" data-path="../flutter-introduction-and-practice/ch01.html">
-            
-                <a href="../flutter-introduction-and-practice/ch01.html">
-            
-                    
-                    1.开始Flutter之旅
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.2" data-path="../flutter-introduction-and-practice/ch02.html">
-            
-                <a href="../flutter-introduction-and-practice/ch02.html">
-            
-                    
-                    2.Flutter基础知识
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.3" data-path="../flutter-introduction-and-practice/ch03.html">
-            
-                <a href="../flutter-introduction-and-practice/ch03.html">
-            
-                    
-                    3.Dart语言简述
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.4" data-path="../flutter-introduction-and-practice/ch04.html">
-            
-                <a href="../flutter-introduction-and-practice/ch04.html">
-            
-                    
-                    4.常用组件
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.5" data-path="../flutter-introduction-and-practice/ch05.html">
-            
-                <a href="../flutter-introduction-and-practice/ch05.html">
-            
-                    
-                    5.MaterialDesign风格组件
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.6" data-path="../flutter-introduction-and-practice/ch06.html">
-            
-                <a href="../flutter-introduction-and-practice/ch06.html">
-            
-                    
-                    6.Cupertino风格组件
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.7" data-path="../flutter-introduction-and-practice/ch07.html">
-            
-                <a href="../flutter-introduction-and-practice/ch07.html">
-            
-                    
-                    7.页面布局
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.8" data-path="../flutter-introduction-and-practice/ch08.html">
-            
-                <a href="../flutter-introduction-and-practice/ch08.html">
-            
-                    
-                    8.手势
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.9" data-path="../flutter-introduction-and-practice/ch09.html">
-            
-                <a href="../flutter-introduction-and-practice/ch09.html">
-            
-                    
-                    9.资源和图片
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.10" data-path="../flutter-introduction-and-practice/ch10.html">
-            
-                <a href="../flutter-introduction-and-practice/ch10.html">
-            
-                    
-                    10.路由及导航
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.11" data-path="../flutter-introduction-and-practice/ch11.html">
-            
-                <a href="../flutter-introduction-and-practice/ch11.html">
-            
-                    
-                    11.组件装饰和视觉效果
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.12" data-path="../flutter-introduction-and-practice/ch12.html">
-            
-                <a href="../flutter-introduction-and-practice/ch12.html">
-            
-                    
-                    12.动画
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.13" data-path="../flutter-introduction-and-practice/ch13.html">
-            
-                <a href="../flutter-introduction-and-practice/ch13.html">
-            
-                    
-                    13.Flutter插件开发
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.14" data-path="../flutter-introduction-and-practice/ch14.html">
-            
-                <a href="../flutter-introduction-and-practice/ch14.html">
-            
-                    
-                    14.开发工具及适用技巧
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.15" data-path="../flutter-introduction-and-practice/ch15.html">
-            
-                <a href="../flutter-introduction-and-practice/ch15.html">
-            
-                    
-                    15.测试与发布应用
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.16" data-path="../flutter-introduction-and-practice/ch16.html">
-            
-                <a href="../flutter-introduction-and-practice/ch16.html">
-            
-                    
-                    16.综合案例——即时通讯App界面实现
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
 
     
 
@@ -1926,6 +1699,150 @@ b ??= value;
 <li>superclass&#x2019;s no-arg constructor</li>
 <li>main class&#x2019;s no-arg constructor</li>
 </ol>
+<p>If the superclass doesn&#x2019;t have an unnamed, no-argument constructor, then you must manually call one of the constructors in the superclass. Specify the superclass constructor after a colon (<code>:</code>), just before the constructor body (if any).Because the arguments to the superclass constructor are evaluated before invoking the constructor, an argument can be an expression such as a function call.Arguments to the superclass constructor do not have access to <code>this</code>. For example, arguments can call static methods but not instance methods.</p>
+<p>Besides invoking a superclass constructor, you can also initialize instance variables before the constructor body runs. Separate initializers with commas.</p>
+<p>Sometimes a constructor&#x2019;s only purpose is to redirect to another constructor in the same class. A redirecting constructor&#x2019;s body is empty, with the constructor call appearing after a colon (:).</p>
+<p>If your class produces objects that never change, you can make these objects compile-time constants. To do this, define a <code>const</code> constructor and make sure that all instance variables are <code>final</code>.</p>
+<p>Use the <code>factory</code> keyword when implementing a constructor that doesn&#x2019;t always create a new instance of its class. For example, a factory constructor might return an instance from a cache, or it might return an instance of a subtype.Factory constructors have no access to <code>this</code>.</p>
+<p>Invoke a factory constructor just like you would any other constructor.</p>
+<p>Getters and setters are special methods that provide read and write access to an object&#x2019;s properties. Recall that each instance variable has an implicit getter, plus a setter if appropriate. You can create additional properties by implementing getters and setters, using the <code>get</code> and <code>set</code> keywords.</p>
+<p>To make a method abstract, use a semicolon (;) instead of a method body.</p>
+<p>Use the <code>abstract</code> modifier to define an <em>abstract class</em>&#x2014;a class that can&#x2019;t be instantiated. Abstract classes are useful for defining interfaces, often with some implementation. If you want your abstract class to appear to be instantiable, define a <a href="https://dart.dev/guides/language/language-tour#factory-constructors" target="_blank">factory constructor</a>.</p>
+<p>Every class implicitly defines an interface containing all the instance members of the class and of any interfaces it implements. If you want to create a class A that supports class B&#x2019;s API without inheriting B&#x2019;s implementation, class A should implement the B interface.</p>
+<p>A class implements one or more interfaces by declaring them in an <code>implements</code> clause and then providing the APIs required by the interfaces.</p>
+<p>Use <code>extends</code> to create a subclass, and <code>super</code> to refer to the superclass.</p>
+<p>Subclasses can override instance methods, getters, and setters. You can use the <code>@override</code> annotation to indicate that you are intentionally overriding a member.To narrow the type of a method parameter or instance variable in code that is <a href="https://dart.dev/guides/language/sound-dart" target="_blank">type safe</a>, you can use the <a href="https://dart.dev/guides/language/sound-problems#the-covariant-keyword" target="_blank"><code>covariant</code> keyword</a>.</p>
+<p>You can override the operators shown in the following table. For example, if you define a Vector class, you might define a <code>+</code> method to add two vectors.</p>
+<table>
+<thead>
+<tr>
+<th><code>&lt;</code></th>
+<th><code>+</code></th>
+<th>`</th>
+<th>`</th>
+<th><code>[]</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&gt;</code></td>
+<td><code>/</code></td>
+<td><code>^</code></td>
+<td><code>[]=</code></td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td><code>~/</code></td>
+<td><code>&amp;</code></td>
+<td><code>~</code></td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td><code>*</code></td>
+<td><code>&lt;&lt;</code></td>
+<td><code>==</code></td>
+</tr>
+<tr>
+<td><code>&#x2013;</code></td>
+<td><code>%</code></td>
+<td><code>&gt;&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p>If you override <code>==</code>, you should also override Object&#x2019;s <code>hashCode</code> getter. </p>
+<p>Enumerated types, often called <em>enumerations</em> or <em>enums</em>, are a special kind of class used to represent a fixed number of constant values.</p>
+<p>Each value in an enum has an <code>index</code> getter, which returns the zero-based position of the value in the enum declaration. To get a list of all of the values in the enum, use the enum&#x2019;s <code>values</code> constant.</p>
+<p>Enumerated types have the following limits:</p>
+<ul>
+<li>You can&#x2019;t subclass, mix in, or implement an enum.</li>
+<li>You can&#x2019;t explicitly instantiate an enum.</li>
+</ul>
+<p>Mixins are a way of reusing a class&#x2019;s code in multiple class hierarchies.</p>
+<p>To <em>use</em> a mixin, use the <code>with</code> keyword followed by one or more mixin names.</p>
+<p>To <em>implement</em> a mixin, create a class that extends Object and declares no constructors. Unless you want your mixin to be usable as a regular class, use the <code>mixin</code> keyword instead of <code>class</code>.To specify that only certain types can use the mixin &#x2014; for example, so your mixin can invoke a method that it doesn&#x2019;t define &#x2014; use <code>on</code> to specify the required superclass.Support for the <code>mixin</code> keyword was introduced in Dart 2.1. Code in earlier releases usually used <code>abstract class</code> instead. </p>
+<p>Use the <code>static</code> keyword to implement class-wide variables and methods.Static variables (class variables) are useful for class-wide state and constants.Static variables aren&#x2019;t initialized until they&#x2019;re used.</p>
+<p>Consider using top-level functions, instead of static methods, for common or widely used utilities and functionality.</p>
+<p>The &lt;&#x2026;&gt; notation marks List as a <em>generic</em> (or <em>parameterized</em>) type&#x2014;a type that has formal type parameters. <a href="https://dart.dev/guides/language/effective-dart/design#do-follow-existing-mnemonic-conventions-when-naming-type-parameters" target="_blank">By convention</a>, most type variables have single-letter names, such as E, T, S, K, and V.</p>
+<p>Dart generic types are <em>reified</em>, which means that they carry their type information around at runtime.In contrast, generics in Java use <em>erasure</em>, which means that generic type parameters are removed at runtime. In Java, you can test whether an object is a List, but you can&#x2019;t test whether it&#x2019;s a <code>List&lt;String&gt;</code>.</p>
+<p>When implementing a generic type, you might want to limit the types of its parameters. You can do this using <code>extends</code>.</p>
+<p>Initially, Dart&#x2019;s generic support was limited to classes. A newer syntax, called <em>generic methods</em>, allows type arguments on methods and functions.</p>
+<p>The <code>import</code> and <code>library</code> directives can help you create a modular and shareable code base. Libraries not only provide APIs, but are a unit of privacy: identifiers that start with an underscore (_) are visible only inside the library. <em>Every Dart app is a library</em>, even if it doesn&#x2019;t use a <code>library</code> directive.</p>
+<p>Libraries can be distributed using <a href="https://dart.dev/guides/packages" target="_blank">packages</a>.</p>
+<p>The only required argument to <code>import</code> is a URI specifying the library. For built-in libraries, the URI has the special <code>dart:</code> scheme. For other libraries, you can use a file system path or the <code>package:</code> scheme. The <code>package:</code> scheme specifies libraries provided by a package manager such as the pub tool. <em>URI</em> stands for uniform resource identifier. <em>URLs</em> (uniform resource locators) are a common kind of URI.</p>
+<p><em>Deferred loading</em> (also called <em>lazy loading</em>) allows an application to load a library on demand, if and when it&#x2019;s needed. Here are some cases when you might use deferred loading:</p>
+<ul>
+<li>To reduce an app&#x2019;s initial startup time.</li>
+<li>To perform A/B testing&#x2014;trying out alternative implementations of an algorithm, for example.</li>
+<li>To load rarely used functionality, such as optional screens and dialogs.</li>
+</ul>
+<p>To lazily load a library, you must first import it using <code>deferred as</code>.</p>
+<p>When you need the library, invoke <code>loadLibrary()</code> using the library&#x2019;s identifier.</p>
+<p>You can invoke <code>loadLibrary()</code> multiple times on a library without problems. The library is loaded only once.</p>
+<p>Keep in mind the following when you use deferred loading:</p>
+<ul>
+<li>A deferred library&#x2019;s constants aren&#x2019;t constants in the importing file. Remember, these constants don&#x2019;t exist until the deferred library is loaded.</li>
+<li>You can&#x2019;t use types from a deferred library in the importing file. Instead, consider moving interface types to a library imported by both the deferred library and the importing file.</li>
+<li>Dart implicitly inserts <code>loadLibrary()</code> into the namespace that you define using <code>deferred as*namespace*</code>. The <code>loadLibrary()</code> function returns a <a href="https://dart.dev/guides/libraries/library-tour#future" target="_blank">Future</a>.</li>
+</ul>
+<p>The Dart VM allows access to members of deferred libraries even before the call to <code>loadLibrary()</code>. This behavior might change, so <strong>don&#x2019;t depend on the current VM behavior.</strong></p>
+<p>Dart libraries are full of functions that return <a href="https://api.dartlang.org/stable/dart-async/Future-class.html" target="_blank">Future</a> or <a href="https://api.dartlang.org/stable/dart-async/Stream-class.html" target="_blank">Stream</a> objects. These functions are <em>asynchronous</em>: they return after setting up a possibly time-consuming operation (such as I/O), without waiting for that operation to complete.</p>
+<p>Although an async function might perform time-consuming operations, it doesn&#x2019;t wait for those operations. Instead, the async function executes only until it encounters its first <code>await</code>expression (<a href="https://github.com/dart-lang/sdk/blob/master/docs/newsletter/20170915.md#synchronous-async-start" target="_blank">details</a>). Then it returns a Future object, resuming execution only after the <code>await</code>expression completes.</p>
+<p>In <code>await *expression*</code>, the value of <code>*expression*</code> is usually a Future; if it isn&#x2019;t, then the value is automatically wrapped in a Future. This Future object indicates a promise to return an object. The value of <code>await*expression*</code> is that returned object. The await expression makes execution pause until that object is available.</p>
+<p>An <em>async function</em> is a function whose body is marked with the <code>async</code> modifier.</p>
+<p>Note that the function&#x2019;s body doesn&#x2019;t need to use the Future API. Dart creates the Future object if necessary.</p>
+<p>If your function doesn&#x2019;t return a useful value, make its return type <code>Future&lt;void&gt;</code>.</p>
+<p>When you need to get values from a Stream, you have two options:</p>
+<ul>
+<li>Use <code>async</code> and an <em>asynchronous for loop</em> (<code>await for</code>).</li>
+<li>Use the Stream API, as described <a href="https://dart.dev/guides/libraries/library-tour#stream" target="_blank">in the library tour</a>.</li>
+</ul>
+<p>When you need to lazily produce a sequence of values, consider using a <em>generator function</em>. Dart has built-in support for two kinds of generator functions:</p>
+<ul>
+<li><strong>Synchronous</strong> generator: Returns an <strong>Iterable</strong> object.</li>
+<li><strong>Asynchronous</strong> generator: Returns a <strong>Stream</strong> object.</li>
+</ul>
+<p>To implement a <strong>synchronous</strong> generator function, mark the function body as <code>sync*</code>, and use <code>yield</code>statements to deliver values:</p>
+<pre><code class="lang-dart"><span class="hljs-built_in">Iterable</span>&lt;<span class="hljs-built_in">int</span>&gt; naturalsTo(<span class="hljs-built_in">int</span> n) <span class="hljs-keyword">sync</span>* {
+  <span class="hljs-built_in">int</span> k = <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">while</span> (k &lt; n) <span class="hljs-keyword">yield</span> k++;
+}
+</code></pre>
+<p>To implement an <strong>asynchronous</strong> generator function, mark the function body as <code>async*</code>, and use <code>yield</code>statements to deliver values:</p>
+<pre><code class="lang-dart">Stream&lt;<span class="hljs-built_in">int</span>&gt; asynchronousNaturalsTo(<span class="hljs-built_in">int</span> n) <span class="hljs-keyword">async</span>* {
+  <span class="hljs-built_in">int</span> k = <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">while</span> (k &lt; n) <span class="hljs-keyword">yield</span> k++;
+}
+</code></pre>
+<p>If your generator is recursive, you can improve its performance by using <code>yield*</code>:</p>
+<pre><code class="lang-dart"><span class="hljs-built_in">Iterable</span>&lt;<span class="hljs-built_in">int</span>&gt; naturalsDownFrom(<span class="hljs-built_in">int</span> n) <span class="hljs-keyword">sync</span>* {
+  <span class="hljs-keyword">if</span> (n &gt; <span class="hljs-number">0</span>) {
+    <span class="hljs-keyword">yield</span> n;
+    <span class="hljs-keyword">yield</span>* naturalsDownFrom(n - <span class="hljs-number">1</span>);
+  }
+}
+</code></pre>
+<p>To allow an instance of your Dart class to be called like a function, implement the <code>call()</code> method.</p>
+<p>Most computers, even on mobile platforms, have multi-core CPUs. To take advantage of all those cores, developers traditionally use shared-memory threads running concurrently. However, shared-state concurrency is error prone and can lead to complicated code.</p>
+<p>Instead of threads, all Dart code runs inside of <em>isolates</em>. Each isolate has its own memory heap, ensuring that no isolate&#x2019;s state is accessible from any other isolate.</p>
+<p>In Dart, functions are objects, just like strings and numbers are objects. A <em>typedef</em>, or <em>function-type alias</em>, gives a function type a name that you can use when declaring fields and return types. A typedef retains type information when a function type is assigned to a variable.</p>
+<pre><code class="lang-dart"><span class="hljs-keyword">typedef</span> Compare = <span class="hljs-built_in">int</span> <span class="hljs-built_in">Function</span>(<span class="hljs-built_in">Object</span> a, <span class="hljs-built_in">Object</span> b);
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SortedCollection</span> </span>{
+  Compare compare;
+
+  SortedCollection(<span class="hljs-keyword">this</span>.compare);
+}
+
+<span class="hljs-comment">// Initial, broken implementation.</span>
+<span class="hljs-built_in">int</span> sort(<span class="hljs-built_in">Object</span> a, <span class="hljs-built_in">Object</span> b) =&gt; <span class="hljs-number">0</span>;
+
+<span class="hljs-keyword">void</span> main() {
+  SortedCollection coll = SortedCollection(sort);
+  <span class="hljs-keyword">assert</span>(coll.compare <span class="hljs-keyword">is</span> <span class="hljs-built_in">Function</span>);
+  <span class="hljs-keyword">assert</span>(coll.compare <span class="hljs-keyword">is</span> Compare);
+}
+</code></pre>
+<p>Metadata can appear before a library, class, typedef, type parameter, constructor, factory, function, field, parameter, or variable declaration and before an import or export directive. You can retrieve metadata at runtime using reflection.</p>
 
                                 
                                 </section>
@@ -1969,7 +1886,7 @@ b ??= value;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Language Tour","level":"1.9.10","depth":2,"next":{"title":"Library Tour","level":"1.9.11","depth":2,"path":"the-dart-programming-language/ch11.md","ref":"the-dart-programming-language/ch11.md","articles":[]},"previous":{"title":"9.结论","level":"1.9.9","depth":2,"path":"the-dart-programming-language/ch09.md","ref":"the-dart-programming-language/ch09.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"the-dart-programming-language/ch10.md","mtime":"2019-05-28T13:17:37.007Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-29T08:10:33.027Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Language Tour","level":"1.9.10","depth":2,"next":{"title":"Library Tour","level":"1.9.11","depth":2,"path":"the-dart-programming-language/ch11.md","ref":"the-dart-programming-language/ch11.md","articles":[]},"previous":{"title":"9.结论","level":"1.9.9","depth":2,"path":"the-dart-programming-language/ch09.md","ref":"the-dart-programming-language/ch09.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"the-dart-programming-language/ch10.md","mtime":"2019-05-29T09:41:33.789Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-30T09:23:11.526Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
