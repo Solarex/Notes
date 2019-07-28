@@ -1820,6 +1820,103 @@
             
         </li>
     
+        <li class="chapter " data-level="1.11" data-path="../design-patterns/readme.html">
+            
+                <a href="../design-patterns/readme.html">
+            
+                    
+                    设计模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../design-patterns/ch01.html">
+            
+                <a href="../design-patterns/ch01.html">
+            
+                    
+                    1.引言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../design-patterns/ch02.html">
+            
+                <a href="../design-patterns/ch02.html">
+            
+                    
+                    2.实例研究：设计一个文档编辑器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../design-patterns/ch03.html">
+            
+                <a href="../design-patterns/ch03.html">
+            
+                    
+                    3.创建型模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../design-patterns/ch04.html">
+            
+                <a href="../design-patterns/ch04.html">
+            
+                    
+                    4.结构型模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../design-patterns/ch05.html">
+            
+                <a href="../design-patterns/ch05.html">
+            
+                    
+                    5.行为模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../design-patterns/ch06.html">
+            
+                <a href="../design-patterns/ch06.html">
+            
+                    
+                    6.结论
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
 
     
 
@@ -1866,6 +1963,1105 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="5&#x57FA;&#x7840;&#x6784;&#x5EFA;&#x6A21;&#x5757;">5.&#x57FA;&#x7840;&#x6784;&#x5EFA;&#x6A21;&#x5757;</h1>
+<p>&#x540C;&#x6B65;&#x5BB9;&#x5668;&#x7C7B;&#x90FD;&#x662F;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#xFF0C;&#x4F46;&#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x989D;&#x5916;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x52A0;&#x9501;&#x6765;&#x4FDD;&#x62A4;&#x590D;&#x5408;&#x64CD;&#x4F5C;&#x3002;&#x5BB9;&#x5668;&#x4E0A;&#x5E38;&#x89C1;&#x7684;&#x590D;&#x5408;&#x64CD;&#x4F5C;&#x5305;&#x62EC;&#xFF1A;&#x8FED;&#x4EE3;&#xFF08;&#x53CD;&#x590D;&#x8BBF;&#x95EE;&#x5143;&#x7D20;&#xFF0C;&#x76F4;&#x5230;&#x904D;&#x5386;&#x5B8C;&#x5BB9;&#x5668;&#x4E2D;&#x6240;&#x6709;&#x5143;&#x7D20;&#xFF09;&#x3001;&#x8DF3;&#x8F6C;&#xFF08;&#x6839;&#x636E;&#x6307;&#x5B9A;&#x987A;&#x5E8F;&#x627E;&#x5230;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x7684;&#x4E0B;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF09;&#x4EE5;&#x53CA;&#x6761;&#x4EF6;&#x8FD0;&#x7B97;&#xFF0C;&#x4F8B;&#x5982;&#x201C;&#x82E5;&#x6CA1;&#x6709;&#x5219;&#x6DFB;&#x52A0;&#x201D;&#xFF08;&#x68C0;&#x67E5;&#x5728;Map&#x4E2D;&#x662F;&#x5426;&#x5B58;&#x5728;&#x952E;&#x503C;K&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#xFF0C;&#x5C31;&#x52A0;&#x5165;&#x4E8C;&#x5143;&#x7EC4;(K,V)&#xFF09;&#x3002;</p>
+<p>&#x65E0;&#x8BBA;&#x662F;&#x76F4;&#x63A5;&#x8FED;&#x4EE3;&#x8FD8;&#x662F;&#x5728;Java5.0&#x5F15;&#x5165;&#x7684;for-each&#x5FAA;&#x73AF;&#x8BED;&#x6CD5;&#x4E2D;&#xFF0C;&#x5BF9;&#x5BB9;&#x5668;&#x7C7B;&#x8FDB;&#x884C;&#x8FED;&#x4EE3;&#x7684;&#x6807;&#x51C6;&#x65B9;&#x5F0F;&#x90FD;&#x662F;&#x4F7F;&#x7528;Iterator&#x3002;&#x7136;&#x800C;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x5E76;&#x53D1;&#x5730;&#x4FEE;&#x6539;&#x5BB9;&#x5668;&#xFF0C;&#x90A3;&#x4E48;&#x5373;&#x4F7F;&#x662F;&#x4F7F;&#x7528;&#x8FED;&#x4EE3;&#x5668;&#x4E5F;&#x65E0;&#x6CD5;&#x907F;&#x514D;&#x5728;&#x8FED;&#x4EE3;&#x671F;&#x95F4;&#x5BF9;&#x5BB9;&#x5668;&#x52A0;&#x9501;&#x3002;</p>
+<p>&#x8BBE;&#x8BA1;&#x540C;&#x6B65;&#x5BB9;&#x5668;&#x7C7B;&#x7684;&#x8FED;&#x4EE3;&#x5668;&#x65F6;&#x5E76;&#x6CA1;&#x6709;&#x8003;&#x8651;&#x5230;&#x5E76;&#x53D1;&#x4FEE;&#x6539;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5E76;&#x4E14;&#x5B83;&#x4EEC;&#x8868;&#x73B0;&#x51FA;&#x7684;&#x884C;&#x4E3A;&#x662F;&#x53CA;&#x65F6;&#x5931;&#x8D25;fail-fast&#x7684;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x5F53;&#x5B83;&#x4EEC;&#x53D1;&#x73B0;&#x5BB9;&#x5668;&#x5728;&#x8FED;&#x4EE3;&#x8FC7;&#x7A0B;&#x4E2D;&#x88AB;&#x4FEE;&#x6539;&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x629B;&#x51FA;&#x4E00;&#x4E2A;ConcurrentModificationException&#x5F02;&#x5E38;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4E0D;&#x5E0C;&#x671B;&#x5728;&#x8FED;&#x4EE3;&#x671F;&#x95F4;&#x5BF9;&#x5BB9;&#x5668;&#x52A0;&#x9501;&#xFF0C;&#x90A3;&#x4E48;&#x4E00;&#x79CD;&#x66FF;&#x4EE3;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x514B;&#x9686;&#x5BB9;&#x5668;&#xFF0C;&#x5E76;&#x5728;&#x526F;&#x672C;&#x4E0A;&#x8FDB;&#x884C;&#x8FED;&#x4EE3;&#x3002;</p>
+<p>&#x5BB9;&#x5668;&#x7684;<code>hashCode</code>&#x548C;<code>equals</code>&#x7B49;&#x65B9;&#x6CD5;&#x4E5F;&#x4F1A;&#x95F4;&#x63A5;&#x5730;&#x6267;&#x884C;&#x8FED;&#x4EE3;&#x64CD;&#x4F5C;&#xFF0C;&#x5F53;&#x5BB9;&#x5668;&#x4F5C;&#x4E3A;&#x53E6;&#x4E00;&#x4E2A;&#x5BB9;&#x5668;&#x7684;&#x5143;&#x7D20;&#x6216;&#x952E;&#x503C;&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x51FA;&#x73B0;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x3002;&#x540C;&#x6837;&#xFF0C;<code>containsAll</code>&#xFF0C;<code>removeAll</code>&#x3001;<code>retainAll</code>&#x7B49;&#x65B9;&#x6CD5;&#xFF0C;&#x4EE5;&#x53CA;&#x628A;&#x5BB9;&#x5668;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x90FD;&#x4F1A;&#x5BF9;&#x5BB9;&#x5668;&#x8FDB;&#x884C;&#x8FED;&#x4EE3;&#x3002;&#x591A;&#x6709;&#x8FD9;&#x4E9B;&#x95F4;&#x63A5;&#x7684;&#x8FED;&#x4EE3;&#x64CD;&#x4F5C;&#x90FD;&#x53EF;&#x80FD;&#x629B;&#x51FA;<code>ConcurrentModificationException</code>&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x5E76;&#x53D1;&#x5BB9;&#x5668;&#x6765;&#x4EE3;&#x66FF;&#x540C;&#x6B65;&#x5BB9;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x6781;&#x5927;&#x5730;&#x63D0;&#x9AD8;&#x4F38;&#x7F29;&#x6027;&#x5E76;&#x964D;&#x4F4E;&#x98CE;&#x9669;&#x3002;</p>
+<p>&#x5728;Java5.0&#x589E;&#x52A0;&#x4E86;ConcurrentHashMap&#xFF0C;&#x7528;&#x6765;&#x66FF;&#x4EE3;&#x540C;&#x6B65;&#x4E14;&#x57FA;&#x4E8E;&#x6563;&#x5217;&#x7684;Map&#xFF0C;&#x4EE5;&#x53CA;CopyOnWriteArrayList&#xFF0C;&#x7528;&#x4E8E;&#x5728;&#x904D;&#x5386;&#x64CD;&#x4F5C;&#x4E3A;&#x4E3B;&#x8981;&#x64CD;&#x4F5C;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4EE3;&#x66FF;&#x540C;&#x6B65;&#x7684;List&#x3002;&#x5728;&#x65B0;&#x7684;ConcurrentMap&#x63A5;&#x53E3;&#x4E2D;&#x589E;&#x52A0;&#x4E86;&#x5BF9;&#x4E00;&#x4E9B;&#x5E38;&#x89C1;&#x590D;&#x5408;&#x64CD;&#x4F5C;&#x7684;&#x652F;&#x6301;&#xFF0C;&#x4F8B;&#x5982;&#x201C;&#x82E5;&#x6CA1;&#x6709;&#x5219;&#x6DFB;&#x52A0;&#x201D;&#x3001;&#x66FF;&#x6362;&#x4EE5;&#x53CA;&#x6709;&#x6761;&#x4EF6;&#x5220;&#x9664;&#x7B49;&#x3002;</p>
+<p>Java5.0&#x589E;&#x52A0;&#x4E86;&#x4E24;&#x79CD;&#x65B0;&#x7684;&#x5BB9;&#x5668;&#x7C7B;&#x578B;&#xFF1A;Queue&#x548C;BlockingQueue&#x3002;Queue&#x7528;&#x6765;&#x4E34;&#x65F6;&#x4FDD;&#x5B58;&#x4E00;&#x7EC4;&#x7B49;&#x5F85;&#x5904;&#x7406;&#x7684;&#x5143;&#x7D20;&#x3002;&#x5B83;&#x63D0;&#x4F9B;&#x4E86;&#x51E0;&#x79CD;&#x5B9E;&#x73B0;&#xFF0C;&#x5305;&#x62EC;&#xFF1A;ConcurrentLinkedQueue&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x4F20;&#x7EDF;&#x7684;&#x5148;&#x8FDB;&#x5148;&#x51FA;&#x961F;&#x5217;&#xFF0C;&#x4EE5;&#x53CA;PriorityQueue&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E76;&#x53D1;&#x7684;&#x4F18;&#x5148;&#x961F;&#x5217;&#x3002;Queue&#x4E0A;&#x7684;&#x64CD;&#x4F5C;&#x4E0D;&#x4F1A;&#x963B;&#x585E;&#xFF0C;&#x5982;&#x679C;&#x961F;&#x5217;&#x4E3A;&#x7A7A;&#xFF0C;&#x90A3;&#x4E48;&#x83B7;&#x53D6;&#x5143;&#x7D20;&#x7684;&#x64CD;&#x4F5C;&#x5C06;&#x8FD4;&#x56DE;&#x7A7A;&#x503C;&#x3002;&#x867D;&#x7136;&#x53EF;&#x4EE5;&#x7528;List&#x6765;&#x6A21;&#x62DF;Queue&#x7684;&#x884C;&#x4E3A;&#x2014;&#x2014;&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;&#x6B63;&#x662F;&#x901A;&#x8FC7;LinkedList&#x6765;&#x5B9E;&#x73B0;Queue&#x7684;&#xFF0C;&#x4F46;&#x8FD8;&#x9700;&#x8981;&#x4E00;&#x4E2A;Queue&#x7684;&#x7C7B;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x80FD;&#x53BB;&#x6389;List&#x7684;&#x968F;&#x673A;&#x8BBF;&#x95EE;&#x9700;&#x6C42;&#xFF0C;&#x4ECE;&#x800C;&#x5B9E;&#x73B0;&#x66F4;&#x9AD8;&#x6548;&#x7684;&#x5E76;&#x53D1;&#x3002;</p>
+<p>BlockingQueue&#x6269;&#x5C55;&#x4E86;Queue&#xFF0C;&#x589E;&#x52A0;&#x4E86;&#x53EF;&#x963B;&#x585E;&#x7684;&#x63D2;&#x5165;&#x548C;&#x83B7;&#x53D6;&#x7B49;&#x64CD;&#x4F5C;&#x3002;&#x5982;&#x679C;&#x961F;&#x5217;&#x4E3A;&#x7A7A;&#xFF0C;&#x90A3;&#x4E48;&#x83B7;&#x53D6;&#x5143;&#x7D20;&#x7684;&#x64CD;&#x4F5C;&#x5C06;&#x4E00;&#x76F4;&#x963B;&#x585E;&#xFF0C;&#x76F4;&#x5230;&#x961F;&#x5217;&#x4E2D;&#x51FA;&#x73B0;&#x4E00;&#x4E2A;&#x53EF;&#x7528;&#x7684;&#x5143;&#x7D20;&#x3002;&#x5982;&#x679C;&#x961F;&#x5217;&#x5DF2;&#x6EE1;&#xFF08;&#x5BF9;&#x4E8E;&#x6709;&#x754C;&#x961F;&#x5217;&#x6765;&#x8BF4;&#xFF09;&#xFF0C;&#x90A3;&#x4E48;&#x63D2;&#x5165;&#x5143;&#x7D20;&#x7684;&#x64CD;&#x4F5C;&#x5C06;&#x4E00;&#x76F4;&#x963B;&#x585E;&#x3002;&#x76F4;&#x5230;&#x961F;&#x5217;&#x4E2D;&#x51FA;&#x73B0;&#x53EF;&#x7528;&#x7684;&#x7A7A;&#x95F4;&#x3002;&#x5728;&#x751F;&#x4EA7;&#x8005;&#x2014;&#x2014;&#x6D88;&#x8D39;&#x8005;&#x8FD9;&#x79CD;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x4E2D;&#xFF0C;&#x963B;&#x585E;&#x961F;&#x5217;&#x662F;&#x975E;&#x5E38;&#x6709;&#x7528;&#x7684;&#x3002;</p>
+<p>&#x6B63;&#x5982;ConcurrentHashMap&#x7528;&#x4E8E;&#x4EE3;&#x66FF;&#x57FA;&#x4E8E;&#x6563;&#x5217;&#x7684;&#x540C;&#x6B65;Map&#xFF0C;Java6&#x4E5F;&#x5F15;&#x5165;&#x4E86;ConcurrentSkipListMap&#x548C;ConcurrentSkipListSet&#xFF0C;&#x5206;&#x522B;&#x4F5C;&#x4E3A;&#x540C;&#x6B65;&#x7684;SortedMap&#x548C;SortedSet&#x7684;&#x5E76;&#x53D1;&#x66FF;&#x4EE3;&#x54C1;&#xFF08;&#x4F8B;&#x5982;&#x7528;synchronizedMap&#x5305;&#x88C5;&#x7684;TreeMap&#x6216;TreeSet&#xFF09;&#x3002;</p>
+<p>&#x4E0E;HashMap&#x4E00;&#x6837;&#xFF0C;ConcurrentHashMap&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;&#x6563;&#x5217;&#x7684;Map&#xFF0C;&#x4F46;&#x5B83;&#x4F7F;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x5B8C;&#x5168;&#x4E0D;&#x540C;&#x7684;&#x52A0;&#x9501;&#x7B56;&#x7565;&#x6765;&#x63D0;&#x4F9B;&#x66F4;&#x9AD8;&#x7684;&#x5E76;&#x53D1;&#x6027;&#x548C;&#x4F38;&#x7F29;&#x6027;&#x3002;ConcurrentHashMap&#x5E76;&#x4E0D;&#x662F;&#x5C06;&#x6BCF;&#x4E2A;&#x65B9;&#x6CD5;&#x90FD;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x9501;&#x4E0A;&#x540C;&#x6B65;&#x5E76;&#x4F7F;&#x5F97;&#x6BCF;&#x6B21;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x8BBF;&#x95EE;&#x5BB9;&#x5668;&#xFF0C;&#x800C;&#x662F;&#x4F7F;&#x7528;&#x4E00;&#x79CD;&#x7C92;&#x5EA6;&#x66F4;&#x7EC6;&#x7684;&#x52A0;&#x9501;&#x673A;&#x5236;&#x6765;&#x5B9E;&#x73B0;&#x66F4;&#x5927;&#x7A0B;&#x5EA6;&#x7684;&#x5171;&#x4EAB;&#xFF0C;&#x8FD9;&#x79CD;&#x673A;&#x5236;&#x79F0;&#x4E3A;&#x5206;&#x6BB5;&#x9501;&#xFF08;Lock Striping&#xFF09;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x673A;&#x5236;&#x4E2D;&#xFF0C;&#x4EFB;&#x610F;&#x6570;&#x91CF;&#x7684;&#x8BFB;&#x53D6;&#x7EBF;&#x7A0B;&#x53EF;&#x4EE5;&#x5E76;&#x53D1;&#x5730;&#x8BBF;&#x95EE;Map&#xFF0C;&#x6267;&#x884C;&#x8BFB;&#x53D6;&#x64CD;&#x4F5C;&#x7684;&#x7EBF;&#x7A0B;&#x548C;&#x6267;&#x884C;&#x5199;&#x5165;&#x64CD;&#x4F5C;&#x7684;&#x7EBF;&#x7A0B;&#x53EF;&#x4EE5;&#x5E76;&#x53D1;&#x5730;&#x8BBF;&#x95EE;Map&#xFF0C;&#x5E76;&#x4E14;&#x4E00;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x5199;&#x5165;&#x7EBF;&#x7A0B;&#x53EF;&#x4EE5;&#x5E76;&#x53D1;&#x5730;&#x4FEE;&#x6539;Map&#x3002;ConcurrentHashMap&#x5E26;&#x6765;&#x7684;&#x7ED3;&#x679C;&#x662F;&#xFF0C;&#x5728;&#x5E76;&#x53D1;&#x8BBF;&#x95EE;&#x73AF;&#x5883;&#x4E0B;&#x5C06;&#x5B9E;&#x73B0;&#x66F4;&#x9AD8;&#x7684;&#x541E;&#x5410;&#x91CF;&#xFF0C;&#x800C;&#x5728;&#x5355;&#x7EBF;&#x7A0B;&#x73AF;&#x5883;&#x4E2D;&#x53EA;&#x635F;&#x5931;&#x975E;&#x5E38;&#x5C0F;&#x7684;&#x6027;&#x80FD;&#x3002;</p>
+<p>ConcurrentHashMap&#x4E0E;&#x5176;&#x4ED6;&#x5E76;&#x53D1;&#x5BB9;&#x5668;&#x4E00;&#x8D77;&#x589E;&#x5F3A;&#x4E86;&#x540C;&#x6B65;&#x5BB9;&#x5668;&#x7C7B;&#xFF1A;&#x5B83;&#x4EEC;&#x63D0;&#x4F9B;&#x7684;&#x8FED;&#x4EE3;&#x5668;&#x4E0D;&#x4F1A;&#x629B;&#x51FA;ConcurrentModificationException&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x9700;&#x8981;&#x5728;&#x8FED;&#x4EE3;&#x8FC7;&#x7A0B;&#x4E2D;&#x5BF9;&#x5BB9;&#x5668;&#x52A0;&#x9501;&#x3002;ConcurrentHashMap&#x8FD4;&#x56DE;&#x7684;&#x8FED;&#x4EE3;&#x5668;&#x5177;&#x6709;&#x5F31;&#x4E00;&#x81F4;&#x6027;&#xFF08;Weakly Consistent&#xFF09;&#xFF0C;&#x800C;&#x5E76;&#x975E;&#x201C;&#x53CA;&#x65F6;&#x5931;&#x8D25;&#x201D;&#x3002;&#x5F31;&#x4E00;&#x81F4;&#x6027;&#x7684;&#x8FED;&#x4EE3;&#x5668;&#x53EF;&#x4EE5;&#x5BB9;&#x5FCD;&#x5E76;&#x53D1;&#x7684;&#x4FEE;&#x6539;&#xFF0C;&#x5F53;&#x521B;&#x5EFA;&#x8FED;&#x4EE3;&#x5668;&#x65F6;&#x4F1A;&#x904D;&#x5386;&#x5DF2;&#x6709;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5E76;&#x53EF;&#x4EE5;&#xFF08;&#x4F46;&#x662F;&#x4E0D;&#x4FDD;&#x8BC1;&#xFF09;&#x5728;&#x8FED;&#x4EE3;&#x5668;&#x88AB;&#x6784;&#x9020;&#x540E;&#x5C06;&#x4FEE;&#x6539;&#x64CD;&#x4F5C;&#x53CD;&#x6620;&#x7ED9;&#x5BB9;&#x5668;&#x3002;</p>
+<p>&#x5C3D;&#x7BA1;&#x6709;&#x8FD9;&#x4E9B;&#x6539;&#x8FDB;&#xFF0C;&#x4F46;&#x4ECD;&#x7136;&#x6709;&#x4E00;&#x4E9B;&#x9700;&#x8981;&#x6743;&#x8861;&#x7684;&#x56E0;&#x7D20;&#x3002;&#x5BF9;&#x4E8E;&#x4E00;&#x4E9B;&#x9700;&#x8981;&#x5728;&#x6574;&#x4E2A;Map&#x4E0A;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4F8B;&#x5982;size&#x548C;isEmpty&#xFF0C;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x7684;&#x8BED;&#x4E49;&#x88AB;&#x7565;&#x5FAE;&#x51CF;&#x5F31;&#x4E86;&#x4EE5;&#x53CD;&#x6620;&#x5BB9;&#x5668;&#x7684;&#x5E76;&#x53D1;&#x7279;&#x6027;&#x3002;&#x7531;&#x4E8E;size&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#x5728;&#x8BA1;&#x7B97;&#x65F6;&#x53EF;&#x80FD;&#x5DF2;&#x7ECF;&#x8FC7;&#x671F;&#x4E86;&#xFF0C;&#x5B83;&#x5B9E;&#x9645;&#x4E0A;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x4F30;&#x8BA1;&#x503C;&#xFF0C;&#x56E0;&#x6B64;&#x5141;&#x8BB8;size&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x8FD1;&#x4F3C;&#x503C;&#x800C;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x7CBE;&#x786E;&#x503C;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * A {<span class="hljs-doctag">@link</span> java.util.Map} providing thread safety and atomicity
+ * guarantees.
+ *
+ * &lt;p&gt;Memory consistency effects: As with other concurrent
+ * collections, actions in a thread prior to placing an object into a
+ * {<span class="hljs-doctag">@code</span> ConcurrentMap} as a key or value
+ * &lt;a href=&quot;package-summary.html#MemoryVisibility&quot;&gt;&lt;i&gt;happen-before&lt;/i&gt;&lt;/a&gt;
+ * actions subsequent to the access or removal of that object from
+ * the {<span class="hljs-doctag">@code</span> ConcurrentMap} in another thread.
+ *
+ * &lt;p&gt;This interface is a member of the
+ * &lt;a href=&quot;{<span class="hljs-doctag">@docRoot</span>}/../technotes/guides/collections/index.html&quot;&gt;
+ * Java Collections Framework&lt;/a&gt;.
+ *
+ * <span class="hljs-doctag">@since</span> 1.5
+ * <span class="hljs-doctag">@author</span> Doug Lea
+ * <span class="hljs-doctag">@param</span> &lt;K&gt; the type of keys maintained by this map
+ * <span class="hljs-doctag">@param</span> &lt;V&gt; the type of mapped values
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ConcurrentMap</span>&lt;<span class="hljs-title">K</span>, <span class="hljs-title">V</span>&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title">Map</span>&lt;<span class="hljs-title">K</span>, <span class="hljs-title">V</span>&gt; </span>{
+
+    <span class="hljs-comment">/**
+     * {<span class="hljs-doctag">@inheritDoc</span>}
+     *
+     * <span class="hljs-doctag">@implNote</span> This implementation assumes that the ConcurrentMap cannot
+     * contain null values and {<span class="hljs-doctag">@code</span> get()} returning null unambiguously means
+     * the key is absent. Implementations which support null values
+     * &lt;strong&gt;must&lt;/strong&gt; override this default implementation.
+     *
+     * <span class="hljs-doctag">@throws</span> ClassCastException {<span class="hljs-doctag">@inheritDoc</span>}
+     * <span class="hljs-doctag">@throws</span> NullPointerException {<span class="hljs-doctag">@inheritDoc</span>}
+     * <span class="hljs-doctag">@since</span> 1.8
+     */</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> V <span class="hljs-title">getOrDefault</span><span class="hljs-params">(Object key, V defaultValue)</span> </span>{
+        V v;
+        <span class="hljs-keyword">return</span> ((v = get(key)) != <span class="hljs-keyword">null</span>) ? v : defaultValue;
+    }
+
+   <span class="hljs-comment">/**
+     * {<span class="hljs-doctag">@inheritDoc</span>}
+     *
+     * <span class="hljs-doctag">@implSpec</span> The default implementation is equivalent to, for this
+     * {<span class="hljs-doctag">@code</span> map}:
+     * &lt;pre&gt; {<span class="hljs-doctag">@code</span>
+     * for ((Map.Entry&lt;K, V&gt; entry : map.entrySet())
+     *     action.accept(entry.getKey(), entry.getValue());
+     * }&lt;/pre&gt;
+     *
+     * <span class="hljs-doctag">@implNote</span> The default implementation assumes that
+     * {<span class="hljs-doctag">@code</span> IllegalStateException} thrown by {<span class="hljs-doctag">@code</span> getKey()} or
+     * {<span class="hljs-doctag">@code</span> getValue()} indicates that the entry has been removed and cannot
+     * be processed. Operation continues for subsequent entries.
+     *
+     * <span class="hljs-doctag">@throws</span> NullPointerException {<span class="hljs-doctag">@inheritDoc</span>}
+     * <span class="hljs-doctag">@since</span> 1.8
+     */</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">void</span> <span class="hljs-title">forEach</span><span class="hljs-params">(BiConsumer&lt;? <span class="hljs-keyword">super</span> K, ? <span class="hljs-keyword">super</span> V&gt; action)</span> </span>{
+        Objects.requireNonNull(action);
+        <span class="hljs-keyword">for</span> (Map.Entry&lt;K, V&gt; entry : entrySet()) {
+            K k;
+            V v;
+            <span class="hljs-keyword">try</span> {
+                k = entry.getKey();
+                v = entry.getValue();
+            } <span class="hljs-keyword">catch</span>(IllegalStateException ise) {
+                <span class="hljs-comment">// this usually means the entry is no longer in the map.</span>
+                <span class="hljs-keyword">continue</span>;
+            }
+            action.accept(k, v);
+        }
+    }
+
+    <span class="hljs-comment">/**
+     * If the specified key is not already associated
+     * with a value, associate it with the given value.
+     * This is equivalent to
+     *  &lt;pre&gt; {<span class="hljs-doctag">@code</span>
+     * if (!map.containsKey(key))
+     *   return map.put(key, value);
+     * else
+     *   return map.get(key);
+     * }&lt;/pre&gt;
+     *
+     * except that the action is performed atomically.
+     *
+     * <span class="hljs-doctag">@implNote</span> This implementation intentionally re-abstracts the
+     * inappropriate default provided in {<span class="hljs-doctag">@code</span> Map}.
+     *
+     * <span class="hljs-doctag">@param</span> key key with which the specified value is to be associated
+     * <span class="hljs-doctag">@param</span> value value to be associated with the specified key
+     * <span class="hljs-doctag">@return</span> the previous value associated with the specified key, or
+     *         {<span class="hljs-doctag">@code</span> null} if there was no mapping for the key.
+     *         (A {<span class="hljs-doctag">@code</span> null} return can also indicate that the map
+     *         previously associated {<span class="hljs-doctag">@code</span> null} with the key,
+     *         if the implementation supports null values.)
+     * <span class="hljs-doctag">@throws</span> UnsupportedOperationException if the {<span class="hljs-doctag">@code</span> put} operation
+     *         is not supported by this map
+     * <span class="hljs-doctag">@throws</span> ClassCastException if the class of the specified key or value
+     *         prevents it from being stored in this map
+     * <span class="hljs-doctag">@throws</span> NullPointerException if the specified key or value is null,
+     *         and this map does not permit null keys or values
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException if some property of the specified key
+     *         or value prevents it from being stored in this map
+     */</span>
+     <span class="hljs-function">V <span class="hljs-title">putIfAbsent</span><span class="hljs-params">(K key, V value)</span></span>;
+
+    <span class="hljs-comment">/**
+     * Removes the entry for a key only if currently mapped to a given value.
+     * This is equivalent to
+     *  &lt;pre&gt; {<span class="hljs-doctag">@code</span>
+     * if (map.containsKey(key) &amp;&amp; Objects.equals(map.get(key), value)) {
+     *   map.remove(key);
+     *   return true;
+     * } else
+     *   return false;
+     * }&lt;/pre&gt;
+     *
+     * except that the action is performed atomically.
+     *
+     * <span class="hljs-doctag">@implNote</span> This implementation intentionally re-abstracts the
+     * inappropriate default provided in {<span class="hljs-doctag">@code</span> Map}.
+     *
+     * <span class="hljs-doctag">@param</span> key key with which the specified value is associated
+     * <span class="hljs-doctag">@param</span> value value expected to be associated with the specified key
+     * <span class="hljs-doctag">@return</span> {<span class="hljs-doctag">@code</span> true} if the value was removed
+     * <span class="hljs-doctag">@throws</span> UnsupportedOperationException if the {<span class="hljs-doctag">@code</span> remove} operation
+     *         is not supported by this map
+     * <span class="hljs-doctag">@throws</span> ClassCastException if the key or value is of an inappropriate
+     *         type for this map
+     *         (&lt;a href=&quot;../Collection.html#optional-restrictions&quot;&gt;optional&lt;/a&gt;)
+     * <span class="hljs-doctag">@throws</span> NullPointerException if the specified key or value is null,
+     *         and this map does not permit null keys or values
+     *         (&lt;a href=&quot;../Collection.html#optional-restrictions&quot;&gt;optional&lt;/a&gt;)
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">remove</span><span class="hljs-params">(Object key, Object value)</span></span>;
+
+    <span class="hljs-comment">/**
+     * Replaces the entry for a key only if currently mapped to a given value.
+     * This is equivalent to
+     *  &lt;pre&gt; {<span class="hljs-doctag">@code</span>
+     * if (map.containsKey(key) &amp;&amp; Objects.equals(map.get(key), oldValue)) {
+     *   map.put(key, newValue);
+     *   return true;
+     * } else
+     *   return false;
+     * }&lt;/pre&gt;
+     *
+     * except that the action is performed atomically.
+     *
+     * <span class="hljs-doctag">@implNote</span> This implementation intentionally re-abstracts the
+     * inappropriate default provided in {<span class="hljs-doctag">@code</span> Map}.
+     *
+     * <span class="hljs-doctag">@param</span> key key with which the specified value is associated
+     * <span class="hljs-doctag">@param</span> oldValue value expected to be associated with the specified key
+     * <span class="hljs-doctag">@param</span> newValue value to be associated with the specified key
+     * <span class="hljs-doctag">@return</span> {<span class="hljs-doctag">@code</span> true} if the value was replaced
+     * <span class="hljs-doctag">@throws</span> UnsupportedOperationException if the {<span class="hljs-doctag">@code</span> put} operation
+     *         is not supported by this map
+     * <span class="hljs-doctag">@throws</span> ClassCastException if the class of a specified key or value
+     *         prevents it from being stored in this map
+     * <span class="hljs-doctag">@throws</span> NullPointerException if a specified key or value is null,
+     *         and this map does not permit null keys or values
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException if some property of a specified key
+     *         or value prevents it from being stored in this map
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">replace</span><span class="hljs-params">(K key, V oldValue, V newValue)</span></span>;
+
+    <span class="hljs-comment">/**
+     * Replaces the entry for a key only if currently mapped to some value.
+     * This is equivalent to
+     *  &lt;pre&gt; {<span class="hljs-doctag">@code</span>
+     * if (map.containsKey(key)) {
+     *   return map.put(key, value);
+     * } else
+     *   return null;
+     * }&lt;/pre&gt;
+     *
+     * except that the action is performed atomically.
+     *
+     * <span class="hljs-doctag">@implNote</span> This implementation intentionally re-abstracts the
+     * inappropriate default provided in {<span class="hljs-doctag">@code</span> Map}.
+     *
+     * <span class="hljs-doctag">@param</span> key key with which the specified value is associated
+     * <span class="hljs-doctag">@param</span> value value to be associated with the specified key
+     * <span class="hljs-doctag">@return</span> the previous value associated with the specified key, or
+     *         {<span class="hljs-doctag">@code</span> null} if there was no mapping for the key.
+     *         (A {<span class="hljs-doctag">@code</span> null} return can also indicate that the map
+     *         previously associated {<span class="hljs-doctag">@code</span> null} with the key,
+     *         if the implementation supports null values.)
+     * <span class="hljs-doctag">@throws</span> UnsupportedOperationException if the {<span class="hljs-doctag">@code</span> put} operation
+     *         is not supported by this map
+     * <span class="hljs-doctag">@throws</span> ClassCastException if the class of the specified key or value
+     *         prevents it from being stored in this map
+     * <span class="hljs-doctag">@throws</span> NullPointerException if the specified key or value is null,
+     *         and this map does not permit null keys or values
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException if some property of the specified key
+     *         or value prevents it from being stored in this map
+     */</span>
+    <span class="hljs-function">V <span class="hljs-title">replace</span><span class="hljs-params">(K key, V value)</span></span>;
+
+    <span class="hljs-comment">/**
+     * {<span class="hljs-doctag">@inheritDoc</span>}
+     *
+     * <span class="hljs-doctag">@implSpec</span>
+     * &lt;p&gt;The default implementation is equivalent to, for this {<span class="hljs-doctag">@code</span> map}:
+     * &lt;pre&gt; {<span class="hljs-doctag">@code</span>
+     * for ((Map.Entry&lt;K, V&gt; entry : map.entrySet())
+     *     do {
+     *        K k = entry.getKey();
+     *        V v = entry.getValue();
+     *     } while(!replace(k, v, function.apply(k, v)));
+     * }&lt;/pre&gt;
+     *
+     * The default implementation may retry these steps when multiple
+     * threads attempt updates including potentially calling the function
+     * repeatedly for a given key.
+     *
+     * &lt;p&gt;This implementation assumes that the ConcurrentMap cannot contain null
+     * values and {<span class="hljs-doctag">@code</span> get()} returning null unambiguously means the key is
+     * absent. Implementations which support null values &lt;strong&gt;must&lt;/strong&gt;
+     * override this default implementation.
+     *
+     * <span class="hljs-doctag">@throws</span> UnsupportedOperationException {<span class="hljs-doctag">@inheritDoc</span>}
+     * <span class="hljs-doctag">@throws</span> NullPointerException {<span class="hljs-doctag">@inheritDoc</span>}
+     * <span class="hljs-doctag">@throws</span> ClassCastException {<span class="hljs-doctag">@inheritDoc</span>}
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException {<span class="hljs-doctag">@inheritDoc</span>}
+     * <span class="hljs-doctag">@since</span> 1.8
+     */</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">void</span> <span class="hljs-title">replaceAll</span><span class="hljs-params">(BiFunction&lt;? <span class="hljs-keyword">super</span> K, ? <span class="hljs-keyword">super</span> V, ? extends V&gt; function)</span> </span>{
+        Objects.requireNonNull(function);
+        forEach((k,v) -&gt; {
+            <span class="hljs-keyword">while</span>(!replace(k, v, function.apply(k, v))) {
+                <span class="hljs-comment">// v changed or k is gone</span>
+                <span class="hljs-keyword">if</span> ( (v = get(k)) == <span class="hljs-keyword">null</span>) {
+                    <span class="hljs-comment">// k is no longer in the map.</span>
+                    <span class="hljs-keyword">break</span>;
+                }
+            }
+        });
+    }
+
+    <span class="hljs-comment">/**
+     * {<span class="hljs-doctag">@inheritDoc</span>}
+     *
+     * <span class="hljs-doctag">@implSpec</span>
+     * The default implementation is equivalent to the following steps for this
+     * {<span class="hljs-doctag">@code</span> map}, then returning the current value or {<span class="hljs-doctag">@code</span> null} if now
+     * absent:
+     *
+     * &lt;pre&gt; {<span class="hljs-doctag">@code</span>
+     * if (map.get(key) == null) {
+     *     V newValue = mappingFunction.apply(key);
+     *     if (newValue != null)
+     *         return map.putIfAbsent(key, newValue);
+     * }
+     * }&lt;/pre&gt;
+     *
+     * The default implementation may retry these steps when multiple
+     * threads attempt updates including potentially calling the mapping
+     * function multiple times.
+     *
+     * &lt;p&gt;This implementation assumes that the ConcurrentMap cannot contain null
+     * values and {<span class="hljs-doctag">@code</span> get()} returning null unambiguously means the key is
+     * absent. Implementations which support null values &lt;strong&gt;must&lt;/strong&gt;
+     * override this default implementation.
+     *
+     * <span class="hljs-doctag">@throws</span> UnsupportedOperationException {<span class="hljs-doctag">@inheritDoc</span>}
+     * <span class="hljs-doctag">@throws</span> ClassCastException {<span class="hljs-doctag">@inheritDoc</span>}
+     * <span class="hljs-doctag">@throws</span> NullPointerException {<span class="hljs-doctag">@inheritDoc</span>}
+     * <span class="hljs-doctag">@since</span> 1.8
+     */</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> V <span class="hljs-title">computeIfAbsent</span><span class="hljs-params">(K key,
+            Function&lt;? <span class="hljs-keyword">super</span> K, ? extends V&gt; mappingFunction)</span> </span>{
+        Objects.requireNonNull(mappingFunction);
+        V v, newValue;
+        <span class="hljs-keyword">return</span> ((v = get(key)) == <span class="hljs-keyword">null</span> &amp;&amp;
+                (newValue = mappingFunction.apply(key)) != <span class="hljs-keyword">null</span> &amp;&amp;
+                (v = putIfAbsent(key, newValue)) == <span class="hljs-keyword">null</span>) ? newValue : v;
+    }
+
+    <span class="hljs-comment">/**
+     * {<span class="hljs-doctag">@inheritDoc</span>}
+     *
+     * <span class="hljs-doctag">@implSpec</span>
+     * The default implementation is equivalent to performing the following
+     * steps for this {<span class="hljs-doctag">@code</span> map}, then returning the current value or
+     * {<span class="hljs-doctag">@code</span> null} if now absent. :
+     *
+     * &lt;pre&gt; {<span class="hljs-doctag">@code</span>
+     * if (map.get(key) != null) {
+     *     V oldValue = map.get(key);
+     *     V newValue = remappingFunction.apply(key, oldValue);
+     *     if (newValue != null)
+     *         map.replace(key, oldValue, newValue);
+     *     else
+     *         map.remove(key, oldValue);
+     * }
+     * }&lt;/pre&gt;
+     *
+     * The default implementation may retry these steps when multiple threads
+     * attempt updates including potentially calling the remapping function
+     * multiple times.
+     *
+     * &lt;p&gt;This implementation assumes that the ConcurrentMap cannot contain null
+     * values and {<span class="hljs-doctag">@code</span> get()} returning null unambiguously means the key is
+     * absent. Implementations which support null values &lt;strong&gt;must&lt;/strong&gt;
+     * override this default implementation.
+     *
+     * <span class="hljs-doctag">@throws</span> UnsupportedOperationException {<span class="hljs-doctag">@inheritDoc</span>}
+     * <span class="hljs-doctag">@throws</span> ClassCastException {<span class="hljs-doctag">@inheritDoc</span>}
+     * <span class="hljs-doctag">@throws</span> NullPointerException {<span class="hljs-doctag">@inheritDoc</span>}
+     * <span class="hljs-doctag">@since</span> 1.8
+     */</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> V <span class="hljs-title">computeIfPresent</span><span class="hljs-params">(K key,
+            BiFunction&lt;? <span class="hljs-keyword">super</span> K, ? <span class="hljs-keyword">super</span> V, ? extends V&gt; remappingFunction)</span> </span>{
+        Objects.requireNonNull(remappingFunction);
+        V oldValue;
+        <span class="hljs-keyword">while</span>((oldValue = get(key)) != <span class="hljs-keyword">null</span>) {
+            V newValue = remappingFunction.apply(key, oldValue);
+            <span class="hljs-keyword">if</span> (newValue != <span class="hljs-keyword">null</span>) {
+                <span class="hljs-keyword">if</span> (replace(key, oldValue, newValue))
+                    <span class="hljs-keyword">return</span> newValue;
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (remove(key, oldValue))
+               <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+        }
+        <span class="hljs-keyword">return</span> oldValue;
+    }
+
+    <span class="hljs-comment">/**
+     * {<span class="hljs-doctag">@inheritDoc</span>}
+     *
+     * <span class="hljs-doctag">@implSpec</span>
+     * The default implementation is equivalent to performing the following
+     * steps for this {<span class="hljs-doctag">@code</span> map}, then returning the current value or
+     * {<span class="hljs-doctag">@code</span> null} if absent:
+     *
+     * &lt;pre&gt; {<span class="hljs-doctag">@code</span>
+     * V oldValue = map.get(key);
+     * V newValue = remappingFunction.apply(key, oldValue);
+     * if (oldValue != null ) {
+     *    if (newValue != null)
+     *       map.replace(key, oldValue, newValue);
+     *    else
+     *       map.remove(key, oldValue);
+     * } else {
+     *    if (newValue != null)
+     *       map.putIfAbsent(key, newValue);
+     *    else
+     *       return null;
+     * }
+     * }&lt;/pre&gt;
+     *
+     * The default implementation may retry these steps when multiple
+     * threads attempt updates including potentially calling the remapping
+     * function multiple times.
+     *
+     * &lt;p&gt;This implementation assumes that the ConcurrentMap cannot contain null
+     * values and {<span class="hljs-doctag">@code</span> get()} returning null unambiguously means the key is
+     * absent. Implementations which support null values &lt;strong&gt;must&lt;/strong&gt;
+     * override this default implementation.
+     *
+     * <span class="hljs-doctag">@throws</span> UnsupportedOperationException {<span class="hljs-doctag">@inheritDoc</span>}
+     * <span class="hljs-doctag">@throws</span> ClassCastException {<span class="hljs-doctag">@inheritDoc</span>}
+     * <span class="hljs-doctag">@throws</span> NullPointerException {<span class="hljs-doctag">@inheritDoc</span>}
+     * <span class="hljs-doctag">@since</span> 1.8
+     */</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> V <span class="hljs-title">compute</span><span class="hljs-params">(K key,
+            BiFunction&lt;? <span class="hljs-keyword">super</span> K, ? <span class="hljs-keyword">super</span> V, ? extends V&gt; remappingFunction)</span> </span>{
+        Objects.requireNonNull(remappingFunction);
+        V oldValue = get(key);
+        <span class="hljs-keyword">for</span>(;;) {
+            V newValue = remappingFunction.apply(key, oldValue);
+            <span class="hljs-keyword">if</span> (newValue == <span class="hljs-keyword">null</span>) {
+                <span class="hljs-comment">// delete mapping</span>
+                <span class="hljs-keyword">if</span> (oldValue != <span class="hljs-keyword">null</span> || containsKey(key)) {
+                    <span class="hljs-comment">// something to remove</span>
+                    <span class="hljs-keyword">if</span> (remove(key, oldValue)) {
+                        <span class="hljs-comment">// removed the old value as expected</span>
+                        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+                    }
+
+                    <span class="hljs-comment">// some other value replaced old value. try again.</span>
+                    oldValue = get(key);
+                } <span class="hljs-keyword">else</span> {
+                    <span class="hljs-comment">// nothing to do. Leave things as they were.</span>
+                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+                }
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-comment">// add or replace old mapping</span>
+                <span class="hljs-keyword">if</span> (oldValue != <span class="hljs-keyword">null</span>) {
+                    <span class="hljs-comment">// replace</span>
+                    <span class="hljs-keyword">if</span> (replace(key, oldValue, newValue)) {
+                        <span class="hljs-comment">// replaced as expected.</span>
+                        <span class="hljs-keyword">return</span> newValue;
+                    }
+
+                    <span class="hljs-comment">// some other value replaced old value. try again.</span>
+                    oldValue = get(key);
+                } <span class="hljs-keyword">else</span> {
+                    <span class="hljs-comment">// add (replace if oldValue was null)</span>
+                    <span class="hljs-keyword">if</span> ((oldValue = putIfAbsent(key, newValue)) == <span class="hljs-keyword">null</span>) {
+                        <span class="hljs-comment">// replaced</span>
+                        <span class="hljs-keyword">return</span> newValue;
+                    }
+
+                    <span class="hljs-comment">// some other value replaced old value. try again.</span>
+                }
+            }
+        }
+    }
+
+
+    <span class="hljs-comment">/**
+     * {<span class="hljs-doctag">@inheritDoc</span>}
+     *
+     * <span class="hljs-doctag">@implSpec</span>
+     * The default implementation is equivalent to performing the following
+     * steps for this {<span class="hljs-doctag">@code</span> map}, then returning the current value or
+     * {<span class="hljs-doctag">@code</span> null} if absent:
+     *
+     * &lt;pre&gt; {<span class="hljs-doctag">@code</span>
+     * V oldValue = map.get(key);
+     * V newValue = (oldValue == null) ? value :
+     *              remappingFunction.apply(oldValue, value);
+     * if (newValue == null)
+     *     map.remove(key);
+     * else
+     *     map.put(key, newValue);
+     * }&lt;/pre&gt;
+     *
+     * &lt;p&gt;The default implementation may retry these steps when multiple
+     * threads attempt updates including potentially calling the remapping
+     * function multiple times.
+     *
+     * &lt;p&gt;This implementation assumes that the ConcurrentMap cannot contain null
+     * values and {<span class="hljs-doctag">@code</span> get()} returning null unambiguously means the key is
+     * absent. Implementations which support null values &lt;strong&gt;must&lt;/strong&gt;
+     * override this default implementation.
+     *
+     * <span class="hljs-doctag">@throws</span> UnsupportedOperationException {<span class="hljs-doctag">@inheritDoc</span>}
+     * <span class="hljs-doctag">@throws</span> ClassCastException {<span class="hljs-doctag">@inheritDoc</span>}
+     * <span class="hljs-doctag">@throws</span> NullPointerException {<span class="hljs-doctag">@inheritDoc</span>}
+     * <span class="hljs-doctag">@since</span> 1.8
+     */</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> V <span class="hljs-title">merge</span><span class="hljs-params">(K key, V value,
+            BiFunction&lt;? <span class="hljs-keyword">super</span> V, ? <span class="hljs-keyword">super</span> V, ? extends V&gt; remappingFunction)</span> </span>{
+        Objects.requireNonNull(remappingFunction);
+        Objects.requireNonNull(value);
+        V oldValue = get(key);
+        <span class="hljs-keyword">for</span> (;;) {
+            <span class="hljs-keyword">if</span> (oldValue != <span class="hljs-keyword">null</span>) {
+                V newValue = remappingFunction.apply(oldValue, value);
+                <span class="hljs-keyword">if</span> (newValue != <span class="hljs-keyword">null</span>) {
+                    <span class="hljs-keyword">if</span> (replace(key, oldValue, newValue))
+                        <span class="hljs-keyword">return</span> newValue;
+                } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (remove(key, oldValue)) {
+                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+                }
+                oldValue = get(key);
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">if</span> ((oldValue = putIfAbsent(key, value)) == <span class="hljs-keyword">null</span>) {
+                    <span class="hljs-keyword">return</span> value;
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<p>CopyOnWriteArrayList&#x7528;&#x4E8E;&#x66FF;&#x4EE3;&#x540C;&#x6B65;List&#xFF0C;&#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#x5B83;&#x63D0;&#x4F9B;&#x4E86;&#x66F4;&#x597D;&#x7684;&#x5E76;&#x53D1;&#x6027;&#x80FD;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x8FED;&#x4EE3;&#x671F;&#x95F4;&#x4E0D;&#x9700;&#x8981;&#x5BF9;&#x5BB9;&#x5668;&#x8FDB;&#x884C;&#x52A0;&#x9501;&#x6216;&#x590D;&#x5236;&#x3002;&#x7C7B;&#x4F3C;&#x5730;&#xFF0C;CopyOnWriteArraySet&#x7684;&#x4F5C;&#x7528;&#x662F;&#x66FF;&#x4EE3;&#x540C;&#x6B65;Set&#x3002;&#x5199;&#x5165;&#x65F6;&#x590D;&#x5236;Copy-On-Write&#x5BB9;&#x5668;&#x7684;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x6027;&#x5728;&#x4E8E;&#xFF0C;&#x53EA;&#x8981;&#x6B63;&#x786E;&#x5730;&#x53D1;&#x5E03;&#x4E00;&#x4E2A;&#x4E8B;&#x5B9E;&#x4E0D;&#x53EF;&#x53D8;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x90A3;&#x4E48;&#x5728;&#x8BBF;&#x95EE;&#x8BE5;&#x5BF9;&#x8C61;&#x65F6;&#x5C31;&#x4E0D;&#x518D;&#x9700;&#x8981;&#x8FDB;&#x4E00;&#x6B65;&#x7684;&#x540C;&#x6B65;&#x3002;&#x5728;&#x6BCF;&#x6B21;&#x4FEE;&#x6539;&#x65F6;&#xFF0C;&#x90FD;&#x4F1A;&#x521B;&#x5EFA;&#x5E76;&#x91CD;&#x65B0;&#x53D1;&#x5E03;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5BB9;&#x5668;&#x526F;&#x672C;&#xFF0C;&#x4ECE;&#x800C;&#x5B9E;&#x73B0;&#x53EF;&#x53D8;&#x6027;&#x3002;</p>
+<p>&#x663E;&#x7136;&#xFF0C;&#x6BCF;&#x5F53;&#x4FEE;&#x6539;&#x5BB9;&#x5668;&#x65F6;&#x90FD;&#x4F1A;&#x590D;&#x5236;&#x5E95;&#x5C42;&#x6570;&#x7EC4;&#xFF0C;&#x8FD9;&#x9700;&#x8981;&#x4E00;&#x5B9A;&#x7684;&#x5F00;&#x9500;&#xFF0C;&#x7279;&#x522B;&#x662F;&#x5F53;&#x5BB9;&#x5668;&#x7684;&#x89C4;&#x6A21;&#x8F83;&#x5927;&#x65F6;&#x3002;&#x4EC5;&#x5F53;&#x8FED;&#x4EE3;&#x64CD;&#x4F5C;&#x8FDC;&#x8FDC;&#x591A;&#x4E8E;&#x4FEE;&#x6539;&#x64CD;&#x4F5C;&#x65F6;&#xFF0C;&#x624D;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x5199;&#x5165;&#x65F6;&#x590D;&#x5236;&#x5BB9;&#x5668;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * A collection designed for holding elements prior to processing.
+ * Besides basic {<span class="hljs-doctag">@link</span> java.util.Collection Collection} operations,
+ * queues provide additional insertion, extraction, and inspection
+ * operations.  Each of these methods exists in two forms: one throws
+ * an exception if the operation fails, the other returns a special
+ * value (either {<span class="hljs-doctag">@code</span> null} or {<span class="hljs-doctag">@code</span> false}, depending on the
+ * operation).  The latter form of the insert operation is designed
+ * specifically for use with capacity-restricted {<span class="hljs-doctag">@code</span> Queue}
+ * implementations; in most implementations, insert operations cannot
+ * fail.
+ *
+ * &lt;table BORDER CELLPADDING=3 CELLSPACING=1&gt;
+ * &lt;caption&gt;Summary of Queue methods&lt;/caption&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;&lt;/td&gt;
+ *    &lt;td ALIGN=CENTER&gt;&lt;em&gt;Throws exception&lt;/em&gt;&lt;/td&gt;
+ *    &lt;td ALIGN=CENTER&gt;&lt;em&gt;Returns special value&lt;/em&gt;&lt;/td&gt;
+ *  &lt;/tr&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;&lt;b&gt;Insert&lt;/b&gt;&lt;/td&gt;
+ *    &lt;td&gt;{<span class="hljs-doctag">@link</span> Queue#add add(e)}&lt;/td&gt;
+ *    &lt;td&gt;{<span class="hljs-doctag">@link</span> Queue#offer offer(e)}&lt;/td&gt;
+ *  &lt;/tr&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;&lt;b&gt;Remove&lt;/b&gt;&lt;/td&gt;
+ *    &lt;td&gt;{<span class="hljs-doctag">@link</span> Queue#remove remove()}&lt;/td&gt;
+ *    &lt;td&gt;{<span class="hljs-doctag">@link</span> Queue#poll poll()}&lt;/td&gt;
+ *  &lt;/tr&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;&lt;b&gt;Examine&lt;/b&gt;&lt;/td&gt;
+ *    &lt;td&gt;{<span class="hljs-doctag">@link</span> Queue#element element()}&lt;/td&gt;
+ *    &lt;td&gt;{<span class="hljs-doctag">@link</span> Queue#peek peek()}&lt;/td&gt;
+ *  &lt;/tr&gt;
+ * &lt;/table&gt;
+ *
+ * &lt;p&gt;Queues typically, but do not necessarily, order elements in a
+ * FIFO (first-in-first-out) manner.  Among the exceptions are
+ * priority queues, which order elements according to a supplied
+ * comparator, or the elements&apos; natural ordering, and LIFO queues (or
+ * stacks) which order the elements LIFO (last-in-first-out).
+ * Whatever the ordering used, the &lt;em&gt;head&lt;/em&gt; of the queue is that
+ * element which would be removed by a call to {<span class="hljs-doctag">@link</span> #remove() } or
+ * {<span class="hljs-doctag">@link</span> #poll()}.  In a FIFO queue, all new elements are inserted at
+ * the &lt;em&gt;tail&lt;/em&gt; of the queue. Other kinds of queues may use
+ * different placement rules.  Every {<span class="hljs-doctag">@code</span> Queue} implementation
+ * must specify its ordering properties.
+ *
+ * &lt;p&gt;The {<span class="hljs-doctag">@link</span> #offer offer} method inserts an element if possible,
+ * otherwise returning {<span class="hljs-doctag">@code</span> false}.  This differs from the {<span class="hljs-doctag">@link</span>
+ * java.util.Collection#add Collection.add} method, which can fail to
+ * add an element only by throwing an unchecked exception.  The
+ * {<span class="hljs-doctag">@code</span> offer} method is designed for use when failure is a normal,
+ * rather than exceptional occurrence, for example, in fixed-capacity
+ * (or &amp;quot;bounded&amp;quot;) queues.
+ *
+ * &lt;p&gt;The {<span class="hljs-doctag">@link</span> #remove()} and {<span class="hljs-doctag">@link</span> #poll()} methods remove and
+ * return the head of the queue.
+ * Exactly which element is removed from the queue is a
+ * function of the queue&apos;s ordering policy, which differs from
+ * implementation to implementation. The {<span class="hljs-doctag">@code</span> remove()} and
+ * {<span class="hljs-doctag">@code</span> poll()} methods differ only in their behavior when the
+ * queue is empty: the {<span class="hljs-doctag">@code</span> remove()} method throws an exception,
+ * while the {<span class="hljs-doctag">@code</span> poll()} method returns {<span class="hljs-doctag">@code</span> null}.
+ *
+ * &lt;p&gt;The {<span class="hljs-doctag">@link</span> #element()} and {<span class="hljs-doctag">@link</span> #peek()} methods return, but do
+ * not remove, the head of the queue.
+ *
+ * &lt;p&gt;The {<span class="hljs-doctag">@code</span> Queue} interface does not define the &lt;i&gt;blocking queue
+ * methods&lt;/i&gt;, which are common in concurrent programming.  These methods,
+ * which wait for elements to appear or for space to become available, are
+ * defined in the {<span class="hljs-doctag">@link</span> java.util.concurrent.BlockingQueue} interface, which
+ * extends this interface.
+ *
+ * &lt;p&gt;{<span class="hljs-doctag">@code</span> Queue} implementations generally do not allow insertion
+ * of {<span class="hljs-doctag">@code</span> null} elements, although some implementations, such as
+ * {<span class="hljs-doctag">@link</span> LinkedList}, do not prohibit insertion of {<span class="hljs-doctag">@code</span> null}.
+ * Even in the implementations that permit it, {<span class="hljs-doctag">@code</span> null} should
+ * not be inserted into a {<span class="hljs-doctag">@code</span> Queue}, as {<span class="hljs-doctag">@code</span> null} is also
+ * used as a special return value by the {<span class="hljs-doctag">@code</span> poll} method to
+ * indicate that the queue contains no elements.
+ *
+ * &lt;p&gt;{<span class="hljs-doctag">@code</span> Queue} implementations generally do not define
+ * element-based versions of methods {<span class="hljs-doctag">@code</span> equals} and
+ * {<span class="hljs-doctag">@code</span> hashCode} but instead inherit the identity based versions
+ * from class {<span class="hljs-doctag">@code</span> Object}, because element-based equality is not
+ * always well-defined for queues with the same elements but different
+ * ordering properties.
+ *
+ *
+ * &lt;p&gt;This interface is a member of the
+ * &lt;a href=&quot;{<span class="hljs-doctag">@docRoot</span>}/../technotes/guides/collections/index.html&quot;&gt;
+ * Java Collections Framework&lt;/a&gt;.
+ *
+ * <span class="hljs-doctag">@see</span> java.util.Collection
+ * <span class="hljs-doctag">@see</span> LinkedList
+ * <span class="hljs-doctag">@see</span> PriorityQueue
+ * <span class="hljs-doctag">@see</span> java.util.concurrent.LinkedBlockingQueue
+ * <span class="hljs-doctag">@see</span> java.util.concurrent.BlockingQueue
+ * <span class="hljs-doctag">@see</span> java.util.concurrent.ArrayBlockingQueue
+ * <span class="hljs-doctag">@see</span> java.util.concurrent.LinkedBlockingQueue
+ * <span class="hljs-doctag">@see</span> java.util.concurrent.PriorityBlockingQueue
+ * <span class="hljs-doctag">@since</span> 1.5
+ * <span class="hljs-doctag">@author</span> Doug Lea
+ * <span class="hljs-doctag">@param</span> &lt;E&gt; the type of elements held in this collection
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Queue</span>&lt;<span class="hljs-title">E</span>&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title">Collection</span>&lt;<span class="hljs-title">E</span>&gt; </span>{
+    <span class="hljs-comment">/**
+     * Inserts the specified element into this queue if it is possible to do so
+     * immediately without violating capacity restrictions, returning
+     * {<span class="hljs-doctag">@code</span> true} upon success and throwing an {<span class="hljs-doctag">@code</span> IllegalStateException}
+     * if no space is currently available.
+     *
+     * <span class="hljs-doctag">@param</span> e the element to add
+     * <span class="hljs-doctag">@return</span> {<span class="hljs-doctag">@code</span> true} (as specified by {<span class="hljs-doctag">@link</span> Collection#add})
+     * <span class="hljs-doctag">@throws</span> IllegalStateException if the element cannot be added at this
+     *         time due to capacity restrictions
+     * <span class="hljs-doctag">@throws</span> ClassCastException if the class of the specified element
+     *         prevents it from being added to this queue
+     * <span class="hljs-doctag">@throws</span> NullPointerException if the specified element is null and
+     *         this queue does not permit null elements
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException if some property of this element
+     *         prevents it from being added to this queue
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">add</span><span class="hljs-params">(E e)</span></span>;
+
+    <span class="hljs-comment">/**
+     * Inserts the specified element into this queue if it is possible to do
+     * so immediately without violating capacity restrictions.
+     * When using a capacity-restricted queue, this method is generally
+     * preferable to {<span class="hljs-doctag">@link</span> #add}, which can fail to insert an element only
+     * by throwing an exception.
+     *
+     * <span class="hljs-doctag">@param</span> e the element to add
+     * <span class="hljs-doctag">@return</span> {<span class="hljs-doctag">@code</span> true} if the element was added to this queue, else
+     *         {<span class="hljs-doctag">@code</span> false}
+     * <span class="hljs-doctag">@throws</span> ClassCastException if the class of the specified element
+     *         prevents it from being added to this queue
+     * <span class="hljs-doctag">@throws</span> NullPointerException if the specified element is null and
+     *         this queue does not permit null elements
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException if some property of this element
+     *         prevents it from being added to this queue
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">offer</span><span class="hljs-params">(E e)</span></span>;
+
+    <span class="hljs-comment">/**
+     * Retrieves and removes the head of this queue.  This method differs
+     * from {<span class="hljs-doctag">@link</span> #poll poll} only in that it throws an exception if this
+     * queue is empty.
+     *
+     * <span class="hljs-doctag">@return</span> the head of this queue
+     * <span class="hljs-doctag">@throws</span> NoSuchElementException if this queue is empty
+     */</span>
+    <span class="hljs-function">E <span class="hljs-title">remove</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-comment">/**
+     * Retrieves and removes the head of this queue,
+     * or returns {<span class="hljs-doctag">@code</span> null} if this queue is empty.
+     *
+     * <span class="hljs-doctag">@return</span> the head of this queue, or {<span class="hljs-doctag">@code</span> null} if this queue is empty
+     */</span>
+    <span class="hljs-function">E <span class="hljs-title">poll</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-comment">/**
+     * Retrieves, but does not remove, the head of this queue.  This method
+     * differs from {<span class="hljs-doctag">@link</span> #peek peek} only in that it throws an exception
+     * if this queue is empty.
+     *
+     * <span class="hljs-doctag">@return</span> the head of this queue
+     * <span class="hljs-doctag">@throws</span> NoSuchElementException if this queue is empty
+     */</span>
+    <span class="hljs-function">E <span class="hljs-title">element</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-comment">/**
+     * Retrieves, but does not remove, the head of this queue,
+     * or returns {<span class="hljs-doctag">@code</span> null} if this queue is empty.
+     *
+     * <span class="hljs-doctag">@return</span> the head of this queue, or {<span class="hljs-doctag">@code</span> null} if this queue is empty
+     */</span>
+    <span class="hljs-function">E <span class="hljs-title">peek</span><span class="hljs-params">()</span></span>;
+}
+</code></pre>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * A {<span class="hljs-doctag">@link</span> java.util.Queue} that additionally supports operations
+ * that wait for the queue to become non-empty when retrieving an
+ * element, and wait for space to become available in the queue when
+ * storing an element.
+ *
+ * &lt;p&gt;{<span class="hljs-doctag">@code</span> BlockingQueue} methods come in four forms, with different ways
+ * of handling operations that cannot be satisfied immediately, but may be
+ * satisfied at some point in the future:
+ * one throws an exception, the second returns a special value (either
+ * {<span class="hljs-doctag">@code</span> null} or {<span class="hljs-doctag">@code</span> false}, depending on the operation), the third
+ * blocks the current thread indefinitely until the operation can succeed,
+ * and the fourth blocks for only a given maximum time limit before giving
+ * up.  These methods are summarized in the following table:
+ *
+ * &lt;table BORDER CELLPADDING=3 CELLSPACING=1&gt;
+ * &lt;caption&gt;Summary of BlockingQueue methods&lt;/caption&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;&lt;/td&gt;
+ *    &lt;td ALIGN=CENTER&gt;&lt;em&gt;Throws exception&lt;/em&gt;&lt;/td&gt;
+ *    &lt;td ALIGN=CENTER&gt;&lt;em&gt;Special value&lt;/em&gt;&lt;/td&gt;
+ *    &lt;td ALIGN=CENTER&gt;&lt;em&gt;Blocks&lt;/em&gt;&lt;/td&gt;
+ *    &lt;td ALIGN=CENTER&gt;&lt;em&gt;Times out&lt;/em&gt;&lt;/td&gt;
+ *  &lt;/tr&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;&lt;b&gt;Insert&lt;/b&gt;&lt;/td&gt;
+ *    &lt;td&gt;{<span class="hljs-doctag">@link</span> #add add(e)}&lt;/td&gt;
+ *    &lt;td&gt;{<span class="hljs-doctag">@link</span> #offer offer(e)}&lt;/td&gt;
+ *    &lt;td&gt;{<span class="hljs-doctag">@link</span> #put put(e)}&lt;/td&gt;
+ *    &lt;td&gt;{<span class="hljs-doctag">@link</span> #offer(Object, long, TimeUnit) offer(e, time, unit)}&lt;/td&gt;
+ *  &lt;/tr&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;&lt;b&gt;Remove&lt;/b&gt;&lt;/td&gt;
+ *    &lt;td&gt;{<span class="hljs-doctag">@link</span> #remove remove()}&lt;/td&gt;
+ *    &lt;td&gt;{<span class="hljs-doctag">@link</span> #poll poll()}&lt;/td&gt;
+ *    &lt;td&gt;{<span class="hljs-doctag">@link</span> #take take()}&lt;/td&gt;
+ *    &lt;td&gt;{<span class="hljs-doctag">@link</span> #poll(long, TimeUnit) poll(time, unit)}&lt;/td&gt;
+ *  &lt;/tr&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;&lt;b&gt;Examine&lt;/b&gt;&lt;/td&gt;
+ *    &lt;td&gt;{<span class="hljs-doctag">@link</span> #element element()}&lt;/td&gt;
+ *    &lt;td&gt;{<span class="hljs-doctag">@link</span> #peek peek()}&lt;/td&gt;
+ *    &lt;td&gt;&lt;em&gt;not applicable&lt;/em&gt;&lt;/td&gt;
+ *    &lt;td&gt;&lt;em&gt;not applicable&lt;/em&gt;&lt;/td&gt;
+ *  &lt;/tr&gt;
+ * &lt;/table&gt;
+ *
+ * &lt;p&gt;A {<span class="hljs-doctag">@code</span> BlockingQueue} does not accept {<span class="hljs-doctag">@code</span> null} elements.
+ * Implementations throw {<span class="hljs-doctag">@code</span> NullPointerException} on attempts
+ * to {<span class="hljs-doctag">@code</span> add}, {<span class="hljs-doctag">@code</span> put} or {<span class="hljs-doctag">@code</span> offer} a {<span class="hljs-doctag">@code</span> null}.  A
+ * {<span class="hljs-doctag">@code</span> null} is used as a sentinel value to indicate failure of
+ * {<span class="hljs-doctag">@code</span> poll} operations.
+ *
+ * &lt;p&gt;A {<span class="hljs-doctag">@code</span> BlockingQueue} may be capacity bounded. At any given
+ * time it may have a {<span class="hljs-doctag">@code</span> remainingCapacity} beyond which no
+ * additional elements can be {<span class="hljs-doctag">@code</span> put} without blocking.
+ * A {<span class="hljs-doctag">@code</span> BlockingQueue} without any intrinsic capacity constraints always
+ * reports a remaining capacity of {<span class="hljs-doctag">@code</span> Integer.MAX_VALUE}.
+ *
+ * &lt;p&gt;{<span class="hljs-doctag">@code</span> BlockingQueue} implementations are designed to be used
+ * primarily for producer-consumer queues, but additionally support
+ * the {<span class="hljs-doctag">@link</span> java.util.Collection} interface.  So, for example, it is
+ * possible to remove an arbitrary element from a queue using
+ * {<span class="hljs-doctag">@code</span> remove(x)}. However, such operations are in general
+ * &lt;em&gt;not&lt;/em&gt; performed very efficiently, and are intended for only
+ * occasional use, such as when a queued message is cancelled.
+ *
+ * &lt;p&gt;{<span class="hljs-doctag">@code</span> BlockingQueue} implementations are thread-safe.  All
+ * queuing methods achieve their effects atomically using internal
+ * locks or other forms of concurrency control. However, the
+ * &lt;em&gt;bulk&lt;/em&gt; Collection operations {<span class="hljs-doctag">@code</span> addAll},
+ * {<span class="hljs-doctag">@code</span> containsAll}, {<span class="hljs-doctag">@code</span> retainAll} and {<span class="hljs-doctag">@code</span> removeAll} are
+ * &lt;em&gt;not&lt;/em&gt; necessarily performed atomically unless specified
+ * otherwise in an implementation. So it is possible, for example, for
+ * {<span class="hljs-doctag">@code</span> addAll(c)} to fail (throwing an exception) after adding
+ * only some of the elements in {<span class="hljs-doctag">@code</span> c}.
+ *
+ * &lt;p&gt;A {<span class="hljs-doctag">@code</span> BlockingQueue} does &lt;em&gt;not&lt;/em&gt; intrinsically support
+ * any kind of &amp;quot;close&amp;quot; or &amp;quot;shutdown&amp;quot; operation to
+ * indicate that no more items will be added.  The needs and usage of
+ * such features tend to be implementation-dependent. For example, a
+ * common tactic is for producers to insert special
+ * &lt;em&gt;end-of-stream&lt;/em&gt; or &lt;em&gt;poison&lt;/em&gt; objects, that are
+ * interpreted accordingly when taken by consumers.
+ *
+ * &lt;p&gt;
+ * Usage example, based on a typical producer-consumer scenario.
+ * Note that a {<span class="hljs-doctag">@code</span> BlockingQueue} can safely be used with multiple
+ * producers and multiple consumers.
+ *  &lt;pre&gt; {<span class="hljs-doctag">@code</span>
+ * class Producer implements Runnable {
+ *   private final BlockingQueue queue;
+ *   Producer(BlockingQueue q) { queue = q; }
+ *   public void run() {
+ *     try {
+ *       while (true) { queue.put(produce()); }
+ *     } catch (InterruptedException ex) { ... handle ...}
+ *   }
+ *   Object produce() { ... }
+ * }
+ *
+ * class Consumer implements Runnable {
+ *   private final BlockingQueue queue;
+ *   Consumer(BlockingQueue q) { queue = q; }
+ *   public void run() {
+ *     try {
+ *       while (true) { consume(queue.take()); }
+ *     } catch (InterruptedException ex) { ... handle ...}
+ *   }
+ *   void consume(Object x) { ... }
+ * }
+ *
+ * class Setup {
+ *   void main() {
+ *     BlockingQueue q = new SomeQueueImplementation();
+ *     Producer p = new Producer(q);
+ *     Consumer c1 = new Consumer(q);
+ *     Consumer c2 = new Consumer(q);
+ *     new Thread(p).start();
+ *     new Thread(c1).start();
+ *     new Thread(c2).start();
+ *   }
+ * }}&lt;/pre&gt;
+ *
+ * &lt;p&gt;Memory consistency effects: As with other concurrent
+ * collections, actions in a thread prior to placing an object into a
+ * {<span class="hljs-doctag">@code</span> BlockingQueue}
+ * &lt;a href=&quot;package-summary.html#MemoryVisibility&quot;&gt;&lt;i&gt;happen-before&lt;/i&gt;&lt;/a&gt;
+ * actions subsequent to the access or removal of that element from
+ * the {<span class="hljs-doctag">@code</span> BlockingQueue} in another thread.
+ *
+ * &lt;p&gt;This interface is a member of the
+ * &lt;a href=&quot;{<span class="hljs-doctag">@docRoot</span>}/../technotes/guides/collections/index.html&quot;&gt;
+ * Java Collections Framework&lt;/a&gt;.
+ *
+ * <span class="hljs-doctag">@since</span> 1.5
+ * <span class="hljs-doctag">@author</span> Doug Lea
+ * <span class="hljs-doctag">@param</span> &lt;E&gt; the type of elements held in this collection
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">BlockingQueue</span>&lt;<span class="hljs-title">E</span>&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title">Queue</span>&lt;<span class="hljs-title">E</span>&gt; </span>{
+    <span class="hljs-comment">/**
+     * Inserts the specified element into this queue if it is possible to do
+     * so immediately without violating capacity restrictions, returning
+     * {<span class="hljs-doctag">@code</span> true} upon success and throwing an
+     * {<span class="hljs-doctag">@code</span> IllegalStateException} if no space is currently available.
+     * When using a capacity-restricted queue, it is generally preferable to
+     * use {<span class="hljs-doctag">@link</span> #offer(Object) offer}.
+     *
+     * <span class="hljs-doctag">@param</span> e the element to add
+     * <span class="hljs-doctag">@return</span> {<span class="hljs-doctag">@code</span> true} (as specified by {<span class="hljs-doctag">@link</span> Collection#add})
+     * <span class="hljs-doctag">@throws</span> IllegalStateException if the element cannot be added at this
+     *         time due to capacity restrictions
+     * <span class="hljs-doctag">@throws</span> ClassCastException if the class of the specified element
+     *         prevents it from being added to this queue
+     * <span class="hljs-doctag">@throws</span> NullPointerException if the specified element is null
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException if some property of the specified
+     *         element prevents it from being added to this queue
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">add</span><span class="hljs-params">(E e)</span></span>;
+
+    <span class="hljs-comment">/**
+     * Inserts the specified element into this queue if it is possible to do
+     * so immediately without violating capacity restrictions, returning
+     * {<span class="hljs-doctag">@code</span> true} upon success and {<span class="hljs-doctag">@code</span> false} if no space is currently
+     * available.  When using a capacity-restricted queue, this method is
+     * generally preferable to {<span class="hljs-doctag">@link</span> #add}, which can fail to insert an
+     * element only by throwing an exception.
+     *
+     * <span class="hljs-doctag">@param</span> e the element to add
+     * <span class="hljs-doctag">@return</span> {<span class="hljs-doctag">@code</span> true} if the element was added to this queue, else
+     *         {<span class="hljs-doctag">@code</span> false}
+     * <span class="hljs-doctag">@throws</span> ClassCastException if the class of the specified element
+     *         prevents it from being added to this queue
+     * <span class="hljs-doctag">@throws</span> NullPointerException if the specified element is null
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException if some property of the specified
+     *         element prevents it from being added to this queue
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">offer</span><span class="hljs-params">(E e)</span></span>;
+
+    <span class="hljs-comment">/**
+     * Inserts the specified element into this queue, waiting if necessary
+     * for space to become available.
+     *
+     * <span class="hljs-doctag">@param</span> e the element to add
+     * <span class="hljs-doctag">@throws</span> InterruptedException if interrupted while waiting
+     * <span class="hljs-doctag">@throws</span> ClassCastException if the class of the specified element
+     *         prevents it from being added to this queue
+     * <span class="hljs-doctag">@throws</span> NullPointerException if the specified element is null
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException if some property of the specified
+     *         element prevents it from being added to this queue
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">put</span><span class="hljs-params">(E e)</span> <span class="hljs-keyword">throws</span> InterruptedException</span>;
+
+    <span class="hljs-comment">/**
+     * Inserts the specified element into this queue, waiting up to the
+     * specified wait time if necessary for space to become available.
+     *
+     * <span class="hljs-doctag">@param</span> e the element to add
+     * <span class="hljs-doctag">@param</span> timeout how long to wait before giving up, in units of
+     *        {<span class="hljs-doctag">@code</span> unit}
+     * <span class="hljs-doctag">@param</span> unit a {<span class="hljs-doctag">@code</span> TimeUnit} determining how to interpret the
+     *        {<span class="hljs-doctag">@code</span> timeout} parameter
+     * <span class="hljs-doctag">@return</span> {<span class="hljs-doctag">@code</span> true} if successful, or {<span class="hljs-doctag">@code</span> false} if
+     *         the specified waiting time elapses before space is available
+     * <span class="hljs-doctag">@throws</span> InterruptedException if interrupted while waiting
+     * <span class="hljs-doctag">@throws</span> ClassCastException if the class of the specified element
+     *         prevents it from being added to this queue
+     * <span class="hljs-doctag">@throws</span> NullPointerException if the specified element is null
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException if some property of the specified
+     *         element prevents it from being added to this queue
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">offer</span><span class="hljs-params">(E e, <span class="hljs-keyword">long</span> timeout, TimeUnit unit)</span>
+        <span class="hljs-keyword">throws</span> InterruptedException</span>;
+
+    <span class="hljs-comment">/**
+     * Retrieves and removes the head of this queue, waiting if necessary
+     * until an element becomes available.
+     *
+     * <span class="hljs-doctag">@return</span> the head of this queue
+     * <span class="hljs-doctag">@throws</span> InterruptedException if interrupted while waiting
+     */</span>
+    <span class="hljs-function">E <span class="hljs-title">take</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> InterruptedException</span>;
+
+    <span class="hljs-comment">/**
+     * Retrieves and removes the head of this queue, waiting up to the
+     * specified wait time if necessary for an element to become available.
+     *
+     * <span class="hljs-doctag">@param</span> timeout how long to wait before giving up, in units of
+     *        {<span class="hljs-doctag">@code</span> unit}
+     * <span class="hljs-doctag">@param</span> unit a {<span class="hljs-doctag">@code</span> TimeUnit} determining how to interpret the
+     *        {<span class="hljs-doctag">@code</span> timeout} parameter
+     * <span class="hljs-doctag">@return</span> the head of this queue, or {<span class="hljs-doctag">@code</span> null} if the
+     *         specified waiting time elapses before an element is available
+     * <span class="hljs-doctag">@throws</span> InterruptedException if interrupted while waiting
+     */</span>
+    <span class="hljs-function">E <span class="hljs-title">poll</span><span class="hljs-params">(<span class="hljs-keyword">long</span> timeout, TimeUnit unit)</span>
+        <span class="hljs-keyword">throws</span> InterruptedException</span>;
+
+    <span class="hljs-comment">/**
+     * Returns the number of additional elements that this queue can ideally
+     * (in the absence of memory or resource constraints) accept without
+     * blocking, or {<span class="hljs-doctag">@code</span> Integer.MAX_VALUE} if there is no intrinsic
+     * limit.
+     *
+     * &lt;p&gt;Note that you &lt;em&gt;cannot&lt;/em&gt; always tell if an attempt to insert
+     * an element will succeed by inspecting {<span class="hljs-doctag">@code</span> remainingCapacity}
+     * because it may be the case that another thread is about to
+     * insert or remove an element.
+     *
+     * <span class="hljs-doctag">@return</span> the remaining capacity
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">remainingCapacity</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-comment">/**
+     * Removes a single instance of the specified element from this queue,
+     * if it is present.  More formally, removes an element {<span class="hljs-doctag">@code</span> e} such
+     * that {<span class="hljs-doctag">@code</span> o.equals(e)}, if this queue contains one or more such
+     * elements.
+     * Returns {<span class="hljs-doctag">@code</span> true} if this queue contained the specified element
+     * (or equivalently, if this queue changed as a result of the call).
+     *
+     * <span class="hljs-doctag">@param</span> o element to be removed from this queue, if present
+     * <span class="hljs-doctag">@return</span> {<span class="hljs-doctag">@code</span> true} if this queue changed as a result of the call
+     * <span class="hljs-doctag">@throws</span> ClassCastException if the class of the specified element
+     *         is incompatible with this queue
+     *         (&lt;a href=&quot;../Collection.html#optional-restrictions&quot;&gt;optional&lt;/a&gt;)
+     * <span class="hljs-doctag">@throws</span> NullPointerException if the specified element is null
+     *         (&lt;a href=&quot;../Collection.html#optional-restrictions&quot;&gt;optional&lt;/a&gt;)
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">remove</span><span class="hljs-params">(Object o)</span></span>;
+
+    <span class="hljs-comment">/**
+     * Returns {<span class="hljs-doctag">@code</span> true} if this queue contains the specified element.
+     * More formally, returns {<span class="hljs-doctag">@code</span> true} if and only if this queue contains
+     * at least one element {<span class="hljs-doctag">@code</span> e} such that {<span class="hljs-doctag">@code</span> o.equals(e)}.
+     *
+     * <span class="hljs-doctag">@param</span> o object to be checked for containment in this queue
+     * <span class="hljs-doctag">@return</span> {<span class="hljs-doctag">@code</span> true} if this queue contains the specified element
+     * <span class="hljs-doctag">@throws</span> ClassCastException if the class of the specified element
+     *         is incompatible with this queue
+     *         (&lt;a href=&quot;../Collection.html#optional-restrictions&quot;&gt;optional&lt;/a&gt;)
+     * <span class="hljs-doctag">@throws</span> NullPointerException if the specified element is null
+     *         (&lt;a href=&quot;../Collection.html#optional-restrictions&quot;&gt;optional&lt;/a&gt;)
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">contains</span><span class="hljs-params">(Object o)</span></span>;
+
+    <span class="hljs-comment">/**
+     * Removes all available elements from this queue and adds them
+     * to the given collection.  This operation may be more
+     * efficient than repeatedly polling this queue.  A failure
+     * encountered while attempting to add elements to
+     * collection {<span class="hljs-doctag">@code</span> c} may result in elements being in neither,
+     * either or both collections when the associated exception is
+     * thrown.  Attempts to drain a queue to itself result in
+     * {<span class="hljs-doctag">@code</span> IllegalArgumentException}. Further, the behavior of
+     * this operation is undefined if the specified collection is
+     * modified while the operation is in progress.
+     *
+     * <span class="hljs-doctag">@param</span> c the collection to transfer elements into
+     * <span class="hljs-doctag">@return</span> the number of elements transferred
+     * <span class="hljs-doctag">@throws</span> UnsupportedOperationException if addition of elements
+     *         is not supported by the specified collection
+     * <span class="hljs-doctag">@throws</span> ClassCastException if the class of an element of this queue
+     *         prevents it from being added to the specified collection
+     * <span class="hljs-doctag">@throws</span> NullPointerException if the specified collection is null
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException if the specified collection is this
+     *         queue, or some property of an element of this queue prevents
+     *         it from being added to the specified collection
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">drainTo</span><span class="hljs-params">(Collection&lt;? <span class="hljs-keyword">super</span> E&gt; c)</span></span>;
+
+    <span class="hljs-comment">/**
+     * Removes at most the given number of available elements from
+     * this queue and adds them to the given collection.  A failure
+     * encountered while attempting to add elements to
+     * collection {<span class="hljs-doctag">@code</span> c} may result in elements being in neither,
+     * either or both collections when the associated exception is
+     * thrown.  Attempts to drain a queue to itself result in
+     * {<span class="hljs-doctag">@code</span> IllegalArgumentException}. Further, the behavior of
+     * this operation is undefined if the specified collection is
+     * modified while the operation is in progress.
+     *
+     * <span class="hljs-doctag">@param</span> c the collection to transfer elements into
+     * <span class="hljs-doctag">@param</span> maxElements the maximum number of elements to transfer
+     * <span class="hljs-doctag">@return</span> the number of elements transferred
+     * <span class="hljs-doctag">@throws</span> UnsupportedOperationException if addition of elements
+     *         is not supported by the specified collection
+     * <span class="hljs-doctag">@throws</span> ClassCastException if the class of an element of this queue
+     *         prevents it from being added to the specified collection
+     * <span class="hljs-doctag">@throws</span> NullPointerException if the specified collection is null
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException if the specified collection is this
+     *         queue, or some property of an element of this queue prevents
+     *         it from being added to the specified collection
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">drainTo</span><span class="hljs-params">(Collection&lt;? <span class="hljs-keyword">super</span> E&gt; c, <span class="hljs-keyword">int</span> maxElements)</span></span>;
+}
+</code></pre>
+<p>&#x963B;&#x585E;&#x961F;&#x5217;&#x63D0;&#x4F9B;&#x4E86;&#x53EF;&#x963B;&#x585E;&#x7684;put&#x548C;take&#x65B9;&#x6CD5;&#xFF0C;&#x4EE5;&#x53CA;&#x652F;&#x6301;&#x5B9A;&#x65F6;&#x7684;offer&#x548C;poll&#x65B9;&#x6CD5;&#x3002;&#x5982;&#x679C;&#x961F;&#x5217;&#x5DF2;&#x7ECF;&#x6EE1;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;put&#x65B9;&#x6CD5;&#x5C06;&#x963B;&#x585E;&#x76F4;&#x5230;&#x6709;&#x7A7A;&#x95F4;&#x53EF;&#x7528;&#xFF1B;&#x5982;&#x679C;&#x961F;&#x5217;&#x4E3A;&#x7A7A;&#xFF0C;&#x90A3;&#x4E48;take&#x65B9;&#x6CD5;&#x5C06;&#x4F1A;&#x963B;&#x585E;&#x76F4;&#x5230;&#x6709;&#x5143;&#x7D20;&#x53EF;&#x7528;&#x3002;&#x961F;&#x5217;&#x53EF;&#x4EE5;&#x662F;&#x6709;&#x754C;&#x7684;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x65E0;&#x754C;&#x7684;&#xFF0C;&#x65E0;&#x754C;&#x961F;&#x5217;&#x6C38;&#x8FDC;&#x90FD;&#x4E0D;&#x4F1A;&#x5145;&#x6EE1;&#xFF0C;&#x56E0;&#x6B64;&#x65E0;&#x754C;&#x961F;&#x5217;&#x4E0A;&#x7684;put&#x65B9;&#x6CD5;&#x4E5F;&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x963B;&#x585E;&#x3002;</p>
+<p>&#x963B;&#x585E;&#x961F;&#x5217;&#x540C;&#x6837;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;offer&#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x679C;&#x6570;&#x636E;&#x9879;&#x4E0D;&#x80FD;&#x88AB;&#x6DFB;&#x52A0;&#x5230;&#x961F;&#x5217;&#x4E2D;&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5931;&#x8D25;&#x72B6;&#x6001;&#x3002;&#x8FD9;&#x6837;&#x4F60;&#x5C31;&#x80FD;&#x591F;&#x521B;&#x5EFA;&#x66F4;&#x591A;&#x7075;&#x6D3B;&#x7684;&#x7B56;&#x7565;&#x6765;&#x5904;&#x7406;&#x8D1F;&#x8377;&#x8FC7;&#x8F7D;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x4F8B;&#x5982;&#x51CF;&#x8F7B;&#x8D1F;&#x8F7D;&#xFF0C;&#x5C06;&#x591A;&#x4F59;&#x7684;&#x5DE5;&#x4F5C;&#x9879;&#x5E8F;&#x5217;&#x5316;&#x5E76;&#x5199;&#x5165;&#x78C1;&#x76D8;&#xFF0C;&#x51CF;&#x5C11;&#x751F;&#x4EA7;&#x8005;&#x7EBF;&#x7A0B;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x6216;&#x8005;&#x901A;&#x8FC7;&#x67D0;&#x79CD;&#x65B9;&#x5F0F;&#x6765;&#x6291;&#x5236;&#x751F;&#x4EA7;&#x8005;&#x7EBF;&#x7A0B;&#x3002;</p>
+<p>LinkedBlockingQueue&#x548C;ArrayBlockingQueue&#x662F;FIFO&#x961F;&#x5217;&#xFF0C;&#x4E8C;&#x8005;&#x5206;&#x522B;&#x4E0E;LinkedList&#x548C;ArrayList&#x7C7B;&#x4F3C;&#xFF0C;&#x4F46;&#x6BD4;&#x540C;&#x6B65;List&#x62E5;&#x6709;&#x66F4;&#x597D;&#x7684;&#x5E76;&#x53D1;&#x6027;&#x80FD;&#x3002;PriorityBlockingQueue&#x662F;&#x4E00;&#x4E2A;&#x6309;&#x7167;&#x4F18;&#x5148;&#x7EA7;&#x6392;&#x5E8F;&#x7684;&#x961F;&#x5217;&#xFF0C;&#x5F53;&#x4F60;&#x5E0C;&#x671B;&#x6309;&#x7167;&#x67D0;&#x79CD;&#x987A;&#x5E8F;&#x800C;&#x4E0D;&#x662F;FIFO&#x6765;&#x5904;&#x7406;&#x5143;&#x7D20;&#x65F6;&#xFF0C;&#x8FD9;&#x4E2A;&#x961F;&#x5217;&#x5C06;&#x975E;&#x5E38;&#x6709;&#x7528;&#x3002;PriorityBlockingQueue&#x65E2;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x5143;&#x7D20;&#x7684;&#x81EA;&#x7136;&#x987A;&#x5E8F;&#x6765;&#x6BD4;&#x8F83;&#x5143;&#x7D20;&#xFF08;&#x5982;&#x679C;&#x5B83;&#x4EEC;&#x5B9E;&#x73B0;&#x4E86;Comparable&#x65B9;&#x6CD5;&#xFF09;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;Comparator&#x6765;&#x6BD4;&#x8F83;&#x3002;</p>
+<p>&#x6700;&#x540E;&#x4E00;&#x4E2A;BlockingQueue&#x5B9E;&#x73B0;&#x662F;SynchronousQueue&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x5B83;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x771F;&#x6B63;&#x7684;&#x961F;&#x5217;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4E0D;&#x4F1A;&#x4E3A;&#x961F;&#x5217;&#x4E2D;&#x5143;&#x7D20;&#x7EF4;&#x62A4;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#x3002;&#x4E0E;&#x5176;&#x4ED6;&#x961F;&#x5217;&#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;&#x5B83;&#x7EF4;&#x62A4;&#x4E00;&#x7EC4;&#x7EBF;&#x7A0B;&#xFF0C;&#x8FD9;&#x4E9B;&#x7EBF;&#x7A0B;&#x5728;&#x7B49;&#x5F85;&#x7740;&#x628A;&#x5143;&#x7D20;&#x52A0;&#x5165;&#x6216;&#x79FB;&#x51FA;&#x961F;&#x5217;&#x3002;&#x56E0;&#x4E3A;SynchronousQueue&#x6CA1;&#x6709;&#x5B58;&#x50A8;&#x529F;&#x80FD;&#xFF0C;&#x56E0;&#x6B64;put&#x548C;take&#x4F1A;&#x4E00;&#x76F4;&#x963B;&#x585E;&#xFF0C;&#x76F4;&#x5230;&#x6709;&#x53E6;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5DF2;&#x7ECF;&#x51C6;&#x5907;&#x597D;&#x53C2;&#x4E0E;&#x5230;&#x4EA4;&#x4ED8;&#x8FC7;&#x7A0B;&#x4E2D;&#x3002;&#x4EC5;&#x5F53;&#x6709;&#x8DB3;&#x591F;&#x591A;&#x7684;&#x6D88;&#x8D39;&#x8005;&#xFF0C;&#x5E76;&#x4E14;&#x603B;&#x662F;&#x6709;&#x4E00;&#x4E2A;&#x6D88;&#x8D39;&#x8005;&#x51C6;&#x5907;&#x597D;&#x83B7;&#x53D6;&#x4EA4;&#x4ED8;&#x7684;&#x5DE5;&#x4F5C;&#x65F6;&#xFF0C;&#x624D;&#x9002;&#x5408;&#x4F7F;&#x7528;&#x540C;&#x6B65;&#x961F;&#x5217;&#x3002;</p>
+<p>Java6&#x589E;&#x52A0;&#x4E86;&#x4E24;&#x79CD;&#x5BB9;&#x5668;&#x7C7B;&#x578B;&#xFF0C;Deque&#x548C;BlockingDeque&#xFF0C;&#x5B83;&#x4EEC;&#x5206;&#x522B;&#x5BF9;Queue&#x548C;BlockingQueue&#x8FDB;&#x884C;&#x4E86;&#x6269;&#x5C55;&#x3002;Deque&#x662F;&#x4E00;&#x4E2A;&#x53CC;&#x7AEF;&#x961F;&#x5217;&#xFF0C;&#x5B9E;&#x73B0;&#x4E86;&#x5728;&#x961F;&#x5217;&#x5934;&#x548C;&#x961F;&#x5217;&#x5C3E;&#x7684;&#x9AD8;&#x6548;&#x63D2;&#x5165;&#x548C;&#x79FB;&#x9664;&#x3002;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x5305;&#x62EC;ArrayDeque&#x548C;LinkedBlockingDeque&#x3002;</p>
+<p>&#x6B63;&#x5982;&#x963B;&#x585E;&#x961F;&#x5217;&#x9002;&#x7528;&#x4E8E;&#x751F;&#x4EA7;&#x8005;&#x2014;&#x2014;&#x6D88;&#x8D39;&#x8005;&#x6A21;&#x5F0F;&#xFF0C;&#x53CC;&#x7AEF;&#x961F;&#x5217;&#x540C;&#x6837;&#x9002;&#x7528;&#x4E8E;&#x53E6;&#x4E00;&#x79CD;&#x76F8;&#x5173;&#x6A21;&#x5F0F;&#xFF0C;&#x5373;&#x5DE5;&#x4F5C;&#x5BC6;&#x53D6;&#xFF08;Work Stealing&#xFF09;&#x3002;&#x5728;&#x751F;&#x4EA7;&#x8005;&#x2014;&#x2014;&#x6D88;&#x8D39;&#x8005;&#x8BBE;&#x8BA1;&#x4E2D;&#xFF0C;&#x6240;&#x6709;&#x6D88;&#x8D39;&#x8005;&#x6709;&#x4E00;&#x4E2A;&#x5171;&#x4EAB;&#x7684;&#x5DE5;&#x4F5C;&#x961F;&#x5217;&#xFF0C;&#x800C;&#x5728;&#x5DE5;&#x4F5C;&#x5BC6;&#x53D6;&#x8BBE;&#x8BA1;&#x4E2D;&#xFF0C;&#x6BCF;&#x4E2A;&#x6D88;&#x8D39;&#x8005;&#x90FD;&#x6709;&#x5404;&#x81EA;&#x7684;&#x53CC;&#x7AEF;&#x961F;&#x5217;&#x3002;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x6D88;&#x8D39;&#x8005;&#x5B8C;&#x6210;&#x4E86;&#x81EA;&#x5DF1;&#x53CC;&#x7AEF;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x5168;&#x90E8;&#x5DE5;&#x4F5C;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x53EF;&#x4EE5;&#x4ECE;&#x5176;&#x4ED6;&#x6D88;&#x8D39;&#x8005;&#x53CC;&#x7AEF;&#x961F;&#x5217;&#x672B;&#x5C3E;&#x79D8;&#x5BC6;&#x5730;&#x83B7;&#x53D6;&#x5DE5;&#x4F5C;&#x3002;&#x5BC6;&#x53D6;&#x5DE5;&#x4F5C;&#x6A21;&#x5F0F;&#x6BD4;&#x4F20;&#x7EDF;&#x7684;&#x751F;&#x4EA7;&#x8005;&#x2014;&#x2014;&#x6D88;&#x8D39;&#x8005;&#x6A21;&#x5F0F;&#x5177;&#x6709;&#x66F4;&#x9AD8;&#x7684;&#x53EF;&#x4F38;&#x7F29;&#x6027;&#xFF0C;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x5DE5;&#x4F5C;&#x8005;&#x7EBF;&#x7A0B;&#x4E0D;&#x4F1A;&#x5728;&#x5355;&#x4E2A;&#x5171;&#x4EAB;&#x7684;&#x4EFB;&#x52A1;&#x961F;&#x5217;&#x4E0A;&#x53D1;&#x751F;&#x7ADE;&#x4E89;&#x3002;&#x5728;&#x5927;&#x591A;&#x6570;&#x65F6;&#x5019;&#xFF0C;&#x5B83;&#x4EEC;&#x90FD;&#x53EA;&#x662F;&#x8BBF;&#x95EE;&#x81EA;&#x5DF1;&#x7684;&#x53CC;&#x7AEF;&#x961F;&#x5217;&#xFF0C;&#x4ECE;&#x800C;&#x6781;&#x5927;&#x5730;&#x51CF;&#x5C11;&#x4E86;&#x7ADE;&#x4E89;&#x3002;&#x5F53;&#x5DE5;&#x4F5C;&#x8005;&#x7EBF;&#x7A0B;&#x9700;&#x8981;&#x8BBF;&#x95EE;&#x53E6;&#x4E00;&#x4E2A;&#x961F;&#x5217;&#x65F6;&#xFF0C;&#x5B83;&#x4F1A;&#x4ECE;&#x961F;&#x5217;&#x7684;&#x5C3E;&#x90E8;&#x800C;&#x4E0D;&#x662F;&#x4ECE;&#x5934;&#x90E8;&#x83B7;&#x53D6;&#x5DE5;&#x4F5C;&#xFF0C;&#x56E0;&#x6B64;&#x8FDB;&#x4E00;&#x6B65;&#x964D;&#x4F4E;&#x4E86;&#x961F;&#x5217;&#x4E0A;&#x7684;&#x7ADE;&#x4E89;&#x7A0B;&#x5EA6;&#x3002;</p>
+<p>&#x7EBF;&#x7A0B;&#x53EF;&#x80FD;&#x4F1A;&#x963B;&#x585E;&#x6216;&#x6682;&#x505C;&#x6267;&#x884C;&#xFF0C;&#x539F;&#x56E0;&#x6709;&#x591A;&#x79CD;&#xFF1A;&#x7B49;&#x5F85;I/O&#x64CD;&#x4F5C;&#x7ED3;&#x675F;&#xFF0C;&#x7B49;&#x5F85;&#x83B7;&#x5F97;&#x4E00;&#x4E2A;&#x9501;&#xFF0C;&#x7B49;&#x5F85;&#x4ECE;Thread.sleep&#x65B9;&#x6CD5;&#x4E2D;&#x9192;&#x6765;&#xFF0C;&#x6216;&#x662F;&#x7B49;&#x5F85;&#x53E6;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x7684;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x3002;&#x5F53;&#x7EBF;&#x7A0B;&#x963B;&#x585E;&#x65F6;&#xFF0C;&#x5B83;&#x901A;&#x5E38;&#x88AB;&#x6302;&#x8D77;&#xFF0C;&#x5E76;&#x5904;&#x4E8E;&#x67D0;&#x79CD;&#x963B;&#x585E;&#x72B6;&#x6001;&#xFF08;BLOCKED&#x3001;WAITING&#x6216;TIMED_WAITING&#xFF09;&#x3002;</p>
+<p>BlockingQueue&#x7684;put&#x548C;take&#x7B49;&#x65B9;&#x6CD5;&#x4F1A;&#x629B;&#x51FA;&#x53D7;&#x68C0;&#x67E5;&#x5F02;&#x5E38;(Checked Exception)InterruptedException&#xFF0C;&#x8FD9;&#x4E0E;&#x7C7B;&#x5E93;&#x4E2D;&#x5176;&#x4ED6;&#x4E00;&#x4E9B;&#x65B9;&#x6CD5;&#x7684;&#x505A;&#x6CD5;&#x76F8;&#x540C;&#xFF0C;&#x4F8B;&#x5982;Thread.sleep&#x3002;</p>
+<p>Thread&#x63D0;&#x4F9B;&#x4E86;interrupt&#x65B9;&#x6CD5;&#xFF0C;&#x7528;&#x4E8E;&#x4E2D;&#x65AD;&#x7EBF;&#x7A0B;&#x6216;&#x8005;&#x67E5;&#x8BE2;&#x7EBF;&#x7A0B;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x88AB;&#x4E2D;&#x65AD;&#x3002;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x7C7B;&#x578B;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x8868;&#x793A;&#x7EBF;&#x7A0B;&#x7684;&#x4E2D;&#x65AD;&#x72B6;&#x6001;&#xFF0C;&#x5F53;&#x4E2D;&#x65AD;&#x7EBF;&#x7A0B;&#x65F6;&#x5C06;&#x8BBE;&#x7F6E;&#x8FD9;&#x4E2A;&#x72B6;&#x6001;&#x3002;&#x4E2D;&#x65AD;&#x662F;&#x4E00;&#x79CD;&#x534F;&#x4F5C;&#x673A;&#x5236;&#x3002;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x4E0D;&#x80FD;&#x5F3A;&#x5236;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x505C;&#x6B62;&#x6B63;&#x5728;&#x6267;&#x884C;&#x7684;&#x64CD;&#x4F5C;&#x800C;&#x53BB;&#x6267;&#x884C;&#x5176;&#x4ED6;&#x7684;&#x64CD;&#x4F5C;&#x3002;&#x5F53;&#x7EBF;&#x7A0B;A&#x4E2D;&#x65AD;B&#x65F6;&#xFF0C;A&#x4EC5;&#x4EC5;&#x662F;&#x8981;&#x6C42;B&#x5728;&#x6267;&#x884C;&#x5230;&#x67D0;&#x4E2A;&#x53EF;&#x4EE5;&#x6682;&#x505C;&#x7684;&#x5730;&#x65B9;&#x505C;&#x6B62;&#x6B63;&#x5728;&#x6267;&#x884C;&#x7684;&#x64CD;&#x4F5C;&#x2014;&#x2014;&#x524D;&#x63D0;&#x662F;&#x5982;&#x679C;&#x7EBF;&#x7A0B;B&#x613F;&#x610F;&#x505C;&#x4E0B;&#x6765;&#x3002;</p>
+<p>&#x5F53;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x8C03;&#x7528;&#x4E86;&#x4E00;&#x4E2A;&#x5C06;&#x629B;&#x51FA;InterruptedException&#x5F02;&#x5E38;&#x7684;&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;&#x4F60;&#x81EA;&#x5DF1;&#x7684;&#x65B9;&#x6CD5;&#x4E5F;&#x5C31;&#x53D8;&#x6210;&#x4E86;&#x4E00;&#x4E2A;&#x963B;&#x585E;&#x65B9;&#x6CD5;&#xFF0C;&#x5E76;&#x4E14;&#x5FC5;&#x987B;&#x8981;&#x5904;&#x7406;&#x5BF9;&#x4E2D;&#x65AD;&#x7684;&#x54CD;&#x5E94;&#x3002;&#x5BF9;&#x4E8E;&#x5E93;&#x4EE3;&#x7801;&#x6765;&#x8BF4;&#xFF0C;&#x6709;&#x4E24;&#x79CD;&#x57FA;&#x672C;&#x9009;&#x62E9;&#xFF1A;</p>
+<ul>
+<li>&#x4F20;&#x9012;InterruptedException&#x3002;&#x907F;&#x5F00;&#x8FD9;&#x4E2A;&#x5F02;&#x5E38;&#x901A;&#x5E38;&#x662F;&#x6700;&#x660E;&#x667A;&#x7684;&#x7B56;&#x7565;&#x2014;&#x2014;&#x53EA;&#x9700;&#x628A;InterruptedException&#x4F20;&#x9012;&#x7ED9;&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;&#x8005;&#x3002;&#x4F20;&#x9012;InterruptedException&#x7684;&#x65B9;&#x6CD5;&#x5305;&#x62EC;&#xFF0C;&#x6839;&#x672C;&#x4E0D;&#x6355;&#x83B7;&#x8BE5;&#x5F02;&#x5E38;&#xFF0C;&#x6216;&#x8005;&#x6355;&#x83B7;&#x8BE5;&#x5F02;&#x5E38;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x6267;&#x884C;&#x67D0;&#x79CD;&#x7B80;&#x5355;&#x7684;&#x6E05;&#x7406;&#x5DE5;&#x4F5C;&#x540E;&#x518D;&#x6B21;&#x629B;&#x51FA;&#x8FD9;&#x4E2A;&#x5F02;&#x5E38;&#x3002;</li>
+<li>&#x6062;&#x590D;&#x4E2D;&#x65AD;&#x3002;&#x6709;&#x65F6;&#x5019;&#x4E0D;&#x80FD;&#x629B;&#x51FA;InterruptedException&#x3002;&#x4F8B;&#x5982;&#x5F53;&#x4EE3;&#x7801;&#x662F;Runnable&#x7684;&#x4E00;&#x90E8;&#x5206;&#x65F6;&#xFF0C;&#x5728;&#x8FD9;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5FC5;&#x987B;&#x6355;&#x83B7;InterruptedException&#xFF0C;&#x5E76;&#x901A;&#x8FC7;&#x8C03;&#x7528;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x4E0A;&#x7684;interrupt&#x65B9;&#x6CD5;&#x6062;&#x590D;&#x4E2D;&#x65AD;&#x72B6;&#x6001;&#xFF0C;&#x8FD9;&#x6837;&#x5728;&#x8C03;&#x7528;&#x6808;&#x4E2D;&#x66F4;&#x9AD8;&#x5C42;&#x7684;&#x4EE3;&#x7801;&#x5C06;&#x770B;&#x5230;&#x5F15;&#x53D1;&#x4E86;&#x4E00;&#x4E2A;&#x4E2D;&#x65AD;&#x3002;</li>
+</ul>
+<p>&#x95ED;&#x9501;&#x662F;&#x4E00;&#x79CD;&#x540C;&#x6B65;&#x5DE5;&#x5177;&#x7C7B;&#xFF0C;&#x53EF;&#x4EE5;&#x5EF6;&#x8FDF;&#x7EBF;&#x7A0B;&#x7684;&#x8FDB;&#x5EA6;&#x77E5;&#x9053;&#x5176;&#x5230;&#x8FBE;&#x7EC8;&#x6B62;&#x72B6;&#x6001;&#x3002;&#x95ED;&#x9501;&#x7684;&#x4F5C;&#x7528;&#x76F8;&#x5F53;&#x4E8E;&#x4E00;&#x6247;&#x95E8;&#xFF1A;&#x5728;&#x95ED;&#x9501;&#x5230;&#x8FBE;&#x7ED3;&#x675F;&#x72B6;&#x6001;&#x4E4B;&#x524D;&#xFF0C;&#x8FD9;&#x6247;&#x95E8;&#x4E00;&#x76F4;&#x662F;&#x5173;&#x95ED;&#x7684;&#xFF0C;&#x5E76;&#x4E14;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x7EBF;&#x7A0B;&#x80FD;&#x901A;&#x8FC7;&#xFF0C;&#x5F53;&#x5230;&#x8FBE;&#x7ED3;&#x675F;&#x72B6;&#x6001;&#x65F6;&#xFF0C;&#x8FD9;&#x6247;&#x95E8;&#x4F1A;&#x6253;&#x5F00;&#x5E76;&#x5141;&#x8BB8;&#x6240;&#x6709;&#x7684;&#x7EBF;&#x7A0B;&#x901A;&#x8FC7;&#x3002;&#x5F53;&#x95ED;&#x9501;&#x5230;&#x8FBE;&#x7ED3;&#x675F;&#x72B6;&#x6001;&#x540E;&#xFF0C;&#x5C06;&#x4E0D;&#x4F1A;&#x518D;&#x6539;&#x53D8;&#x72B6;&#x6001;&#xFF0C;&#x56E0;&#x6B64;&#x8FD9;&#x6247;&#x95E8;&#x5C06;&#x6C38;&#x8FDC;&#x4FDD;&#x6301;&#x6253;&#x5F00;&#x72B6;&#x6001;&#x3002;&#x95ED;&#x9501;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x786E;&#x4FDD;&#x67D0;&#x4E9B;&#x6D3B;&#x52A8;&#x6307;&#x5BFC;&#x5176;&#x4ED6;&#x6D3B;&#x52A8;&#x90FD;&#x5B8C;&#x6210;&#x540E;&#x624D;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x3002;CountDownLatch&#x662F;&#x4E00;&#x79CD;&#x7075;&#x6D3B;&#x7684;&#x95ED;&#x9501;&#x5B9E;&#x73B0;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x7B49;&#x5F85;&#x4E00;&#x7EC4;&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x3002;</p>
+<p>FutureTask&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x4F5C;&#x95ED;&#x9501;&#x3002;FutureTask&#x8868;&#x793A;&#x7684;&#x8BA1;&#x7B97;&#x662F;&#x901A;&#x8FC7;Callable&#x6765;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x4E00;&#x79CD;&#x53EF;&#x751F;&#x6210;&#x7ED3;&#x679C;&#x7684;Runnable&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x5904;&#x4E8E;&#x4EE5;&#x4E0B;3&#x79CD;&#x72B6;&#x6001;&#xFF1A;&#x7B49;&#x5F85;&#x8FD0;&#x884C;&#xFF08;waiting to run&#xFF09;&#xFF0C;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#xFF08;Running&#xFF09;&#x548C;&#x8FD0;&#x884C;&#x5B8C;&#x6210;&#xFF08;Completed&#xFF09;&#x3002;&#x6267;&#x884C;&#x5B8C;&#x6210;&#x8868;&#x793A;&#x8BA1;&#x7B97;&#x7684;&#x6240;&#x6709;&#x53EF;&#x80FD;&#x7ED3;&#x675F;&#x65B9;&#x5F0F;&#xFF0C;&#x5305;&#x62EC;&#x6B63;&#x5E38;&#x7ED3;&#x675F;&#x3001;&#x7531;&#x4E8E;&#x53D6;&#x6D88;&#x800C;&#x7ED3;&#x675F;&#x548C;&#x7531;&#x4E8E;&#x5F02;&#x5E38;&#x800C;&#x7ED3;&#x675F;&#x7B49;&#x3002;&#x5F53;FutureTask&#x8FDB;&#x5165;&#x5B8C;&#x6210;&#x72B6;&#x6001;&#x540E;&#xFF0C;&#x5B83;&#x4F1A;&#x6C38;&#x8FDC;&#x505C;&#x6B62;&#x5728;&#x8FD9;&#x4E2A;&#x72B6;&#x6001;&#x4E0A;&#x3002;Future.get&#x7684;&#x884C;&#x4E3A;&#x53D6;&#x51B3;&#x4E8E;&#x4EFB;&#x52A1;&#x7684;&#x72B6;&#x6001;&#x3002;&#x5982;&#x679C;&#x4EFB;&#x52A1;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#xFF0C;&#x90A3;&#x4E48;get&#x4F1A;&#x7ACB;&#x5373;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#xFF0C;&#x5426;&#x5219;get&#x5C06;&#x963B;&#x585E;&#x76F4;&#x5230;&#x4EFB;&#x52A1;&#x8FDB;&#x5165;&#x5B8C;&#x6210;&#x72B6;&#x6001;&#x3002;&#x7136;&#x540E;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x6216;&#x8005;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x3002;FutureTask&#x5C06;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x4ECE;&#x6267;&#x884C;&#x8BA1;&#x7B97;&#x7684;&#x7EBF;&#x7A0B;&#x4F20;&#x9012;&#x5230;&#x83B7;&#x53D6;&#x8FD9;&#x4E2A;&#x7ED3;&#x679C;&#x7684;&#x7EBF;&#x7A0B;&#xFF0C;&#x800C;FutureTask&#x7684;&#x89C4;&#x8303;&#x786E;&#x4FDD;&#x4E86;&#x8FD9;&#x79CD;&#x4F20;&#x9012;&#x8FC7;&#x7A0B;&#x80FD;&#x5B9E;&#x73B0;&#x7ED3;&#x679C;&#x7684;&#x5B89;&#x5168;&#x53D1;&#x5E03;&#x3002;</p>
+<p>Callable&#x8868;&#x793A;&#x7684;&#x4EFB;&#x52A1;&#x53EF;&#x4EE5;&#x629B;&#x51FA;&#x53D7;&#x68C0;&#x67E5;&#x7684;&#x6216;&#x672A;&#x53D7;&#x68C0;&#x67E5;&#x7684;&#x5F02;&#x5E38;&#xFF0C;&#x5E76;&#x4E14;&#x4EFB;&#x4F55;&#x4EE3;&#x7801;&#x90FD;&#x53EF;&#x80FD;&#x629B;&#x51FA;&#x4E00;&#x4E2A;Error&#x3002;&#x65E0;&#x8BBA;&#x4EFB;&#x52A1;&#x4EE3;&#x7801;&#x629B;&#x51FA;&#x4EC0;&#x4E48;&#x5F02;&#x5E38;&#xFF0C;&#x90FD;&#x4F1A;&#x88AB;&#x5C01;&#x88C5;&#x5230;&#x4E00;&#x4E2A;ExecutionException&#x4E2D;&#xFF0C;&#x5E76;&#x5728;Future.get&#x4E2D;&#x88AB;&#x91CD;&#x65B0;&#x629B;&#x51FA;&#x3002;</p>
+<p>&#x8BA1;&#x6570;&#x4FE1;&#x53F7;&#x91CF;&#xFF08;Counting Semaphore&#xFF09;&#x7528;&#x6765;&#x63A7;&#x5236;&#x540C;&#x65F6;&#x8BBF;&#x95EE;&#x67D0;&#x4E2A;&#x7279;&#x5B9A;&#x8D44;&#x6E90;&#x7684;&#x64CD;&#x4F5C;&#x6570;&#x91CF;&#xFF0C;&#x6216;&#x8005;&#x540C;&#x65F6;&#x6267;&#x884C;&#x67D0;&#x4E2A;&#x6307;&#x5B9A;&#x64CD;&#x4F5C;&#x7684;&#x6570;&#x91CF;&#x3002;&#x8BA1;&#x6570;&#x4FE1;&#x53F7;&#x91CF;&#x8FD8;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5B9E;&#x73B0;&#x67D0;&#x79CD;&#x8D44;&#x6E90;&#x6C60;&#xFF0C;&#x6216;&#x8005;&#x5BF9;&#x5BB9;&#x5668;&#x65BD;&#x52A0;&#x8FB9;&#x754C;&#x3002;</p>
+<p>Semaphore&#x4E2D;&#x7BA1;&#x7406;&#x7740;&#x4E00;&#x7EC4;&#x865A;&#x62DF;&#x7684;&#x8BB8;&#x53EF;permit&#xFF0C;&#x8BB8;&#x53EF;&#x7684;&#x521D;&#x59CB;&#x6570;&#x91CF;&#x53EF;&#x901A;&#x8FC7;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6765;&#x6307;&#x5B9A;&#xFF0C;&#x5728;&#x6267;&#x884C;&#x64CD;&#x4F5C;&#x65F6;&#x53EF;&#x4EE5;&#x9996;&#x5148;&#x83B7;&#x5F97;&#x8BB8;&#x53EF;&#xFF08;&#x53EA;&#x8981;&#x8FD8;&#x6709;&#x5269;&#x4F59;&#x7684;&#x8BB8;&#x53EF;&#xFF09;&#xFF0C;&#x5E76;&#x5728;&#x4F7F;&#x7528;&#x540E;&#x91CA;&#x653E;&#x8BB8;&#x53EF;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x8BB8;&#x53EF;&#xFF0C;&#x90A3;&#x4E48;acquire&#x5C06;&#x963B;&#x585E;&#x76F4;&#x5230;&#x6709;&#x8BB8;&#x53EF;&#xFF08;&#x6216;&#x8005;&#x76F4;&#x5230;&#x88AB;&#x4E2D;&#x65AD;&#x6216;&#x8005;&#x64CD;&#x4F5C;&#x8D85;&#x65F6;&#xFF09;&#x3002;release&#x65B9;&#x6CD5;&#x5C06;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x8BB8;&#x53EF;&#x7ED9;&#x4FE1;&#x53F7;&#x91CF;&#x3002;&#x8BA1;&#x7B97;&#x4FE1;&#x53F7;&#x91CF;&#x7684;&#x4E00;&#x79CD;&#x7B80;&#x5316;&#x5F62;&#x5F0F;&#x662F;&#x4E8C;&#x503C;&#x4FE1;&#x53F7;&#x91CF;&#xFF0C;&#x5373;&#x521D;&#x59CB;&#x503C;&#x4E3A;1&#x7684;Semaphore&#x3002;&#x4E8C;&#x503C;&#x4FE1;&#x53F7;&#x91CF;&#x53EF;&#x4EE5;&#x7528;&#x4F5C;&#x4E92;&#x65A5;&#x4F53;mutex&#xFF0C;&#x5E76;&#x5177;&#x5907;&#x4E0D;&#x53EF;&#x91CD;&#x5165;&#x7684;&#x52A0;&#x9501;&#x8BED;&#x4E49;&#xFF1A;&#x8C01;&#x62E5;&#x6709;&#x8FD9;&#x4E2A;&#x552F;&#x4E00;&#x7684;&#x8BB8;&#x53EF;&#xFF0C;&#x8C01;&#x5C31;&#x62E5;&#x6709;&#x4E86;&#x4E92;&#x65A5;&#x9501;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BoundedHashSet</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Set&lt;T&gt; set;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Semaphore sem;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">BoundedHashSet</span><span class="hljs-params">(<span class="hljs-keyword">int</span> bound)</span> </span>{
+        <span class="hljs-keyword">this</span>.set = Collections.synchronizedSet(<span class="hljs-keyword">new</span> HashSet&lt;&gt;());
+        <span class="hljs-keyword">this</span>.sem = <span class="hljs-keyword">new</span> Semaphore(bound);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">add</span><span class="hljs-params">(T o)</span> <span class="hljs-keyword">throws</span> InterruptedException </span>{
+        sem.acquire();
+        <span class="hljs-keyword">boolean</span> wasAdded = <span class="hljs-keyword">false</span>;
+        <span class="hljs-keyword">try</span> {
+            wasAdded = set.add(o);
+            <span class="hljs-keyword">return</span> wasAdded;
+        } <span class="hljs-keyword">finally</span> {
+            <span class="hljs-keyword">if</span> (!wasAdded){
+                sem.release();
+            }
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">remove</span><span class="hljs-params">(Object o)</span> </span>{
+        <span class="hljs-keyword">boolean</span> wasRemoved = set.remove(o);
+        <span class="hljs-keyword">if</span> (wasRemoved) {
+            sem.release();
+        }
+        <span class="hljs-keyword">return</span> wasRemoved;
+    }
+}
+</code></pre>
+<p>&#x95ED;&#x9501;&#x662F;&#x4E00;&#x6B21;&#x6027;&#x5BF9;&#x8C61;&#xFF0C;&#x4E00;&#x65E6;&#x8FDB;&#x5165;&#x7EC8;&#x6B62;&#x72B6;&#x6001;&#xFF0C;&#x5C31;&#x4E0D;&#x80FD;&#x88AB;&#x91CD;&#x7F6E;&#x3002;&#x6805;&#x680F;Barrier&#x7C7B;&#x4F3C;&#x4E8E;&#x95ED;&#x9501;&#xFF0C;&#x5B83;&#x80FD;&#x963B;&#x585E;&#x4E00;&#x7EC4;&#x7EBF;&#x7A0B;&#x77E5;&#x9053;&#x67D0;&#x4E2A;&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x3002;&#x6805;&#x680F;&#x4E0E;&#x95ED;&#x9501;&#x7684;&#x5173;&#x952E;&#x533A;&#x522B;&#x5728;&#x4E8E;&#xFF0C;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#x5FC5;&#x987B;&#x540C;&#x65F6;&#x5230;&#x8FBE;&#x6805;&#x680F;&#x4F4D;&#x7F6E;&#xFF0C;&#x624D;&#x80FD;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x3002;&#x95ED;&#x9501;&#x7528;&#x4E8E;&#x7B49;&#x5F85;&#x4E8B;&#x4EF6;&#xFF0C;&#x800C;&#x6805;&#x680F;&#x7528;&#x4E8E;&#x7B49;&#x5F85;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x3002;</p>
+<p>CyclicBarrier&#x53EF;&#x4EE5;&#x4F7F;&#x4E00;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x53C2;&#x4E0E;&#x65B9;&#x53CD;&#x590D;&#x5730;&#x5728;&#x6805;&#x680F;&#x4F4D;&#x7F6E;&#x6C47;&#x96C6;&#xFF0C;&#x5B83;&#x5728;&#x5E76;&#x884C;&#x8FED;&#x4EE3;&#x7B97;&#x6CD5;&#x4E2D;&#x975E;&#x5E38;&#x6709;&#x7528;&#xFF1A;&#x8FD9;&#x79CD;&#x7B97;&#x6CD5;&#x901A;&#x5E38;&#x5C06;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#x62C6;&#x5206;&#x6210;&#x4E00;&#x7CFB;&#x5217;&#x76F8;&#x4E92;&#x72EC;&#x7ACB;&#x7684;&#x5B50;&#x95EE;&#x9898;&#x3002;&#x5F53;&#x7EBF;&#x7A0B;&#x5230;&#x8FBE;&#x6805;&#x680F;&#x4F4D;&#x7F6E;&#x65F6;&#x5C06;&#x8C03;&#x7528;await&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5C06;&#x963B;&#x585E;&#x76F4;&#x5230;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#x90FD;&#x5230;&#x8FBE;&#x6805;&#x680F;&#x4F4D;&#x7F6E;&#x3002;&#x5982;&#x679C;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#x90FD;&#x5230;&#x8FBE;&#x4E86;&#x6805;&#x680F;&#x4F4D;&#x7F6E;&#xFF0C;&#x90A3;&#x4E48;&#x6805;&#x680F;&#x5C06;&#x6253;&#x5F00;&#xFF0C;&#x6B64;&#x65F6;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#x90FD;&#x88AB;&#x91CA;&#x653E;&#xFF0C;&#x800C;&#x6805;&#x680F;&#x5C06;&#x88AB;&#x91CD;&#x7F6E;&#x4EE5;&#x4FBF;&#x4E0B;&#x6B21;&#x4F7F;&#x7528;&#x3002;&#x5982;&#x679C;&#x5BF9;await&#x7684;&#x8C03;&#x7528;&#x8D85;&#x65F6;&#xFF0C;&#x6216;&#x8005;await&#x963B;&#x585E;&#x7684;&#x7EBF;&#x7A0B;&#x88AB;&#x4E2D;&#x65AD;&#xFF0C;&#x90A3;&#x4E48;&#x6805;&#x680F;&#x5C31;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x6253;&#x7834;&#x4E86;&#xFF0C;&#x6240;&#x6709;&#x963B;&#x585E;&#x7684;await&#x8C03;&#x7528;&#x90FD;&#x5C06;&#x7EC8;&#x6B62;&#x5E76;&#x629B;&#x51FA;BrokenBarrierException&#x3002;&#x5982;&#x679C;&#x6210;&#x529F;&#x901A;&#x8FC7;&#x6805;&#x680F;&#xFF0C;&#x90A3;&#x4E48;await&#x5C06;&#x4E3A;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x552F;&#x4E00;&#x7684;&#x5230;&#x8FBE;&#x7D22;&#x5F15;&#x53F7;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x8FD9;&#x4E9B;&#x7D22;&#x5F15;&#x6765;&#x9009;&#x4E3E;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x9886;&#x5BFC;&#x7EBF;&#x7A0B;&#xFF0C;&#x5E76;&#x5728;&#x4E0B;&#x4E00;&#x6B21;&#x8FED;&#x4EE3;&#x4E2D;&#x7531;&#x8BE5;&#x9886;&#x5BFC;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x7684;&#x5DE5;&#x4F5C;&#x3002;CyclicBarrier&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x4F60;&#x5C06;&#x4E00;&#x4E2A;&#x6805;&#x680F;&#x64CD;&#x4F5C;&#x4F20;&#x9012;&#x7ED9;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;Runnable&#xFF0C;&#x5F53;&#x6210;&#x529F;&#x901A;&#x8FC7;&#x6805;&#x680F;&#x65F6;&#x4F1A;&#x5728;&#x4E00;&#x4E2A;&#x5B50;&#x4EFB;&#x52A1;&#x7EBF;&#x7A0B;&#x4E2D;&#x6267;&#x884C;&#x5B83;&#xFF0C;&#x4F46;&#x5728;&#x963B;&#x585E;&#x7EBF;&#x7A0B;&#x88AB;&#x91CA;&#x653E;&#x4E4B;&#x524D;&#x662F;&#x4E0D;&#x80FD;&#x6267;&#x884C;&#x7684;&#x3002;</p>
+<p>&#x53E6;&#x4E00;&#x79CD;&#x5F62;&#x5F0F;&#x7684;&#x6805;&#x680F;&#x65F6;Exchanger&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x79CD;&#x4E24;&#x65B9;&#x6805;&#x680F;&#xFF0C;&#x5404;&#x65B9;&#x5728;&#x6805;&#x680F;&#x4F4D;&#x7F6E;&#x4E0A;&#x4EA4;&#x6362;&#x6570;&#x636E;&#x3002;&#x5F53;&#x4E24;&#x65B9;&#x6267;&#x884C;&#x4E0D;&#x5BF9;&#x79F0;&#x7684;&#x64CD;&#x4F5C;&#x65F6;&#xFF0C;Exchanger&#x4F1A;&#x975E;&#x5E38;&#x6709;&#x7528;&#xFF0C;&#x4F8B;&#x5982;&#x5F53;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x60F3;&#x7F13;&#x51B2;&#x533A;&#x5199;&#x5165;&#x6570;&#x636E;&#xFF0C;&#x800C;&#x53E6;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x4ECE;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x3002;&#x8FD9;&#x4E9B;&#x7EBF;&#x7A0B;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;Exchanger&#x6765;&#x6C47;&#x5408;&#xFF0C;&#x5E76;&#x5C06;&#x6EE1;&#x7684;&#x7F13;&#x51B2;&#x533A;&#x4E0E;&#x7A7A;&#x7684;&#x7F13;&#x51B2;&#x533A;&#x4EA4;&#x6362;&#x3002;&#x5F53;&#x4E24;&#x4E2A;&#x7EBF;&#x7A0B;&#x901A;&#x8FC7;Exchanger&#x4EA4;&#x6362;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x8FD9;&#x79CD;&#x4EA4;&#x6362;&#x5C31;&#x628A;&#x8FD9;&#x4E24;&#x4E2A;&#x5BF9;&#x8C61;&#x5B89;&#x5168;&#x5730;&#x53D1;&#x5E03;&#x7ED9;&#x53E6;&#x4E00;&#x65B9;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Memoizer</span>&lt;<span class="hljs-title">A</span>, <span class="hljs-title">V</span>&gt; <span class="hljs-keyword">implements</span> <span class="hljs-title">Computable</span>&lt;<span class="hljs-title">A</span>, <span class="hljs-title">V</span>&gt; </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> ConcurrentHashMap&lt;A, Future&lt;V&gt;&gt; cache = <span class="hljs-keyword">new</span> ConcurrentHashMap&lt;&gt;();
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Computable&lt;A, V&gt; c;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Memoizer</span><span class="hljs-params">(Computable&lt;A, V&gt; c)</span> </span>{
+        <span class="hljs-keyword">this</span>.c = c;
+    }
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> V <span class="hljs-title">compute</span><span class="hljs-params">(A arg)</span> <span class="hljs-keyword">throws</span> InterruptedException </span>{
+        <span class="hljs-keyword">while</span> (<span class="hljs-keyword">true</span>) {
+            Future&lt;V&gt; f = cache.get(arg);
+            <span class="hljs-keyword">if</span> (f == <span class="hljs-keyword">null</span>) {
+                Callable&lt;V&gt; eval = <span class="hljs-keyword">new</span> Callable&lt;V&gt;() {
+                    <span class="hljs-meta">@Override</span>
+                    <span class="hljs-function"><span class="hljs-keyword">public</span> V <span class="hljs-title">call</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> InterruptedException </span>{
+                        <span class="hljs-keyword">return</span> c.compute(arg);
+                    }
+                };
+                FutureTask&lt;V&gt; ft = <span class="hljs-keyword">new</span> FutureTask&lt;&gt;(eval);
+                f = cache.putIfAbsent(arg, ft);
+                <span class="hljs-keyword">if</span> (f == <span class="hljs-keyword">null</span>) {
+                    f = ft;
+                    ft.run();
+                }
+            }
+            <span class="hljs-keyword">try</span> {
+                <span class="hljs-keyword">return</span> f.get();
+            } <span class="hljs-keyword">catch</span> (CancellationException e) {
+                cache.remove(arg, f);
+            } <span class="hljs-keyword">catch</span> (ExecutionException e) {
+                <span class="hljs-comment">// throws exception</span>
+            }
+        }
+    }
+}
+</code></pre>
 
                                 
                                 </section>
@@ -1909,7 +3105,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.基础构建模块","level":"1.3.5","depth":2,"next":{"title":"6.任务执行","level":"1.3.6","depth":2,"path":"jcip/ch06.md","ref":"jcip/ch06.md","articles":[]},"previous":{"title":"4.对象的组合","level":"1.3.4","depth":2,"path":"jcip/ch04.md","ref":"jcip/ch04.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"jcip/ch05.md","mtime":"2018-07-26T08:33:58.128Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-09T01:51:45.635Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.基础构建模块","level":"1.3.5","depth":2,"next":{"title":"6.任务执行","level":"1.3.6","depth":2,"path":"jcip/ch06.md","ref":"jcip/ch06.md","articles":[]},"previous":{"title":"4.对象的组合","level":"1.3.4","depth":2,"path":"jcip/ch04.md","ref":"jcip/ch04.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"jcip/ch05.md","mtime":"2019-07-16T15:03:01.127Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-28T10:15:59.397Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

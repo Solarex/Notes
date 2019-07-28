@@ -1820,6 +1820,103 @@
             
         </li>
     
+        <li class="chapter " data-level="1.11" data-path="../design-patterns/readme.html">
+            
+                <a href="../design-patterns/readme.html">
+            
+                    
+                    设计模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../design-patterns/ch01.html">
+            
+                <a href="../design-patterns/ch01.html">
+            
+                    
+                    1.引言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../design-patterns/ch02.html">
+            
+                <a href="../design-patterns/ch02.html">
+            
+                    
+                    2.实例研究：设计一个文档编辑器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../design-patterns/ch03.html">
+            
+                <a href="../design-patterns/ch03.html">
+            
+                    
+                    3.创建型模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../design-patterns/ch04.html">
+            
+                <a href="../design-patterns/ch04.html">
+            
+                    
+                    4.结构型模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../design-patterns/ch05.html">
+            
+                <a href="../design-patterns/ch05.html">
+            
+                    
+                    5.行为模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../design-patterns/ch06.html">
+            
+                <a href="../design-patterns/ch06.html">
+            
+                    
+                    6.结论
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
 
     
 
@@ -1866,6 +1963,49 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="4&#x5BF9;&#x8C61;&#x7684;&#x7EC4;&#x5408;">4.&#x5BF9;&#x8C61;&#x7684;&#x7EC4;&#x5408;</h1>
+<p>&#x5728;&#x8BBE;&#x8BA1;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7C7B;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x9700;&#x8981;&#x5305;&#x542B;&#x4EE5;&#x4E0B;&#x4E09;&#x4E2A;&#x57FA;&#x672C;&#x8981;&#x7D20;&#xFF1A;</p>
+<ul>
+<li>&#x627E;&#x51FA;&#x6784;&#x6210;&#x5BF9;&#x8C61;&#x72B6;&#x6001;&#x7684;&#x6240;&#x6709;&#x53D8;&#x91CF;</li>
+<li>&#x627E;&#x51FA;&#x7EA6;&#x675F;&#x72B6;&#x6001;&#x53D8;&#x91CF;&#x7684;&#x4E0D;&#x53D8;&#x6027;&#x6761;&#x4EF6;</li>
+<li>&#x5EFA;&#x7ACB;&#x5BF9;&#x8C61;&#x72B6;&#x6001;&#x7684;&#x5E76;&#x53D1;&#x8BBF;&#x95EE;&#x7BA1;&#x7406;&#x7B56;&#x7565;&#x3002;</li>
+</ul>
+<p>&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x7C7B;&#x662F;&#x7531;&#x591A;&#x4E2A;&#x72EC;&#x7ACB;&#x4E14;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x72B6;&#x6001;&#x53D8;&#x91CF;&#x7EC4;&#x6210;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x6240;&#x6709;&#x7684;&#x64CD;&#x4F5C;&#x4E2D;&#x90FD;&#x4E0D;&#x5305;&#x542B;&#x65E0;&#x6548;&#x72B6;&#x6001;&#x8F6C;&#x6362;&#xFF0C;&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x5C06;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x6027;&#x59D4;&#x6258;&#x7ED9;&#x5E95;&#x5C42;&#x7684;&#x72B6;&#x6001;&#x53D8;&#x91CF;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ListHelper</span>&lt;<span class="hljs-title">E</span>&gt; </span>{
+    <span class="hljs-keyword">public</span> List&lt;E&gt; list = Collections.synchronizedList(<span class="hljs-keyword">new</span> ArrayList&lt;E&gt;());
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">putIfAbsent</span><span class="hljs-params">(E x)</span> </span>{
+        <span class="hljs-keyword">synchronized</span> (list) {
+            <span class="hljs-keyword">boolean</span> absent = !list.contains(x);
+            <span class="hljs-keyword">if</span> (absent) {
+                list.add(x);
+            }
+            <span class="hljs-keyword">return</span> absent;
+        }
+    }
+}
+</code></pre>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ImprovedList</span>&lt;<span class="hljs-title">T</span>&gt; <span class="hljs-keyword">implements</span> <span class="hljs-title">List</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> List&lt;T&gt; list;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ImprovedList</span><span class="hljs-params">(List&lt;T&gt; list)</span> </span>{
+        <span class="hljs-keyword">this</span>.list = list;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">putIfAbsent</span><span class="hljs-params">(T x)</span> </span>{
+        <span class="hljs-keyword">boolean</span> contains = list.contains(x);
+        <span class="hljs-keyword">if</span> (!contains){
+            list.add(x);
+        }
+        <span class="hljs-keyword">return</span> !contains;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-title">clear</span><span class="hljs-params">()</span> </span>{
+        list.clear();
+    }
+    <span class="hljs-comment">// &#x6309;&#x7167;&#x7C7B;&#x4F3C;&#x7684;&#x65B9;&#x5F0F;&#x59D4;&#x6258;List&#x7684;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;</span>
+}
+</code></pre>
 
                                 
                                 </section>
@@ -1909,7 +2049,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.对象的组合","level":"1.3.4","depth":2,"next":{"title":"5.基础构建模块","level":"1.3.5","depth":2,"path":"jcip/ch05.md","ref":"jcip/ch05.md","articles":[]},"previous":{"title":"3.对象的共享","level":"1.3.3","depth":2,"path":"jcip/ch03.md","ref":"jcip/ch03.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"jcip/ch04.md","mtime":"2018-07-26T08:33:58.127Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-09T01:51:45.635Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.对象的组合","level":"1.3.4","depth":2,"next":{"title":"5.基础构建模块","level":"1.3.5","depth":2,"path":"jcip/ch05.md","ref":"jcip/ch05.md","articles":[]},"previous":{"title":"3.对象的共享","level":"1.3.3","depth":2,"path":"jcip/ch03.md","ref":"jcip/ch03.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"jcip/ch04.md","mtime":"2019-07-15T09:00:00.602Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-28T10:15:59.397Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
