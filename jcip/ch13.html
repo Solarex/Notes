@@ -1963,6 +1963,352 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="13&#x663E;&#x5F0F;&#x9501;">13.&#x663E;&#x5F0F;&#x9501;</h1>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * {<span class="hljs-doctag">@code</span> Lock} implementations provide more extensive locking
+ * operations than can be obtained using {<span class="hljs-doctag">@code</span> synchronized} methods
+ * and statements.  They allow more flexible structuring, may have
+ * quite different properties, and may support multiple associated
+ * {<span class="hljs-doctag">@link</span> Condition} objects.
+ *
+ * &lt;p&gt;A lock is a tool for controlling access to a shared resource by
+ * multiple threads. Commonly, a lock provides exclusive access to a
+ * shared resource: only one thread at a time can acquire the lock and
+ * all access to the shared resource requires that the lock be
+ * acquired first. However, some locks may allow concurrent access to
+ * a shared resource, such as the read lock of a {<span class="hljs-doctag">@link</span> ReadWriteLock}.
+ *
+ * &lt;p&gt;The use of {<span class="hljs-doctag">@code</span> synchronized} methods or statements provides
+ * access to the implicit monitor lock associated with every object, but
+ * forces all lock acquisition and release to occur in a block-structured way:
+ * when multiple locks are acquired they must be released in the opposite
+ * order, and all locks must be released in the same lexical scope in which
+ * they were acquired.
+ *
+ * &lt;p&gt;While the scoping mechanism for {<span class="hljs-doctag">@code</span> synchronized} methods
+ * and statements makes it much easier to program with monitor locks,
+ * and helps avoid many common programming errors involving locks,
+ * there are occasions where you need to work with locks in a more
+ * flexible way. For example, some algorithms for traversing
+ * concurrently accessed data structures require the use of
+ * &amp;quot;hand-over-hand&amp;quot; or &amp;quot;chain locking&amp;quot;: you
+ * acquire the lock of node A, then node B, then release A and acquire
+ * C, then release B and acquire D and so on.  Implementations of the
+ * {<span class="hljs-doctag">@code</span> Lock} interface enable the use of such techniques by
+ * allowing a lock to be acquired and released in different scopes,
+ * and allowing multiple locks to be acquired and released in any
+ * order.
+ *
+ * &lt;p&gt;With this increased flexibility comes additional
+ * responsibility. The absence of block-structured locking removes the
+ * automatic release of locks that occurs with {<span class="hljs-doctag">@code</span> synchronized}
+ * methods and statements. In most cases, the following idiom
+ * should be used:
+ *
+ * &lt;pre&gt; {<span class="hljs-doctag">@code</span>
+ * Lock l = ...;
+ * l.lock();
+ * try {
+ *   // access the resource protected by this lock
+ * } finally {
+ *   l.unlock();
+ * }}&lt;/pre&gt;
+ *
+ * When locking and unlocking occur in different scopes, care must be
+ * taken to ensure that all code that is executed while the lock is
+ * held is protected by try-finally or try-catch to ensure that the
+ * lock is released when necessary.
+ *
+ * &lt;p&gt;{<span class="hljs-doctag">@code</span> Lock} implementations provide additional functionality
+ * over the use of {<span class="hljs-doctag">@code</span> synchronized} methods and statements by
+ * providing a non-blocking attempt to acquire a lock ({<span class="hljs-doctag">@link</span>
+ * #tryLock()}), an attempt to acquire the lock that can be
+ * interrupted ({<span class="hljs-doctag">@link</span> #lockInterruptibly}, and an attempt to acquire
+ * the lock that can timeout ({<span class="hljs-doctag">@link</span> #tryLock(long, TimeUnit)}).
+ *
+ * &lt;p&gt;A {<span class="hljs-doctag">@code</span> Lock} class can also provide behavior and semantics
+ * that is quite different from that of the implicit monitor lock,
+ * such as guaranteed ordering, non-reentrant usage, or deadlock
+ * detection. If an implementation provides such specialized semantics
+ * then the implementation must document those semantics.
+ *
+ * &lt;p&gt;Note that {<span class="hljs-doctag">@code</span> Lock} instances are just normal objects and can
+ * themselves be used as the target in a {<span class="hljs-doctag">@code</span> synchronized} statement.
+ * Acquiring the
+ * monitor lock of a {<span class="hljs-doctag">@code</span> Lock} instance has no specified relationship
+ * with invoking any of the {<span class="hljs-doctag">@link</span> #lock} methods of that instance.
+ * It is recommended that to avoid confusion you never use {<span class="hljs-doctag">@code</span> Lock}
+ * instances in this way, except within their own implementation.
+ *
+ * &lt;p&gt;Except where noted, passing a {<span class="hljs-doctag">@code</span> null} value for any
+ * parameter will result in a {<span class="hljs-doctag">@link</span> NullPointerException} being
+ * thrown.
+ *
+ * &lt;h3&gt;Memory Synchronization&lt;/h3&gt;
+ *
+ * &lt;p&gt;All {<span class="hljs-doctag">@code</span> Lock} implementations &lt;em&gt;must&lt;/em&gt; enforce the same
+ * memory synchronization semantics as provided by the built-in monitor
+ * lock, as described in
+ * &lt;a href=&quot;https://docs.oracle.com/javase/specs/jls/se8/html/jls-17.html#jls-17.4&quot;&gt;
+ * Chapter 17 of
+ * &lt;cite&gt;The Java&amp;trade; Language Specification&lt;/cite&gt;&lt;/a&gt;:
+ * &lt;ul&gt;
+ * &lt;li&gt;A successful {<span class="hljs-doctag">@code</span> lock} operation has the same memory
+ * synchronization effects as a successful &lt;em&gt;Lock&lt;/em&gt; action.
+ * &lt;li&gt;A successful {<span class="hljs-doctag">@code</span> unlock} operation has the same
+ * memory synchronization effects as a successful &lt;em&gt;Unlock&lt;/em&gt; action.
+ * &lt;/ul&gt;
+ *
+ * Unsuccessful locking and unlocking operations, and reentrant
+ * locking/unlocking operations, do not require any memory
+ * synchronization effects.
+ *
+ * &lt;h3&gt;Implementation Considerations&lt;/h3&gt;
+ *
+ * &lt;p&gt;The three forms of lock acquisition (interruptible,
+ * non-interruptible, and timed) may differ in their performance
+ * characteristics, ordering guarantees, or other implementation
+ * qualities.  Further, the ability to interrupt the &lt;em&gt;ongoing&lt;/em&gt;
+ * acquisition of a lock may not be available in a given {<span class="hljs-doctag">@code</span> Lock}
+ * class.  Consequently, an implementation is not required to define
+ * exactly the same guarantees or semantics for all three forms of
+ * lock acquisition, nor is it required to support interruption of an
+ * ongoing lock acquisition.  An implementation is required to clearly
+ * document the semantics and guarantees provided by each of the
+ * locking methods. It must also obey the interruption semantics as
+ * defined in this interface, to the extent that interruption of lock
+ * acquisition is supported: which is either totally, or only on
+ * method entry.
+ *
+ * &lt;p&gt;As interruption generally implies cancellation, and checks for
+ * interruption are often infrequent, an implementation can favor responding
+ * to an interrupt over normal method return. This is true even if it can be
+ * shown that the interrupt occurred after another action may have unblocked
+ * the thread. An implementation should document this behavior.
+ *
+ * <span class="hljs-doctag">@see</span> ReentrantLock
+ * <span class="hljs-doctag">@see</span> Condition
+ * <span class="hljs-doctag">@see</span> ReadWriteLock
+ *
+ * <span class="hljs-doctag">@since</span> 1.5
+ * <span class="hljs-doctag">@author</span> Doug Lea
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Lock</span> </span>{
+
+    <span class="hljs-comment">/**
+     * Acquires the lock.
+     *
+     * &lt;p&gt;If the lock is not available then the current thread becomes
+     * disabled for thread scheduling purposes and lies dormant until the
+     * lock has been acquired.
+     *
+     * &lt;p&gt;&lt;b&gt;Implementation Considerations&lt;/b&gt;
+     *
+     * &lt;p&gt;A {<span class="hljs-doctag">@code</span> Lock} implementation may be able to detect erroneous use
+     * of the lock, such as an invocation that would cause deadlock, and
+     * may throw an (unchecked) exception in such circumstances.  The
+     * circumstances and the exception type must be documented by that
+     * {<span class="hljs-doctag">@code</span> Lock} implementation.
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">lock</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-comment">/**
+     * Acquires the lock unless the current thread is
+     * {<span class="hljs-doctag">@linkplain</span> Thread#interrupt interrupted}.
+     *
+     * &lt;p&gt;Acquires the lock if it is available and returns immediately.
+     *
+     * &lt;p&gt;If the lock is not available then the current thread becomes
+     * disabled for thread scheduling purposes and lies dormant until
+     * one of two things happens:
+     *
+     * &lt;ul&gt;
+     * &lt;li&gt;The lock is acquired by the current thread; or
+     * &lt;li&gt;Some other thread {<span class="hljs-doctag">@linkplain</span> Thread#interrupt interrupts} the
+     * current thread, and interruption of lock acquisition is supported.
+     * &lt;/ul&gt;
+     *
+     * &lt;p&gt;If the current thread:
+     * &lt;ul&gt;
+     * &lt;li&gt;has its interrupted status set on entry to this method; or
+     * &lt;li&gt;is {<span class="hljs-doctag">@linkplain</span> Thread#interrupt interrupted} while acquiring the
+     * lock, and interruption of lock acquisition is supported,
+     * &lt;/ul&gt;
+     * then {<span class="hljs-doctag">@link</span> InterruptedException} is thrown and the current thread&apos;s
+     * interrupted status is cleared.
+     *
+     * &lt;p&gt;&lt;b&gt;Implementation Considerations&lt;/b&gt;
+     *
+     * &lt;p&gt;The ability to interrupt a lock acquisition in some
+     * implementations may not be possible, and if possible may be an
+     * expensive operation.  The programmer should be aware that this
+     * may be the case. An implementation should document when this is
+     * the case.
+     *
+     * &lt;p&gt;An implementation can favor responding to an interrupt over
+     * normal method return.
+     *
+     * &lt;p&gt;A {<span class="hljs-doctag">@code</span> Lock} implementation may be able to detect
+     * erroneous use of the lock, such as an invocation that would
+     * cause deadlock, and may throw an (unchecked) exception in such
+     * circumstances.  The circumstances and the exception type must
+     * be documented by that {<span class="hljs-doctag">@code</span> Lock} implementation.
+     *
+     * <span class="hljs-doctag">@throws</span> InterruptedException if the current thread is
+     *         interrupted while acquiring the lock (and interruption
+     *         of lock acquisition is supported)
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">lockInterruptibly</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> InterruptedException</span>;
+
+    <span class="hljs-comment">/**
+     * Acquires the lock only if it is free at the time of invocation.
+     *
+     * &lt;p&gt;Acquires the lock if it is available and returns immediately
+     * with the value {<span class="hljs-doctag">@code</span> true}.
+     * If the lock is not available then this method will return
+     * immediately with the value {<span class="hljs-doctag">@code</span> false}.
+     *
+     * &lt;p&gt;A typical usage idiom for this method would be:
+     * &lt;pre&gt; {<span class="hljs-doctag">@code</span>
+     * Lock lock = ...;
+     * if (lock.tryLock()) {
+     *   try {
+     *     // manipulate protected state
+     *   } finally {
+     *     lock.unlock();
+     *   }
+     * } else {
+     *   // perform alternative actions
+     * }}&lt;/pre&gt;
+     *
+     * This usage ensures that the lock is unlocked if it was acquired, and
+     * doesn&apos;t try to unlock if the lock was not acquired.
+     *
+     * <span class="hljs-doctag">@return</span> {<span class="hljs-doctag">@code</span> true} if the lock was acquired and
+     *         {<span class="hljs-doctag">@code</span> false} otherwise
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">tryLock</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-comment">/**
+     * Acquires the lock if it is free within the given waiting time and the
+     * current thread has not been {<span class="hljs-doctag">@linkplain</span> Thread#interrupt interrupted}.
+     *
+     * &lt;p&gt;If the lock is available this method returns immediately
+     * with the value {<span class="hljs-doctag">@code</span> true}.
+     * If the lock is not available then
+     * the current thread becomes disabled for thread scheduling
+     * purposes and lies dormant until one of three things happens:
+     * &lt;ul&gt;
+     * &lt;li&gt;The lock is acquired by the current thread; or
+     * &lt;li&gt;Some other thread {<span class="hljs-doctag">@linkplain</span> Thread#interrupt interrupts} the
+     * current thread, and interruption of lock acquisition is supported; or
+     * &lt;li&gt;The specified waiting time elapses
+     * &lt;/ul&gt;
+     *
+     * &lt;p&gt;If the lock is acquired then the value {<span class="hljs-doctag">@code</span> true} is returned.
+     *
+     * &lt;p&gt;If the current thread:
+     * &lt;ul&gt;
+     * &lt;li&gt;has its interrupted status set on entry to this method; or
+     * &lt;li&gt;is {<span class="hljs-doctag">@linkplain</span> Thread#interrupt interrupted} while acquiring
+     * the lock, and interruption of lock acquisition is supported,
+     * &lt;/ul&gt;
+     * then {<span class="hljs-doctag">@link</span> InterruptedException} is thrown and the current thread&apos;s
+     * interrupted status is cleared.
+     *
+     * &lt;p&gt;If the specified waiting time elapses then the value {<span class="hljs-doctag">@code</span> false}
+     * is returned.
+     * If the time is
+     * less than or equal to zero, the method will not wait at all.
+     *
+     * &lt;p&gt;&lt;b&gt;Implementation Considerations&lt;/b&gt;
+     *
+     * &lt;p&gt;The ability to interrupt a lock acquisition in some implementations
+     * may not be possible, and if possible may
+     * be an expensive operation.
+     * The programmer should be aware that this may be the case. An
+     * implementation should document when this is the case.
+     *
+     * &lt;p&gt;An implementation can favor responding to an interrupt over normal
+     * method return, or reporting a timeout.
+     *
+     * &lt;p&gt;A {<span class="hljs-doctag">@code</span> Lock} implementation may be able to detect
+     * erroneous use of the lock, such as an invocation that would cause
+     * deadlock, and may throw an (unchecked) exception in such circumstances.
+     * The circumstances and the exception type must be documented by that
+     * {<span class="hljs-doctag">@code</span> Lock} implementation.
+     *
+     * <span class="hljs-doctag">@param</span> time the maximum time to wait for the lock
+     * <span class="hljs-doctag">@param</span> unit the time unit of the {<span class="hljs-doctag">@code</span> time} argument
+     * <span class="hljs-doctag">@return</span> {<span class="hljs-doctag">@code</span> true} if the lock was acquired and {<span class="hljs-doctag">@code</span> false}
+     *         if the waiting time elapsed before the lock was acquired
+     *
+     * <span class="hljs-doctag">@throws</span> InterruptedException if the current thread is interrupted
+     *         while acquiring the lock (and interruption of lock
+     *         acquisition is supported)
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">tryLock</span><span class="hljs-params">(<span class="hljs-keyword">long</span> time, TimeUnit unit)</span> <span class="hljs-keyword">throws</span> InterruptedException</span>;
+
+    <span class="hljs-comment">/**
+     * Releases the lock.
+     *
+     * &lt;p&gt;&lt;b&gt;Implementation Considerations&lt;/b&gt;
+     *
+     * &lt;p&gt;A {<span class="hljs-doctag">@code</span> Lock} implementation will usually impose
+     * restrictions on which thread can release a lock (typically only the
+     * holder of the lock can release it) and may throw
+     * an (unchecked) exception if the restriction is violated.
+     * Any restrictions and the exception
+     * type must be documented by that {<span class="hljs-doctag">@code</span> Lock} implementation.
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">unlock</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-comment">/**
+     * Returns a new {<span class="hljs-doctag">@link</span> Condition} instance that is bound to this
+     * {<span class="hljs-doctag">@code</span> Lock} instance.
+     *
+     * &lt;p&gt;Before waiting on the condition the lock must be held by the
+     * current thread.
+     * A call to {<span class="hljs-doctag">@link</span> Condition#await()} will atomically release the lock
+     * before waiting and re-acquire the lock before the wait returns.
+     *
+     * &lt;p&gt;&lt;b&gt;Implementation Considerations&lt;/b&gt;
+     *
+     * &lt;p&gt;The exact operation of the {<span class="hljs-doctag">@link</span> Condition} instance depends on
+     * the {<span class="hljs-doctag">@code</span> Lock} implementation and must be documented by that
+     * implementation.
+     *
+     * <span class="hljs-doctag">@return</span> A new {<span class="hljs-doctag">@link</span> Condition} instance for this {<span class="hljs-doctag">@code</span> Lock} instance
+     * <span class="hljs-doctag">@throws</span> UnsupportedOperationException if this {<span class="hljs-doctag">@code</span> Lock}
+     *         implementation does not support conditions
+     */</span>
+    <span class="hljs-function">Condition <span class="hljs-title">newCondition</span><span class="hljs-params">()</span></span>;
+}
+</code></pre>
+<p>&#x4E0E;&#x5185;&#x7F6E;&#x52A0;&#x9501;&#x673A;&#x5236;&#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;Lock&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x65E0;&#x6761;&#x4EF6;&#x7684;&#x3001;&#x53EF;&#x8F6E;&#x8BE2;&#x7684;&#x3001;&#x5B9A;&#x65F6;&#x7684;&#x4EE5;&#x53CA;&#x53EF;&#x4E2D;&#x65AD;&#x7684;&#x9501;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#xFF0C;&#x6240;&#x6709;&#x52A0;&#x9501;&#x548C;&#x89E3;&#x9501;&#x7684;&#x65B9;&#x5F0F;&#x90FD;&#x662F;&#x663E;&#x5F0F;&#x7684;&#x3002;&#x5728;Lock&#x7684;&#x5B9E;&#x73B0;&#x4E2D;&#x5FC5;&#x987B;&#x63D0;&#x4F9B;&#x4E0E;&#x5185;&#x7F6E;&#x9501;&#x76F8;&#x540C;&#x7684;&#x5185;&#x5B58;&#x53EF;&#x89C1;&#x6027;&#x8BED;&#x4E49;&#xFF0C;&#x4F46;&#x5728;&#x52A0;&#x9501;&#x8BED;&#x4E49;&#x3001;&#x8C03;&#x5EA6;&#x7B97;&#x6CD5;&#x3001;&#x987A;&#x5E8F;&#x4FDD;&#x8BC1;&#x4EE5;&#x53CA;&#x6027;&#x80FD;&#x7279;&#x6027;&#x7B49;&#x65B9;&#x9762;&#x53EF;&#x4EE5;&#x6709;&#x6240;&#x4E0D;&#x540C;&#x3002;</p>
+<p>&#x5728;&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5185;&#x7F6E;&#x9501;&#x90FD;&#x80FD;&#x5F88;&#x597D;&#x5730;&#x5DE5;&#x4F5C;&#xFF0C;&#x4F46;&#x5728;&#x529F;&#x80FD;&#x4E0A;&#x5B58;&#x5728;&#x4E00;&#x4E9B;&#x5C40;&#x9650;&#x6027;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;&#x65E0;&#x6CD5;&#x4E2D;&#x65AD;&#x4E00;&#x4E2A;&#x6B63;&#x5728;&#x7B49;&#x5F85;&#x83B7;&#x53D6;&#x9501;&#x7684;&#x7EBF;&#x7A0B;&#xFF0C;&#x6216;&#x8005;&#x65E0;&#x6CD5;&#x5728;&#x8BF7;&#x6C42;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;&#x9501;&#x65F6;&#x65E0;&#x9650;&#x5730;&#x7B49;&#x5F85;&#x4E0B;&#x53BB;&#x3002;&#x5185;&#x7F6E;&#x9501;&#x5FC5;&#x987B;&#x5728;&#x83B7;&#x53D6;&#x8BE5;&#x9501;&#x7684;&#x4EE3;&#x7801;&#x5757;&#x4E2D;&#x91CA;&#x653E;&#xFF0C;&#x8FD9;&#x5C31;&#x7B80;&#x5316;&#x4E86;&#x7F16;&#x7801;&#x5DE5;&#x4F5C;&#xFF0C;&#x5E76;&#x4E14;&#x4E0E;&#x5F02;&#x5E38;&#x5904;&#x7406;&#x64CD;&#x4F5C;&#x5B9E;&#x73B0;&#x4E86;&#x5F88;&#x597D;&#x7684;&#x4EA4;&#x4E92;&#xFF0C;&#x4F46;&#x5374;&#x65E0;&#x6CD5;&#x5B9E;&#x73B0;&#x975E;&#x963B;&#x585E;&#x7ED3;&#x6784;&#x7684;&#x52A0;&#x9501;&#x89C4;&#x5219;&#x3002;</p>
+<pre><code class="lang-java">Lock lock = <span class="hljs-keyword">new</span> ReentrantLock();
+...
+lock.lock();
+<span class="hljs-keyword">try</span> {
+    <span class="hljs-comment">// &#x66F4;&#x65B0;&#x5BF9;&#x8C61;&#x72B6;&#x6001;</span>
+    <span class="hljs-comment">// &#x6355;&#x83B7;&#x5F02;&#x5E38;&#xFF0C;&#x5E76;&#x5728;&#x5FC5;&#x8981;&#x65F6;&#x6062;&#x590D;&#x4E0D;&#x53D8;&#x6027;&#x6761;&#x4EF6;</span>
+} <span class="hljs-keyword">finally</span> {
+    lock.unlock();
+}
+</code></pre>
+<p>&#x5FC5;&#x987B;&#x5728;finally&#x5757;&#x4E2D;&#x91CA;&#x653E;&#x9501;&#xFF0C;&#x5426;&#x5219;&#xFF0C;&#x5982;&#x679C;&#x5728;&#x88AB;&#x4FDD;&#x62A4;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#x629B;&#x51FA;&#x4E86;&#x5F02;&#x5E38;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x9501;&#x6C38;&#x8FDC;&#x90FD;&#x65E0;&#x6CD5;&#x91CA;&#x653E;&#x3002;</p>
+<p>&#x53EF;&#x5B9A;&#x65F6;&#x7684;&#x4E0E;&#x53EF;&#x8F6E;&#x8BE2;&#x7684;&#x9501;&#x83B7;&#x53D6;&#x6A21;&#x5F0F;&#x662F;&#x7531;<code>tryLock</code>&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x4E0E;&#x65E0;&#x6761;&#x4EF6;&#x7684;&#x9501;&#x83B7;&#x53D6;&#x6A21;&#x5F0F;&#x76F8;&#x6BD4;&#xFF0C;&#x5B83;&#x5177;&#x6709;&#x66F4;&#x5B8C;&#x5584;&#x7684;&#x9519;&#x8BEF;&#x6062;&#x590D;&#x673A;&#x5236;&#x3002;&#x5728;&#x5185;&#x7F6E;&#x9501;&#x4E2D;&#xFF0C;&#x6B7B;&#x9501;&#x662F;&#x4E00;&#x4E2A;&#x4E25;&#x91CD;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x6062;&#x590D;&#x7A0B;&#x5E8F;&#x7684;&#x552F;&#x4E00;&#x65B9;&#x6CD5;&#x662F;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x7A0B;&#x5E8F;&#xFF0C;&#x800C;&#x9632;&#x6B62;&#x6B7B;&#x9501;&#x7684;&#x552F;&#x4E00;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x5728;&#x6784;&#x9020;&#x7A0B;&#x5E8F;&#x65F6;&#x907F;&#x514D;&#x51FA;&#x73B0;&#x4E0D;&#x4E00;&#x81F4;&#x7684;&#x9501;&#x987A;&#x5E8F;&#x3002;&#x53EF;&#x5B9A;&#x65F6;&#x7684;&#x4E0E;&#x53EF;&#x8F6E;&#x8BE2;&#x7684;&#x9501;&#x63D0;&#x4F9B;&#x4E86;&#x53E6;&#x4E00;&#x79CD;&#x9009;&#x62E9;&#xFF1A;&#x907F;&#x514D;&#x6B7B;&#x9501;&#x7684;&#x53D1;&#x751F;&#x3002;</p>
+<p>&#x5728;&#x5B9E;&#x73B0;&#x5177;&#x6709;&#x65F6;&#x95F4;&#x9650;&#x5236;&#x7684;&#x64CD;&#x4F5C;&#x65F6;&#xFF0C;&#x5B9A;&#x65F6;&#x9501;&#x540C;&#x6837;&#x975E;&#x5E38;&#x6709;&#x7528;&#x3002;&#x5F53;&#x5728;&#x5E26;&#x6709;&#x65F6;&#x95F4;&#x9650;&#x5236;&#x7684;&#x64CD;&#x4F5C;&#x4E2D;&#x8C03;&#x7528;&#x4E86;&#x4E00;&#x4E2A;&#x963B;&#x585E;&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;&#x5B83;&#x80FD;&#x6839;&#x636E;&#x5269;&#x4F59;&#x65F6;&#x95F4;&#x6765;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x65F6;&#x9650;&#x3002;&#x5982;&#x679C;&#x64CD;&#x4F5C;&#x4E0D;&#x80FD;&#x5728;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#x5185;&#x7ED9;&#x51FA;&#x7ED3;&#x679C;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4F1A;&#x4F7F;&#x7A0B;&#x5E8F;&#x63D0;&#x524D;&#x7ED3;&#x675F;&#x3002;&#x5F53;&#x4F7F;&#x7528;&#x5185;&#x7F6E;&#x9501;&#x65F6;&#xFF0C;&#x5728;&#x5F00;&#x59CB;&#x8BF7;&#x6C42;&#x9501;&#x540E;&#xFF0C;&#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#x5C06;&#x65E0;&#x6CD5;&#x53D6;&#x6D88;&#xFF0C;&#x56E0;&#x6B64;&#x5185;&#x7F6E;&#x9501;&#x5F88;&#x96BE;&#x5B9E;&#x73B0;&#x5E26;&#x6709;&#x65F6;&#x95F4;&#x9650;&#x5236;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x6B63;&#x5982;&#x5B9A;&#x65F6;&#x7684;&#x9501;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#x80FD;&#x5728;&#x5E26;&#x6709;&#x65F6;&#x95F4;&#x9650;&#x5236;&#x7684;&#x64CD;&#x4F5C;&#x4E2D;&#x4F7F;&#x7528;&#x72EC;&#x5360;&#x9501;&#xFF0C;&#x53EF;&#x4E2D;&#x65AD;&#x7684;&#x9501;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#x540C;&#x6837;&#x80FD;&#x5728;&#x53EF;&#x53D6;&#x6D88;&#x7684;&#x64CD;&#x4F5C;&#x4E2D;&#x4F7F;&#x7528;&#x52A0;&#x9501;&#x3002;<code>lockInterruptibly</code>&#x65B9;&#x6CD5;&#x80FD;&#x591F;&#x5728;&#x83B7;&#x5F97;&#x9501;&#x7684;&#x540C;&#x65F6;&#x4FDD;&#x6301;&#x5BF9;&#x4E2D;&#x65AD;&#x7684;&#x54CD;&#x5E94;&#x3002;</p>
+<p>&#x5728;ReentrantLock&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x63D0;&#x4F9B;&#x4E86;&#x4E24;&#x79CD;&#x516C;&#x5E73;&#x6027;&#x9009;&#x62E9;&#xFF1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x975E;&#x516C;&#x5E73;&#x7684;&#x9501;&#xFF08;&#x9ED8;&#x8BA4;&#xFF09;&#x6216;&#x8005;&#x4E00;&#x4E2A;&#x516C;&#x5E73;&#x7684;&#x9501;&#x3002;&#x5728;&#x516C;&#x5E73;&#x7684;&#x9501;&#x4E0A;&#xFF0C;&#x7EBF;&#x7A0B;&#x5C06;&#x6309;&#x7167;&#x5B83;&#x4EEC;&#x53D1;&#x51FA;&#x8BF7;&#x6C42;&#x7684;&#x987A;&#x5E8F;&#x6765;&#x83B7;&#x5F97;&#x9501;&#xFF0C;&#x4F46;&#x5728;&#x975E;&#x516C;&#x5E73;&#x7684;&#x9501;&#x4E0A;&#xFF0C;&#x5219;&#x5141;&#x8BB8;&#x63D2;&#x961F;&#xFF1A;&#x5F53;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x8BF7;&#x6C42;&#x975E;&#x516C;&#x5E73;&#x7684;&#x9501;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x5728;&#x53D1;&#x51FA;&#x8BF7;&#x6C42;&#x7684;&#x540C;&#x65F6;&#x8BE5;&#x9501;&#x7684;&#x72B6;&#x6001;&#x53D8;&#x4E3A;&#x53EF;&#x7528;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x7EBF;&#x7A0B;&#x5C06;&#x8DF3;&#x8FC7;&#x961F;&#x5217;&#x4E2D;&#x6240;&#x6B32;&#x7684;&#x7B49;&#x5F85;&#x7EBF;&#x7A0B;&#x5E76;&#x83B7;&#x5F97;&#x8FD9;&#x4E2A;&#x9501;&#x3002;&#x975E;&#x516C;&#x5E73;&#x7684;ReentrantLock&#x5E76;&#x4E0D;&#x63D0;&#x5021;&#x63D2;&#x961F;&#x884C;&#x4E3A;&#xFF0C;&#x4F46;&#x65E0;&#x6CD5;&#x9632;&#x6B62;&#x67D0;&#x4E2A;&#x7EBF;&#x7A0B;&#x5728;&#x5408;&#x9002;&#x7684;&#x65F6;&#x5019;&#x8FDB;&#x884C;&#x63D2;&#x961F;&#x3002;&#x5728;&#x516C;&#x5E73;&#x7684;&#x9501;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x53E6;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6301;&#x6709;&#x8FD9;&#x4E2A;&#x9501;&#x6216;&#x8005;&#x6709;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x5728;&#x961F;&#x5217;&#x4E2D;&#x7B49;&#x5F85;&#x8FD9;&#x4E2A;&#x9501;&#xFF0C;&#x90A3;&#x4E48;&#x65B0;&#x53D1;&#x51FA;&#x8BF7;&#x6C42;&#x7684;&#x7EBF;&#x7A0B;&#x5C06;&#x88AB;&#x653E;&#x5165;&#x961F;&#x5217;&#x4E2D;&#x3002;&#x5728;&#x975E;&#x516C;&#x5E73;&#x7684;&#x9501;&#x4E2D;&#xFF0C;&#x53EA;&#x6709;&#x5F53;&#x9501;&#x88AB;&#x67D0;&#x4E2A;&#x7EBF;&#x7A0B;&#x6301;&#x6709;&#x65F6;&#xFF0C;&#x65B0;&#x53D1;&#x51FA;&#x8BF7;&#x6C42;&#x7684;&#x7EBF;&#x7A0B;&#x624D;&#x4F1A;&#x88AB;&#x653E;&#x5165;&#x961F;&#x5217;&#x4E2D;&#x3002;</p>
+<p>&#x5F53;&#x6301;&#x6709;&#x9501;&#x7684;&#x65F6;&#x95F4;&#x76F8;&#x5BF9;&#x8F83;&#x957F;&#xFF0C;&#x6216;&#x8005;&#x8BF7;&#x6C42;&#x9501;&#x7684;&#x5E73;&#x5747;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x8F83;&#x957F;&#xFF0C;&#x90A3;&#x4E48;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x516C;&#x5E73;&#x9501;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x63D2;&#x961F;&#x5E26;&#x6765;&#x7684;&#x541E;&#x5410;&#x91CF;&#x63D0;&#x5347;&#xFF08;&#x5F53;&#x9501;&#x5904;&#x4E8E;&#x53EF;&#x7528;&#x72B6;&#x6001;&#x65F6;&#xFF0C;&#x7EBF;&#x7A0B;&#x5374;&#x8FD8;&#x5904;&#x4E8E;&#x88AB;&#x5524;&#x9192;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF09;&#x5219;&#x53EF;&#x80FD;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x3002;</p>
+<p>&#x4E0E;&#x9ED8;&#x8BA4;&#x7684;ReentrantLock&#x4E00;&#x6837;&#xFF0C;&#x5185;&#x7F6E;&#x9501;&#x5E76;&#x4E0D;&#x4F1A;&#x63D0;&#x4F9B;&#x786E;&#x5B9A;&#x7684;&#x516C;&#x5E73;&#x6027;&#x4FDD;&#x8BC1;&#xFF0C;&#x4F46;&#x5728;&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5728;&#x9501;&#x5B9E;&#x73B0;&#x4E0A;&#x5B9E;&#x73B0;&#x7EDF;&#x8BA1;&#x4E0A;&#x7684;&#x516C;&#x5E73;&#x6027;&#x4FDD;&#x8BC1;&#x5DF2;&#x7ECF;&#x8DB3;&#x591F;&#x4E86;&#x3002;Java&#x8BED;&#x8A00;&#x89C4;&#x8303;&#x5E76;&#x6CA1;&#x6709;&#x8981;&#x6C42;JVM&#x4EE5;&#x516C;&#x5E73;&#x7684;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#x5185;&#x7F6E;&#x9501;&#xFF0C;&#x800C;&#x5728;&#x5404;&#x79CD;JVM&#x4E2D;&#x4E5F;&#x6CA1;&#x6709;&#x8FD9;&#x6837;&#x505A;&#x3002;</p>
+<p>ReentrantLock&#x5728;&#x52A0;&#x9501;&#x548C;&#x5185;&#x5B58;&#x4E0A;&#x63D0;&#x4F9B;&#x7684;&#x8BED;&#x4E49;&#x57DF;&#x5185;&#x7F6E;&#x9501;&#x76F8;&#x540C;&#xFF0C;&#x6B64;&#x5916;&#x5B83;&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E9B;&#x5176;&#x4ED6;&#x529F;&#x80FD;&#xFF0C;&#x5305;&#x62EC;&#x5B9A;&#x65F6;&#x7684;&#x9501;&#x7B49;&#x5F85;&#x3001;&#x53EF;&#x4E2D;&#x65AD;&#x7684;&#x9501;&#x7B49;&#x5F85;&#x3001;&#x516C;&#x5E73;&#x6027;&#xFF0C;&#x4EE5;&#x53CA;&#x5B9E;&#x73B0;&#x975E;&#x5757;&#x7ED3;&#x6784;&#x7684;&#x52A0;&#x9501;&#x3002;ReentrantLock&#x5728;&#x6027;&#x80FD;&#x4E0A;&#x4F3C;&#x4E4E;&#x4F18;&#x4E8E;&#x5185;&#x7F6E;&#x9501;&#xFF0C;&#x5176;&#x4E2D;&#x5728;Java6&#x4E2D;&#x7565;&#x6709;&#x80DC;&#x51FA;&#xFF0C;&#x5728;Java5&#x4E2D;&#x5219;&#x8FDC;&#x8FDC;&#x80DC;&#x51FA;&#x3002;ReentrantLock&#x7684;&#x5371;&#x9669;&#x6027;&#x6BD4;&#x540C;&#x6B65;&#x673A;&#x5236;&#x8981;&#x9AD8;&#xFF0C;&#x5982;&#x679C;&#x5FD8;&#x8BB0;&#x5728;finally&#x5757;&#x4E2D;&#x8C03;&#x7528;unlock&#xFF0C;&#x90A3;&#x4E48;&#x867D;&#x7136;&#x4EE3;&#x7801;&#x8868;&#x9762;&#x4E0A;&#x80FD;&#x6B63;&#x5E38;&#x8FD0;&#x884C;&#xFF0C;&#x4F46;&#x5B9E;&#x9645;&#x4E0A;&#x5DF2;&#x7ECF;&#x57CB;&#x4E0B;&#x4E86;&#x4E00;&#x9897;&#x5B9A;&#x65F6;&#x70B8;&#x5F39;&#xFF0C;&#x5E76;&#x5F88;&#x6709;&#x53EF;&#x80FD;&#x4F24;&#x53CA;&#x5176;&#x4ED6;&#x4EE3;&#x7801;&#x3002;&#x4EC5;&#x5F53;&#x5185;&#x7F6E;&#x9501;&#x4E0D;&#x80FD;&#x6EE1;&#x8DB3;&#x9700;&#x6C42;&#x65F6;&#xFF0C;&#x624D;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x4F7F;&#x7528;ReentrantLock&#x3002;</p>
+<p>&#x5728;&#x4E00;&#x4E9B;&#x5185;&#x7F6E;&#x9501;&#x65E0;&#x6CD5;&#x6EE1;&#x8DB3;&#x9700;&#x6C42;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;ReentrantLock&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x4E00;&#x79CD;&#x9AD8;&#x7EA7;&#x5DE5;&#x5177;&#x3002;&#x5F53;&#x9700;&#x8981;&#x4E00;&#x4E9B;&#x9AD8;&#x7EA7;&#x529F;&#x80FD;&#x65F6;&#x624D;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;ReentrantLock&#xFF0C;&#x8FD9;&#x4E9B;&#x529F;&#x80FD;&#x5305;&#x62EC;&#xFF1A;&#x53EF;&#x5B9A;&#x65F6;&#x7684;&#x3001;&#x53EF;&#x8F6E;&#x8BE2;&#x7684;&#x4E0E;&#x53EF;&#x4E2D;&#x65AD;&#x7684;&#x9501;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#xFF0C;&#x516C;&#x5E73;&#x961F;&#x5217;&#xFF0C;&#x4EE5;&#x53CA;&#x975E;&#x5757;&#x7ED3;&#x6784;&#x7684;&#x9501;&#x3002;&#x5426;&#x5219;&#xFF0C;&#x8FD8;&#x662F;&#x5E94;&#x8BE5;&#x4F18;&#x5148;&#x4F7F;&#x7528;<code>synchronized</code>&#x3002;</p>
+<p>ReentrantLock&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x79CD;&#x6807;&#x51C6;&#x7684;&#x4E92;&#x65A5;&#x9501;&#xFF1A;&#x6BCF;&#x6B21;&#x6700;&#x591A;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x80FD;&#x6301;&#x6709;ReentrantLock&#x3002;&#x4E92;&#x65A5;&#x662F;&#x4E00;&#x79CD;&#x4FDD;&#x5B88;&#x7684;&#x52A0;&#x9501;&#x7B56;&#x7565;&#xFF0C;&#x867D;&#x7136;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x201C;&#x5199;/&#x5199;&#x201D;&#x51B2;&#x7A81;&#x548C;&#x201C;&#x8BFB;/&#x5199;&#x201D;&#x51B2;&#x7A81;&#xFF0C;&#x4F46;&#x540C;&#x6837;&#x4E5F;&#x907F;&#x514D;&#x4E86;&#x201C;&#x8BFB;/&#x8BFB;&#x201D;&#x51B2;&#x7A81;&#x3002;</p>
+<p>&#x8BFB;&#x5199;&#x9501;&#xFF1A;&#x4E00;&#x4E2A;&#x8D44;&#x6E90;&#x53EF;&#x4EE5;&#x88AB;&#x591A;&#x4E2A;&#x8BFB;&#x64CD;&#x4F5C;&#x8BBF;&#x95EE;&#xFF0C;&#x6216;&#x8005;&#x88AB;&#x4E00;&#x4E2A;&#x5199;&#x64CD;&#x4F5C;&#x8BBF;&#x95EE;&#xFF0C;&#x4F46;&#x4E24;&#x8005;&#x4E0D;&#x80FD;&#x540C;&#x65F6;&#x8FDB;&#x884C;&#x3002;</p>
+<p>ReentrantReadWriteLock&#x4E3A;&#x8FD9;&#x4E24;&#x79CD;&#x9501;&#x90FD;&#x63D0;&#x4F9B;&#x4E86;&#x53EF;&#x91CD;&#x5165;&#x7684;&#x52A0;&#x9501;&#x8BED;&#x4E49;&#x3002;&#x4E0E;ReentrantLock&#x7C7B;&#x4F3C;&#xFF0C;ReentrantReadWriteLock&#x5728;&#x6784;&#x9020;&#x65F6;&#x4E5F;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x516C;&#x5E73;&#x7684;&#x9501;&#xFF08;&#x9ED8;&#x8BA4;&#xFF09;&#x8FD8;&#x662F;&#x4E00;&#x4E2A;&#x516C;&#x5E73;&#x7684;&#x9501;&#x3002;&#x5728;&#x516C;&#x5E73;&#x7684;&#x9501;&#x4E2D;&#xFF0C;&#x7B49;&#x5F85;&#x65F6;&#x95F4;&#x6700;&#x957F;&#x7684;&#x7EBF;&#x7A0B;&#x5C06;&#x4F18;&#x5148;&#x83B7;&#x53D6;&#x9501;&#x3002;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x9501;&#x7531;&#x8BFB;&#x7EBF;&#x7A0B;&#x6301;&#x6709;&#xFF0C;&#x800C;&#x53E6;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x8BF7;&#x6C42;&#x5199;&#x5165;&#x9501;&#xFF0C;&#x90A3;&#x4E48;&#x5176;&#x4ED6;&#x8BFB;&#x7EBF;&#x7A0B;&#x90FD;&#x4E0D;&#x80FD;&#x83B7;&#x5F97;&#x8BFB;&#x53D6;&#x9501;&#xFF0C;&#x76F4;&#x5230;&#x5199;&#x7EBF;&#x7A0B;&#x4F7F;&#x7528;&#x5B8C;&#x5E76;&#x4E14;&#x91CA;&#x653E;&#x4E86;&#x5199;&#x5165;&#x9501;&#x3002;&#x5728;&#x975E;&#x516C;&#x5E73;&#x7684;&#x9501;&#x4E2D;&#xFF0C;&#x7EBF;&#x7A0B;&#x83B7;&#x5F97;&#x8BBF;&#x95EE;&#x8BB8;&#x53EF;&#x7684;&#x987A;&#x5E8F;&#x662F;&#x4E0D;&#x786E;&#x5B9A;&#x7684;&#x3002;&#x5199;&#x7EBF;&#x7A0B;&#x964D;&#x7EA7;&#x4E3A;&#x8BFB;&#x7EBF;&#x7A0B;&#x662F;&#x53EF;&#x4EE5;&#x7684;&#xFF0C;&#x4F46;&#x4ECE;&#x8BFB;&#x7EBF;&#x7A0B;&#x5347;&#x7EA7;&#x4E3A;&#x5199;&#x7EBF;&#x7A0B;&#x5219;&#x662F;&#x4E0D;&#x53EF;&#x4EE5;&#x7684;&#xFF08;&#x8FD9;&#x6837;&#x505A;&#x4F1A;&#x5BFC;&#x81F4;&#x6B7B;&#x9501;&#xFF09;&#x3002;</p>
+<p>&#x8BFB;&#x5199;&#x9501;&#x5141;&#x8BB8;&#x591A;&#x4E2A;&#x8BFB;&#x7EBF;&#x7A0B;&#x5E76;&#x53D1;&#x5730;&#x8BBF;&#x95EE;&#x88AB;&#x4FDD;&#x62A4;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5F53;&#x8BBF;&#x95EE;&#x4EE5;&#x8BFB;&#x53D6;&#x64CD;&#x4F5C;&#x4E3A;&#x4E3B;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x65F6;&#xFF0C;&#x5B83;&#x80FD;&#x63D0;&#x9AD8;&#x7A0B;&#x5E8F;&#x7684;&#x53EF;&#x4F38;&#x7F29;&#x6027;&#x3002;</p>
 
                                 
                                 </section>
@@ -2006,7 +2352,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"13.显式锁","level":"1.3.13","depth":2,"next":{"title":"14.构建自定义的同步工具","level":"1.3.14","depth":2,"path":"jcip/ch14.md","ref":"jcip/ch14.md","articles":[]},"previous":{"title":"12.并发程序的测试","level":"1.3.12","depth":2,"path":"jcip/ch12.md","ref":"jcip/ch12.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"jcip/ch13.md","mtime":"2018-07-26T08:33:58.137Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-01T07:45:09.676Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"13.显式锁","level":"1.3.13","depth":2,"next":{"title":"14.构建自定义的同步工具","level":"1.3.14","depth":2,"path":"jcip/ch14.md","ref":"jcip/ch14.md","articles":[]},"previous":{"title":"12.并发程序的测试","level":"1.3.12","depth":2,"path":"jcip/ch12.md","ref":"jcip/ch12.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"jcip/ch13.md","mtime":"2019-08-05T14:29:22.253Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-08T16:21:28.776Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -1963,6 +1963,239 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="14&#x6784;&#x5EFA;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x540C;&#x6B65;&#x5DE5;&#x5177;">14.&#x6784;&#x5EFA;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x540C;&#x6B65;&#x5DE5;&#x5177;</h1>
+<p>&#x6B63;&#x5982;&#x6BCF;&#x4E2A;Java&#x5BF9;&#x8C61;&#x90FD;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x9501;&#xFF0C;&#x6BCF;&#x4E2A;&#x5BF9;&#x8C61;&#x540C;&#x6837;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x6761;&#x4EF6;&#x961F;&#x5217;&#xFF0C;&#x5E76;&#x4E14;Object&#x4E2D;&#x7684;wait&#x3001;notify&#x548C;notifyAll&#x65B9;&#x6CD5;&#x5C31;&#x6784;&#x6210;&#x4E86;&#x5185;&#x90E8;&#x6761;&#x4EF6;&#x961F;&#x5217;&#x7684;API&#x3002;&#x5BF9;&#x8C61;&#x7684;&#x5185;&#x7F6E;&#x9501;&#x4E0E;&#x5176;&#x5185;&#x90E8;&#x6761;&#x4EF6;&#x961F;&#x5217;&#x662F;&#x76F8;&#x4E92;&#x5173;&#x8054;&#x7684;&#xFF0C;&#x8981;&#x8C03;&#x7528;&#x5BF9;&#x8C61;X&#x4E2D;&#x6761;&#x4EF6;&#x961F;&#x5217;&#x7684;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x5FC5;&#x987B;&#x6301;&#x6709;&#x5BF9;&#x8C61;X&#x4E0A;&#x7684;&#x9501;&#x3002;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x201C;&#x7B49;&#x5F85;&#x7531;&#x72B6;&#x6001;&#x6784;&#x6210;&#x7684;&#x6761;&#x4EF6;&#x201D;&#x4E0E;&#x201C;&#x7EF4;&#x62A4;&#x72B6;&#x6001;&#x4E00;&#x81F4;&#x6027;&#x201D;&#x8FD9;&#x4E24;&#x79CD;&#x673A;&#x5236;&#x5FC5;&#x987B;&#x88AB;&#x7D27;&#x5BC6;&#x5730;&#x7ED1;&#x5B9A;&#x5728;&#x4E00;&#x8D77;&#xFF1A;&#x53EA;&#x6709;&#x80FD;&#x5BF9;&#x72B6;&#x6001;&#x8FDB;&#x884C;&#x68C0;&#x67E5;&#x65F6;&#xFF0C;&#x624D;&#x80FD;&#x5728;&#x67D0;&#x4E2A;&#x6761;&#x4EF6;&#x4E0A;&#x7B49;&#x5F85;&#xFF0C;&#x5E76;&#x4E14;&#x53EA;&#x6709;&#x80FD;&#x4FEE;&#x6539;&#x72B6;&#x6001;&#x65F6;&#xFF0C;&#x624D;&#x80FD;&#x4ECE;&#x6761;&#x4EF6;&#x7B49;&#x5F85;&#x4E2D;&#x91CA;&#x653E;&#x53E6;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x3002;</p>
+<p><code>Object.wait</code>&#x4F1A;&#x81EA;&#x52A8;&#x91CA;&#x653E;&#x9501;&#xFF0C;&#x5E76;&#x8BF7;&#x6C42;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x6302;&#x8D77;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#xFF0C;&#x4ECE;&#x800C;&#x4F7F;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x80FD;&#x591F;&#x83B7;&#x5F97;&#x8FD9;&#x4E2A;&#x9501;&#x5E76;&#x4FEE;&#x6539;&#x5BF9;&#x8C61;&#x7684;&#x72B6;&#x6001;&#x3002;&#x5F53;&#x88AB;&#x6302;&#x8D77;&#x7684;&#x7EBF;&#x7A0B;&#x9192;&#x6765;&#x65F6;&#xFF0C;&#x5B83;&#x5C06;&#x5728;&#x8FD4;&#x56DE;&#x4E4B;&#x524D;&#x91CD;&#x65B0;&#x83B7;&#x53D6;&#x9501;&#x3002;</p>
+<p>&#x8981;&#x60F3;&#x6B63;&#x786E;&#x5730;&#x4F7F;&#x7528;&#x6761;&#x4EF6;&#x961F;&#x5217;&#xFF0C;&#x5173;&#x952E;&#x662F;&#x627E;&#x51FA;&#x5BF9;&#x8C61;&#x5728;&#x54EA;&#x4E2A;&#x6761;&#x4EF6;&#x8C13;&#x8BCD;&#x4E0A;&#x7B49;&#x5F85;&#x3002;&#x6761;&#x4EF6;&#x8C13;&#x8BCD;&#x662F;&#x4F7F;&#x67D0;&#x4E2A;&#x64CD;&#x4F5C;&#x79F0;&#x4E3A;&#x72B6;&#x6001;&#x4F9D;&#x8D56;&#x64CD;&#x4F5C;&#x7684;&#x524D;&#x63D0;&#x6761;&#x4EF6;&#x3002;&#x5728;&#x6709;&#x754C;&#x7F13;&#x5B58;&#x4E2D;&#xFF0C;&#x53EA;&#x6709;&#x5F53;&#x7F13;&#x5B58;&#x4E0D;&#x4E3A;&#x7A7A;&#x65F6;&#xFF0C;take&#x65B9;&#x6CD5;&#x624D;&#x80FD;&#x6267;&#x884C;&#xFF0C;&#x5426;&#x5219;&#x5FC5;&#x987B;&#x7B49;&#x5F85;&#x3002;&#x5BF9;take&#x65B9;&#x6CD5;&#x6765;&#x8BF4;&#xFF0C;&#x5B83;&#x7684;&#x6761;&#x4EF6;&#x8C13;&#x8BCD;&#x5C31;&#x662F;&#x201C;&#x7F13;&#x5B58;&#x4E0D;&#x4E3A;&#x7A7A;&#x201D;&#xFF0C;take&#x65B9;&#x6CD5;&#x5728;&#x6267;&#x884C;&#x4E4B;&#x524D;&#x5FC5;&#x987B;&#x9996;&#x5148;&#x6D4B;&#x8BD5;&#x8BE5;&#x6761;&#x4EF6;&#x8C13;&#x8BCD;&#x3002;&#x540C;&#x6837;&#xFF0C;put&#x65B9;&#x6CD5;&#x7684;&#x6761;&#x4EF6;&#x8C13;&#x8BCD;&#x662F;&#x7F13;&#x5B58;&#x4E0D;&#x6EE1;&#x3002;&#x6761;&#x4EF6;&#x8C13;&#x8BCD;&#x662F;&#x7531;&#x7C7B;&#x4E2D;&#x5404;&#x4E2A;&#x72B6;&#x6001;&#x53D8;&#x91CF;&#x6784;&#x6210;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x3002;BaseBoundedBuffer&#x5728;&#x6D4B;&#x8BD5;&#x201C;&#x7F13;&#x5B58;&#x4E0D;&#x4E3A;&#x7A7A;&#x201D;&#x65F6;&#x5C06;&#x628A;count&#x4E0E;0&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#xFF0C;&#x5728;&#x6D4B;&#x8BD5;&#x201C;&#x7F13;&#x5B58;&#x4E0D;&#x6EE1;&#x201D;&#x65F6;&#x5C06;&#x628A;count&#x4E0E;&#x7F13;&#x5B58;&#x7684;&#x5927;&#x5C0F;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#x3002;</p>
+<p>&#x5728;&#x6761;&#x4EF6;&#x7B49;&#x5F85;&#x4E2D;&#x5B58;&#x5728;&#x4E00;&#x79CD;&#x91CD;&#x8981;&#x7684;&#x4E09;&#x5143;&#x5173;&#x7CFB;&#xFF0C;&#x5305;&#x62EC;&#x52A0;&#x9501;&#x3001;wait&#x65B9;&#x6CD5;&#x548C;&#x4E00;&#x4E2A;&#x6761;&#x4EF6;&#x8C13;&#x8BCD;&#x3002;&#x5728;&#x6761;&#x4EF6;&#x8C13;&#x8BCD;&#x4E2D;&#x5305;&#x542B;&#x591A;&#x4E2A;&#x72B6;&#x6001;&#x53D8;&#x91CF;&#xFF0C;&#x800C;&#x72B6;&#x6001;&#x53D8;&#x91CF;&#x7531;&#x4E00;&#x4E2A;&#x9501;&#x6765;&#x4FDD;&#x62A4;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x6D4B;&#x8BD5;&#x6761;&#x4EF6;&#x8C13;&#x8BCD;&#x4E4B;&#x524D;&#x5FC5;&#x987B;&#x5148;&#x6301;&#x6709;&#x8FD9;&#x4E2A;&#x9501;&#x3002;&#x9501;&#x5BF9;&#x8C61;&#x4E0E;&#x6761;&#x4EF6;&#x961F;&#x5217;&#x5BF9;&#x8C61;&#xFF08;&#x5373;&#x8C03;&#x7528;wait&#x548C;notify&#x7B49;&#x65B9;&#x6CD5;&#x6240;&#x5728;&#x7684;&#x5BF9;&#x8C61;&#xFF09;&#x5FC5;&#x987B;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">stateDependentMethod</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> InterruptedException </span>{
+    <span class="hljs-comment">// &#x5FC5;&#x987B;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x9501;&#x6765;&#x4FDD;&#x62A4;&#x6761;&#x4EF6;&#x8C13;&#x8BCD;</span>
+    <span class="hljs-keyword">synchronized</span>(lock) {
+        <span class="hljs-keyword">while</span>( !conditionPredicate() ) {
+            lock.wait();
+        }
+        <span class="hljs-comment">// &#x73B0;&#x5728;&#x5BF9;&#x8C61;&#x5904;&#x4E8E;&#x5408;&#x9002;&#x7684;&#x72B6;&#x6001;</span>
+    }
+}
+</code></pre>
+<p>&#x5F53;&#x4F7F;&#x7528;&#x6761;&#x4EF6;&#x7B49;&#x5F85;&#x65F6;&#xFF08;&#x4F8B;&#x5982;Object.wait&#x6216;Condition.await&#xFF09;:</p>
+<ul>
+<li>&#x901A;&#x5E38;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x6761;&#x4EF6;&#x8C13;&#x8BCD;&#x2014;&#x2014;&#x5305;&#x62EC;&#x4E00;&#x4E9B;&#x5BF9;&#x8C61;&#x72B6;&#x6001;&#x7684;&#x6D4B;&#x8BD5;&#xFF0C;&#x7EBF;&#x7A0B;&#x5728;&#x6267;&#x884C;&#x524D;&#x5FC5;&#x987B;&#x9996;&#x5148;&#x901A;&#x8FC7;&#x8FD9;&#x4E9B;&#x6D4B;&#x8BD5;</li>
+<li>&#x5728;&#x8C03;&#x7528;wait&#x4E4B;&#x524D;&#x6D4B;&#x8BD5;&#x6761;&#x4EF6;&#x8C13;&#x8BCD;&#xFF0C;&#x5E76;&#x4E14;&#x4ECE;wait&#x4E2D;&#x8FD4;&#x56DE;&#x65F6;&#x518D;&#x6B21;&#x6D4B;&#x8BD5;</li>
+<li>&#x5728;&#x4E00;&#x4E2A;&#x5FAA;&#x73AF;&#x4E2D;&#x8C03;&#x7528;wait</li>
+<li>&#x786E;&#x4FDD;&#x4F7F;&#x7528;&#x4E0E;&#x6761;&#x4EF6;&#x961F;&#x5217;&#x76F8;&#x5173;&#x7684;&#x9501;&#x6765;&#x4FDD;&#x62A4;&#x6784;&#x6210;&#x6761;&#x4EF6;&#x8C13;&#x8BCD;&#x7684;&#x5404;&#x4E2A;&#x72B6;&#x6001;&#x53D8;&#x91CF;</li>
+<li>&#x5F53;&#x8C03;&#x7528;wait&#x3001;notify&#x6216;notifyAll&#x7B49;&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;&#x4E00;&#x5B9A;&#x8981;&#x6301;&#x6709;&#x4E0E;&#x6761;&#x4EF6;&#x961F;&#x5217;&#x76F8;&#x5173;&#x7684;&#x9501;</li>
+<li>&#x5728;&#x68C0;&#x67E5;&#x6761;&#x4EF6;&#x8C13;&#x8BCD;&#x4E4B;&#x540E;&#x4EE5;&#x53CA;&#x5F00;&#x59CB;&#x6267;&#x884C;&#x76F8;&#x5E94;&#x7684;&#x64CD;&#x4F5C;&#x4E4B;&#x524D;&#xFF0C;&#x4E0D;&#x8981;&#x91CA;&#x653E;&#x9501;&#x3002;</li>
+</ul>
+<p>&#x6BCF;&#x5F53;&#x5728;&#x7B49;&#x5F85;&#x4E00;&#x4E2A;&#x6761;&#x4EF6;&#x65F6;&#xFF0C;&#x4E00;&#x5B9A;&#x8981;&#x786E;&#x4FDD;&#x5728;&#x6761;&#x4EF6;&#x8C13;&#x8BCD;&#x53D8;&#x4E3A;&#x771F;&#x65F6;&#x901A;&#x8FC7;&#x67D0;&#x79CD;&#x65B9;&#x5F0F;&#x53D1;&#x51FA;&#x901A;&#x77E5;&#x3002;</p>
+<p>&#x5728;&#x6761;&#x4EF6;&#x961F;&#x5217;API&#x4E2D;&#x6709;&#x4E24;&#x4E2A;&#x53D1;&#x51FA;&#x901A;&#x77E5;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5373;notify&#x548C;notifyAll&#x3002;&#x65E0;&#x8BBA;&#x8C03;&#x7528;&#x54EA;&#x4E00;&#x4E2A;&#xFF0C;&#x90FD;&#x5FC5;&#x987B;&#x6301;&#x6709;&#x4E0E;&#x6761;&#x4EF6;&#x961F;&#x5217;&#x5BF9;&#x8C61;&#x76F8;&#x5173;&#x8054;&#x7684;&#x9501;&#x3002;&#x5728;&#x8C03;&#x7528;notify&#x65F6;&#xFF0C;JVM&#x4F1A;&#x4ECE;&#x8FD9;&#x4E2A;&#x6761;&#x4EF6;&#x961F;&#x5217;&#x4E0A;&#x7B49;&#x5F85;&#x7684;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x4E2D;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x6765;&#x5524;&#x9192;&#xFF0C;&#x800C;&#x8C03;&#x7528;notifyAll&#x5219;&#x4F1A;&#x5524;&#x9192;&#x6240;&#x6709;&#x5728;&#x8FD9;&#x4E2A;&#x6761;&#x4EF6;&#x961F;&#x5217;&#x4E0A;&#x7B49;&#x5F85;&#x7684;&#x7EBF;&#x7A0B;&#x3002;&#x7531;&#x4E8E;&#x5728;&#x8C03;&#x7528;notify&#x6216;notifyAll&#x65F6;&#x5FC5;&#x987B;&#x6301;&#x6709;&#x6761;&#x4EF6;&#x961F;&#x5217;&#x5BF9;&#x8C61;&#x7684;&#x9501;&#xFF0C;&#x800C;&#x5982;&#x679C;&#x8FD9;&#x4E9B;&#x7B49;&#x5F85;&#x4E2D;&#x7EBF;&#x7A0B;&#x6B64;&#x65F6;&#x4E0D;&#x80FD;&#x91CD;&#x65B0;&#x83B7;&#x5F97;&#x9501;&#xFF0C;&#x90A3;&#x4E48;&#x65E0;&#x6CD5;&#x4ECE;wait&#x8FD4;&#x56DE;&#xFF0C;&#x56E0;&#x6B64;&#x53D1;&#x51FA;&#x901A;&#x77E5;&#x7684;&#x7EBF;&#x7A0B;&#x5E94;&#x8BE5;&#x5C3D;&#x5FEB;&#x5730;&#x91CA;&#x653E;&#x9501;&#xFF0C;&#x4ECE;&#x800C;&#x786E;&#x4FDD;&#x6B63;&#x5728;&#x7B49;&#x5F85;&#x7684;&#x7EBF;&#x7A0B;&#x5C3D;&#x53EF;&#x80FD;&#x5FEB;&#x5730;&#x89E3;&#x9664;&#x963B;&#x585E;&#x3002;</p>
+<p>&#x53EA;&#x6709;&#x540C;&#x65F6;&#x6EE1;&#x8DB3;&#x4EE5;&#x4E0B;&#x4E24;&#x4E2A;&#x6761;&#x4EF6;&#x65F6;&#xFF0C;&#x624D;&#x80FD;&#x7528;&#x5355;&#x4E00;&#x7684;notify&#x800C;&#x4E0D;&#x662F;notifyAll&#xFF1A;</p>
+<ul>
+<li>&#x6240;&#x6709;&#x7B49;&#x5F85;&#x7EBF;&#x7A0B;&#x7684;&#x7C7B;&#x578B;&#x90FD;&#x76F8;&#x540C;&#x3002;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x6761;&#x4EF6;&#x8C13;&#x8BCD;&#x4E0E;&#x6761;&#x4EF6;&#x961F;&#x5217;&#x76F8;&#x5173;&#xFF0C;&#x5E76;&#x4E14;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x5728;&#x4ECE;wait&#x8FD4;&#x56DE;&#x540E;&#x5C06;&#x6267;&#x884C;&#x76F8;&#x540C;&#x7684;&#x64CD;&#x4F5C;&#x3002;</li>
+<li>&#x5355;&#x8FDB;&#x5355;&#x51FA;&#x3002;&#x5728;&#x6761;&#x4EF6;&#x53D8;&#x91CF;&#x4E0A;&#x7684;&#x6BCF;&#x6B21;&#x901A;&#x77E5;&#xFF0C;&#x6700;&#x591A;&#x53EA;&#x80FD;&#x5524;&#x9192;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6765;&#x6267;&#x884C;&#x3002;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadGate</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> isOpen;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> generation;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-title">close</span><span class="hljs-params">()</span> </span>{
+        isOpen = <span class="hljs-keyword">false</span>;
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-title">open</span><span class="hljs-params">()</span> </span>{
+        ++generation;
+        isOpen = <span class="hljs-keyword">true</span>;
+        notifyAll();
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-title">await</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> InterruptedException </span>{
+        <span class="hljs-keyword">int</span> arrivalGeneration = generation;
+        <span class="hljs-keyword">while</span> (!isOpen &amp;&amp; arrivalGeneration == generation) {
+            wait();
+        }
+    }
+}
+</code></pre>
+<p>&#x5982;&#x679C;&#x9600;&#x95E8;&#x6253;&#x5F00;&#x65F6;&#x6709;N&#x4E2A;&#x7EBF;&#x7A0B;&#x6B63;&#x5728;&#x7B49;&#x5F85;&#x5B83;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E9B;&#x7EBF;&#x7A0B;&#x90FD;&#x5E94;&#x8BE5;&#x88AB;&#x5141;&#x8BB8;&#x6267;&#x884C;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x5982;&#x679C;&#x9600;&#x95E8;&#x5728;&#x6253;&#x5F00;&#x540E;&#x53C8;&#x975E;&#x5E38;&#x5FEB;&#x901F;&#x5730;&#x5173;&#x95ED;&#x4E86;&#xFF0C;&#x5E76;&#x4E14;await&#x65B9;&#x6CD5;&#x53EA;&#x68C0;&#x67E5;isOpen&#xFF0C;&#x90A3;&#x4E48;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#x90FD;&#x53EF;&#x80FD;&#x65E0;&#x6CD5;&#x91CA;&#x653E;&#xFF1A;&#x5F53;&#x6240;&#x6709;&#x7F16;&#x7A0B;&#x6536;&#x5230;&#x901A;&#x77E5;&#x65F6;&#xFF0C;&#x5C06;&#x91CD;&#x65B0;&#x8BF7;&#x6C42;&#x9501;&#x5E76;&#x9000;&#x51FA;wait&#xFF0C;&#x800C;&#x6B64;&#x65F6;&#x7684;&#x9600;&#x95E8;&#x53EF;&#x80FD;&#x5DF2;&#x7ECF;&#x518D;&#x6B21;&#x5173;&#x95ED;&#x4E86;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5728;ThreadGate&#x4E2D;&#x4F7F;&#x7528;&#x4E86;&#x4E00;&#x4E2A;&#x66F4;&#x590D;&#x6742;&#x7684;&#x6761;&#x4EF6;&#x8C13;&#x8BCD;&#xFF1A;&#x6BCF;&#x6B21;&#x9600;&#x95E8;&#x5F00;&#x542F;&#x65F6;&#xFF0C;&#x9012;&#x589E;&#x4E00;&#x4E2A;generation&#x8BA1;&#x6570;&#x5668;&#xFF0C;&#x5982;&#x679C;&#x9600;&#x95E8;&#x73B0;&#x5728;&#x662F;&#x6253;&#x5F00;&#x7684;&#xFF0C;&#x6216;&#x8005;&#x9600;&#x95E8;&#x81EA;&#x4ECE;&#x8BE5;&#x7EBF;&#x7A0B;&#x5230;&#x8FBE;&#x540E;&#x5C31;&#x4E00;&#x76F4;&#x662F;&#x6253;&#x5F00;&#x7684;&#xFF0C;&#x90A3;&#x4E48;&#x7EBF;&#x7A0B;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;await&#x3002;&#xFF08;&#x6709;&#x70B9;&#x8D39;&#x89E3;&#xFF09;</p>
+<p>&#x5185;&#x7F6E;&#x6761;&#x4EF6;&#x961F;&#x5217;&#x5B58;&#x5728;&#x4E00;&#x4E9B;&#x7F3A;&#x9677;&#x3002;&#x6BCF;&#x4E2A;&#x5185;&#x7F6E;&#x9501;&#x90FD;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x76F8;&#x5173;&#x8054;&#x7684;&#x6761;&#x4EF6;&#x961F;&#x5217;&#xFF0C;&#x56E0;&#x800C;&#x5728;&#x50CF;BoundedBuffer&#x8FD9;&#x79CD;&#x7C7B;&#x4E2D;&#xFF0C;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x53EF;&#x80FD;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x6761;&#x4EF6;&#x961F;&#x5217;&#x4E0A;&#x7B49;&#x5F85;&#x4E0D;&#x540C;&#x7684;&#x6761;&#x4EF6;&#x8C13;&#x8BCD;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x52A0;&#x9501;&#x6A21;&#x5F0F;&#x4E0B;&#x516C;&#x5F00;&#x6761;&#x4EF6;&#x961F;&#x5217;&#x5BF9;&#x8C61;&#x3002;&#x8FD9;&#x4E9B;&#x56E0;&#x7D20;&#x90FD;&#x4F7F;&#x5F97;&#x65E0;&#x6CD5;&#x6EE1;&#x8DB3;&#x5728;&#x4F7F;&#x7528;notifyAll&#x65F6;&#x6240;&#x6709;&#x7B49;&#x5F85;&#x7EBF;&#x7A0B;&#x4E3A;&#x540C;&#x4E00;&#x7C7B;&#x578B;&#x7684;&#x9700;&#x6C42;&#x3002;&#x5982;&#x679C;&#x60F3;&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x5E26;&#x6709;&#x591A;&#x4E2A;&#x6761;&#x4EF6;&#x8C13;&#x8BCD;&#x7684;&#x5E76;&#x53D1;&#x5BF9;&#x8C61;&#xFF0C;&#x6216;&#x8005;&#x60F3;&#x83B7;&#x5F97;&#x9664;&#x4E86;&#x6761;&#x4EF6;&#x961F;&#x5217;&#x53EF;&#x89C1;&#x6027;&#x4E4B;&#x5916;&#x7684;&#x66F4;&#x591A;&#x63A7;&#x5236;&#x6743;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x663E;&#x5F0F;&#x7684;Lock&#x548C;Condition&#x800C;&#x4E0D;&#x662F;&#x5185;&#x7F6E;&#x9501;&#x548C;&#x6761;&#x4EF6;&#x961F;&#x5217;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x79CD;&#x66F4;&#x7075;&#x6D3B;&#x7684;&#x9009;&#x62E9;&#x3002;&#x4E00;&#x4E2A;Condition&#x548C;&#x4E00;&#x4E2A;Lock&#x5173;&#x8054;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x5C31;&#x50CF;&#x4E00;&#x4E2A;&#x6761;&#x4EF6;&#x961F;&#x5217;&#x548C;&#x4E00;&#x4E2A;&#x5185;&#x7F6E;&#x9501;&#x76F8;&#x5173;&#x8054;&#x4E00;&#x6837;&#x3002;&#x8981;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Condition&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x76F8;&#x5173;&#x8054;&#x7684;Lock&#x4E0A;&#x8C03;&#x7528;Lock.newCondition&#x65B9;&#x6CD5;&#x3002;&#x6B63;&#x5982;Lock&#x6BD4;&#x5185;&#x7F6E;&#x9501;&#x63D0;&#x4F9B;&#x4E86;&#x66F4;&#x4E3A;&#x4E30;&#x5BCC;&#x7684;&#x529F;&#x80FD;&#xFF0C;Condition&#x540C;&#x6837;&#x6BD4;&#x5185;&#x7F6E;&#x6761;&#x4EF6;&#x961F;&#x5217;&#x63D0;&#x4F9B;&#x4E86;&#x66F4;&#x4E30;&#x5BCC;&#x7684;&#x529F;&#x80FD;&#xFF1A;&#x5728;&#x6BCF;&#x4E2A;&#x9501;&#x4E0A;&#x53EF;&#x5B58;&#x5728;&#x591A;&#x4E2A;&#x7B49;&#x5F85;&#x3001;&#x6761;&#x4EF6;&#x7B49;&#x5F85;&#x53EF;&#x4EE5;&#x662F;&#x53EF;&#x4E2D;&#x65AD;&#x7684;&#x6216;&#x4E0D;&#x53EF;&#x4E2D;&#x65AD;&#x7684;&#x3001;&#x57FA;&#x4E8E;&#x65F6;&#x9650;&#x7684;&#x7B49;&#x5F85;&#xFF0C;&#x4EE5;&#x53CA;&#x516C;&#x5E73;&#x7684;&#x6216;&#x975E;&#x516C;&#x5E73;&#x7684;&#x6761;&#x4EF6;&#x961F;&#x5217;&#x64CD;&#x4F5C;&#x3002;&#x4E0E;&#x5185;&#x7F6E;&#x6761;&#x4EF6;&#x961F;&#x5217;&#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;&#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;Lock&#xFF0C;&#x53EF;&#x4EE5;&#x7531;&#x4EFB;&#x610F;&#x6570;&#x91CF;&#x7684;Condition&#x5BF9;&#x8C61;&#x3002;Condition&#x5BF9;&#x8C61;&#x7EE7;&#x627F;&#x4E86;&#x76F8;&#x5173;&#x7684;Lock&#x5BF9;&#x8C61;&#x7684;&#x516C;&#x5E73;&#x6027;&#xFF0C;&#x5BF9;&#x4E8E;&#x516C;&#x5E73;&#x7684;&#x9501;&#xFF0C;&#x7EBF;&#x7A0B;&#x4F1A;&#x6309;&#x7167;FIFO&#x987A;&#x5E8F;&#x4ECE;Condition.await&#x4E2D;&#x91CA;&#x653E;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConditionBoundedBuffer</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">final</span> Lock lock = <span class="hljs-keyword">new</span> ReentrantLock();
+    <span class="hljs-comment">// &#x6761;&#x4EF6;&#x8C13;&#x8BCD;&#xFF1A;notFull (count &lt; items.length)</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Condition notFull = lock.newCondition();
+    <span class="hljs-comment">// &#x6761;&#x4EF6;&#x8C13;&#x8BCD;&#xFF1A;notEmpty (count&gt;0)</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Condition notEmpty = lock.newCondition();
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> T[] items;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> head,tail,count;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ConditionBoundedBuffer</span><span class="hljs-params">(<span class="hljs-keyword">int</span> limit)</span> </span>{
+        items = (T[]) <span class="hljs-keyword">new</span> Object[limit];
+    }
+
+    <span class="hljs-comment">// &#x963B;&#x585E;&#x5E76;&#x76F4;&#x5230;&#xFF1A; notFull</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">put</span><span class="hljs-params">(T x)</span> <span class="hljs-keyword">throws</span> InterruptedException </span>{
+        lock.lock();
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-keyword">while</span> (count == items.length) {
+                notFull.await();
+            }
+            items[tail] = x;
+            <span class="hljs-keyword">if</span> (++tail == items.length) {
+                tail = <span class="hljs-number">0</span>;
+            }
+            count++;
+            notEmpty.signal();
+        } <span class="hljs-keyword">finally</span> {
+            lock.unlock();
+        }
+    }
+    <span class="hljs-comment">// &#x963B;&#x585E;&#x5E76;&#x76F4;&#x5230;&#xFF1A; notEmpty</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> T <span class="hljs-title">take</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> InterruptedException </span>{
+        lock.lock();
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-keyword">while</span> (count == <span class="hljs-number">0</span>) {
+                notEmpty.await();
+            }
+            T x = items[head];
+            items[head] = <span class="hljs-keyword">null</span>;
+            <span class="hljs-keyword">if</span> (++head == items.length) {
+                head = <span class="hljs-number">0</span>;
+            }
+            count--;
+            notFull.signal();
+            <span class="hljs-keyword">return</span> x;
+        } <span class="hljs-keyword">finally</span> {
+            lock.unlock();
+        }
+    }
+}
+</code></pre>
+<p>&#x901A;&#x8FC7;&#x5C06;&#x4E24;&#x4E2A;&#x6761;&#x4EF6;&#x8C13;&#x8BCD;&#x5206;&#x5F00;&#x5E76;&#x653E;&#x5230;&#x4E24;&#x4E2A;&#x7B49;&#x5F85;&#x7EBF;&#x7A0B;&#x96C6;&#x4E2D;&#xFF0C;Condition&#x4F7F;&#x5176;&#x66F4;&#x5BB9;&#x6613;&#x6EE1;&#x8DB3;&#x5355;&#x6B21;&#x901A;&#x77E5;&#x7684;&#x9700;&#x6C42;&#x3002;signal&#x6BD4;signalAll&#x66F4;&#x9AD8;&#x6548;&#xFF0C;&#x5B83;&#x80FD;&#x6781;&#x5927;&#x5730;&#x51CF;&#x5C11;&#x5728;&#x6BCF;&#x6B21;&#x7F13;&#x5B58;&#x64CD;&#x4F5C;&#x4E2D;&#x53D1;&#x751F;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x5207;&#x6362;&#x4E0E;&#x9501;&#x8BF7;&#x6C42;&#x7684;&#x6B21;&#x6570;&#x3002;</p>
+<p>&#x4E0E;&#x5185;&#x7F6E;&#x9501;&#x548C;&#x6761;&#x4EF6;&#x961F;&#x5217;&#x4E00;&#x6837;&#xFF0C;&#x5F53;&#x4F7F;&#x7528;&#x663E;&#x5F0F;&#x7684;Lock&#x548C;Condition&#x65F6;&#xFF0C;&#x4E5F;&#x5FC5;&#x987B;&#x6EE1;&#x8DB3;&#x9501;&#x3001;&#x6761;&#x4EF6;&#x8C13;&#x8BCD;&#x548C;&#x6761;&#x4EF6;&#x53D8;&#x91CF;&#x4E4B;&#x95F4;&#x7684;&#x4E09;&#x5143;&#x5173;&#x7CFB;&#x3002;&#x5728;&#x6761;&#x4EF6;&#x8C13;&#x8BCD;&#x4E2D;&#x5305;&#x542B;&#x7684;&#x53D8;&#x91CF;&#x5FC5;&#x987B;&#x7531;Lock&#x6765;&#x4FDD;&#x62A4;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x68C0;&#x67E5;&#x6761;&#x4EF6;&#x8C13;&#x8BCD;&#x4EE5;&#x53CA;&#x8C03;&#x7528;await&#x548C;signal&#x65F6;&#xFF0C;&#x5FC5;&#x987B;&#x6301;&#x6709;Lock&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x5728;ReentrantLock&#x548C;Semaphore&#x8FD9;&#x4E24;&#x4E2A;&#x63A5;&#x53E3;&#x4E4B;&#x95F4;&#x5B58;&#x5728;&#x8BB8;&#x591A;&#x5171;&#x540C;&#x70B9;&#x3002;&#x8FD9;&#x4E24;&#x4E2A;&#x7C7B;&#x90FD;&#x53EF;&#x4EE5;&#x7528;&#x4F5C;&#x4E00;&#x4E2A;&#x201C;&#x9600;&#x95E8;&#x201D;&#xFF0C;&#x5373;&#x6BCF;&#x6B21;&#x53EA;&#x5141;&#x8BB8;&#x4E00;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x7EBF;&#x7A0B;&#x901A;&#x8FC7;&#xFF0C;&#x5E76;&#x5F53;&#x7EBF;&#x7A0B;&#x5230;&#x8FBE;&#x9600;&#x95E8;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#xFF08;&#x5728;&#x8C03;&#x7528;lock&#x6216;acquire&#x65F6;&#x8FD4;&#x56DE;&#x6210;&#x529F;&#xFF09;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7B49;&#x5F85;&#xFF08;&#x5728;&#x8C03;&#x7528;lock&#x6216;acquire&#x65F6;&#x963B;&#x585E;&#xFF09;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x53D6;&#x6D88;&#xFF08;&#x5728;&#x8C03;&#x7528;tryLock&#x6216;tryAcquire&#x65F6;&#x8FD4;&#x56DE;&#x201C;&#x5047;&#x201D;&#xFF0C;&#x8868;&#x793A;&#x5728;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#x5185;&#x9501;&#x662F;&#x4E0D;&#x53EF;&#x7528;&#x7684;&#x6216;&#x8005;&#x65E0;&#x6CD5;&#x83B7;&#x5F97;&#x8BB8;&#x53EF;&#xFF09;&#x3002;&#x800C;&#x4E14;&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x63A5;&#x53E3;&#x90FD;&#x652F;&#x6301;&#x53EF;&#x4E2D;&#x65AD;&#x7684;&#x3001;&#x4E0D;&#x53EF;&#x4E2D;&#x65AD;&#x7684;&#x4EE5;&#x53CA;&#x9650;&#x65F6;&#x7684;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#xFF0C;&#x5E76;&#x4E14;&#x4E5F;&#x90FD;&#x652F;&#x6301;&#x7B49;&#x5F85;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x516C;&#x5E73;&#x6216;&#x975E;&#x516C;&#x5E73;&#x7684;&#x961F;&#x5217;&#x64CD;&#x4F5C;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SemaphoreOnLock</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Lock lock = <span class="hljs-keyword">new</span> ReentrantLock();
+    <span class="hljs-comment">// &#x6761;&#x4EF6;&#x8C13;&#x8BCD;&#xFF1A; permitsAvailable (permits &gt; 0)</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Condition permitsAvailable = lock.newCondition();
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> permits;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">SemaphoreOnLock</span><span class="hljs-params">(<span class="hljs-keyword">int</span> initialPermits)</span> </span>{
+        lock.lock();
+        <span class="hljs-keyword">try</span> {
+            permits = initialPermits;
+        } <span class="hljs-keyword">finally</span> {
+            lock.unlock();
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">acquire</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> InterruptedException </span>{
+        lock.lock();
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-keyword">while</span> (permits &lt;= <span class="hljs-number">0</span>) {
+                permitsAvailable.await();
+            }
+            --permits;
+        } <span class="hljs-keyword">finally</span> {
+            lock.unlock();
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">release</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> InterruptedException </span>{
+        lock.lock();
+        <span class="hljs-keyword">try</span> {
+            ++permits;
+            permitsAvailable.signal();
+        } <span class="hljs-keyword">finally</span> {
+            lock.unlock();
+        }
+    }
+}
+</code></pre>
+<p>&#x5728;&#x57FA;&#x4E8E;AQS&#x6784;&#x5EFA;&#x7684;&#x540C;&#x6B65;&#x5668;&#x7C7B;&#x4E2D;&#xFF0C;&#x6700;&#x57FA;&#x672C;&#x7684;&#x64CD;&#x4F5C;&#x5305;&#x62EC;&#x5404;&#x79CD;&#x5F62;&#x5F0F;&#x7684;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#x548C;&#x91CA;&#x653E;&#x64CD;&#x4F5C;&#x3002;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#x65F6;&#x4E00;&#x79CD;&#x4F9D;&#x8D56;&#x72B6;&#x6001;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x5E76;&#x4E14;&#x901A;&#x5E38;&#x4F1A;&#x963B;&#x585E;&#x3002;&#x5F53;&#x4F7F;&#x7528;&#x9501;&#x6216;&#x4FE1;&#x53F7;&#x91CF;&#x65F6;&#xFF0C;&#x201C;&#x83B7;&#x53D6;&#x201D;&#x64CD;&#x4F5C;&#x7684;&#x542B;&#x4E49;&#x5C31;&#x5F88;&#x76F4;&#x89C2;&#xFF0C;&#x5373;&#x83B7;&#x53D6;&#x7684;&#x4E8B;&#x9501;&#x6216;&#x8005;&#x8BB8;&#x53EF;&#xFF0C;&#x5E76;&#x4E14;&#x8C03;&#x7528;&#x8005;&#x53EF;&#x80FD;&#x4F1A;&#x4E00;&#x76F4;&#x7B49;&#x5F85;&#x77E5;&#x9053;&#x540C;&#x6B65;&#x5668;&#x7C7B;&#x5904;&#x4E8E;&#x53EF;&#x88AB;&#x83B7;&#x53D6;&#x7684;&#x72B6;&#x6001;&#x3002;&#x5728;&#x4F7F;&#x7528;CountDownLatch&#x65F6;&#xFF0C;&#x201C;&#x83B7;&#x53D6;&#x201D;&#x64CD;&#x4F5C;&#x610F;&#x5473;&#x7740;&#x201C;&#x7B49;&#x5F85;&#x5E76;&#x76F4;&#x5230;&#x95ED;&#x9501;&#x5230;&#x8FBE;&#x7ED3;&#x675F;&#x72B6;&#x6001;&#x201D;&#xFF0C;&#x800C;&#x5728;&#x4F7F;&#x7528;FutureTask&#x65F6;&#xFF0C;&#x5219;&#x610F;&#x5473;&#x7740;&#x201C;&#x7B49;&#x5F85;&#x5E76;&#x76F4;&#x5230;&#x4EFB;&#x52A1;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x201D;&#x3002;&#x201C;&#x91CA;&#x653E;&#x201D;&#x5E76;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x963B;&#x585E;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x5F53;&#x6267;&#x884C;&#x201C;&#x91CA;&#x653E;&#x201D;&#x64CD;&#x4F5C;&#x65F6;&#xFF0C;&#x6240;&#x6709;&#x5728;&#x8BF7;&#x6C42;&#x65F6;&#x88AB;&#x963B;&#x585E;&#x7684;&#x7EBF;&#x7A0B;&#x90FD;&#x4F1A;&#x5F00;&#x59CB;&#x6267;&#x884C;&#x3002;</p>
+<p>AQS&#x8D1F;&#x8D23;&#x7BA1;&#x7406;&#x540C;&#x6B65;&#x5668;&#x7C7B;&#x4E2D;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x5B83;&#x7BA1;&#x7406;&#x4E86;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#x72B6;&#x6001;&#x4FE1;&#x606F;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>getState</code>&#xFF0C;<code>setState</code>&#x4EE5;&#x53CA;<code>compareAndSetState</code>&#x7B49;protected&#x7C7B;&#x578B;&#x65B9;&#x6CD5;&#x6765;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x3002;&#x8FD9;&#x4E2A;&#x6574;&#x6570;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x8868;&#x793A;&#x4EFB;&#x610F;&#x72B6;&#x6001;&#x3002;&#x4F8B;&#x5982;&#xFF0C;ReentrantLock&#x7528;&#x5B83;&#x6765;&#x8868;&#x793A;&#x6240;&#x6709;&#x8005;&#x7EBF;&#x7A0B;&#x5DF2;&#x7ECF;&#x91CD;&#x590D;&#x83B7;&#x53D6;&#x8BE5;&#x9501;&#x7684;&#x6B21;&#x6570;&#xFF0C;Semaphore&#x7528;&#x5B83;&#x6765;&#x8868;&#x793A;&#x5269;&#x4F59;&#x7684;&#x8BB8;&#x53EF;&#x6570;&#x91CF;&#xFF0C;FutureTask&#x7528;&#x5B83;&#x6765;&#x8868;&#x793A;&#x4EFB;&#x52A1;&#x7684;&#x72B6;&#x6001;&#xFF08;&#x5C1A;&#x672A;&#x5F00;&#x59CB;&#x3001;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x3001;&#x5DF2;&#x5B8C;&#x6210;&#x4EE5;&#x53CA;&#x5DF2;&#x53D6;&#x6D88;&#xFF09;&#x3002;&#x5728;&#x540C;&#x6B65;&#x5668;&#x7C7B;&#x4E2D;&#x8FD8;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x7BA1;&#x7406;&#x4E00;&#x4E9B;&#x989D;&#x5916;&#x7684;&#x72B6;&#x6001;&#x53D8;&#x91CF;&#xFF0C;&#x4F8B;&#x5982;ReentrantLock&#x4FDD;&#x5B58;&#x4E86;&#x9501;&#x7684;&#x5F53;&#x524D;&#x6240;&#x6709;&#x8005;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x80FD;&#x533A;&#x5206;&#x67D0;&#x4E2A;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#x65F6;&#x91CD;&#x5165;&#x7684;&#x8FD8;&#x662F;&#x7ADE;&#x4E89;&#x7684;&#x3002;</p>
+<p>&#x6839;&#x636E;&#x540C;&#x6B65;&#x5668;&#x7684;&#x4E0D;&#x540C;&#xFF0C;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x79CD;&#x72EC;&#x5360;&#x64CD;&#x4F5C;&#xFF08;&#x4F8B;&#x5982;ReentrantLock&#xFF09;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x72EC;&#x5360;&#x64CD;&#x4F5C;&#xFF08;&#x4F8B;&#x5982;Semaphore&#x548C;CountDownLatch&#xFF09;&#x3002;&#x4E00;&#x4E2A;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#x5305;&#x62EC;&#x4E24;&#x90E8;&#x5206;&#xFF0C;&#x9996;&#x5148;&#xFF0C;&#x540C;&#x6B65;&#x5668;&#x5224;&#x65AD;&#x5F53;&#x524D;&#x72B6;&#x6001;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x83B7;&#x5F97;&#x64CD;&#x4F5C;&#xFF0C;&#x5982;&#x679C;&#x662F;&#xFF0C;&#x5219;&#x5141;&#x8BB8;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#xFF0C;&#x5426;&#x5219;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#x5C06;&#x963B;&#x585E;&#x6216;&#x5931;&#x8D25;&#x3002;&#x5176;&#x6B21;&#xFF0C;&#x5C31;&#x662F;&#x66F4;&#x65B0;&#x540C;&#x6B65;&#x5668;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x5668;&#x7684;&#x67D0;&#x4E2A;&#x7EBF;&#x7A0B;&#x53EF;&#x80FD;&#x4F1A;&#x5BF9;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x80FD;&#x5426;&#x4E5F;&#x83B7;&#x53D6;&#x8BE5;&#x540C;&#x6B65;&#x5668;&#x9020;&#x6210;&#x5F71;&#x54CD;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x67D0;&#x4E2A;&#x540C;&#x6B65;&#x5668;&#x652F;&#x6301;&#x72EC;&#x5360;&#x7684;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#xFF0C;&#x90A3;&#x4E48;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x4E00;&#x4E9B;&#x4FDD;&#x62A4;&#x65B9;&#x6CD5;&#xFF0C;&#x5305;&#x62EC;tryAcquire&#x3001;tryRelease&#x548C;isHeldExclusively&#x7B49;&#xFF0C;&#x800C;&#x5BF9;&#x4E8E;&#x652F;&#x6301;&#x5171;&#x4EAB;&#x83B7;&#x53D6;&#x7684;&#x540C;&#x6B65;&#x5668;&#xFF0C;&#x5219;&#x5E94;&#x8BE5;&#x5B9E;&#x73B0;tryAcquireShared&#x548C;tryReleaseShared&#x7B49;&#x65B9;&#x6CD5;&#x3002;AQS&#x4E2D;&#x7684;acquire&#x3001;acquireShared&#x3001;release&#x548C;releaseShared&#x7B49;&#x65B9;&#x6CD5;&#x90FD;&#x5C06;&#x8C03;&#x7528;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x5728;&#x5B50;&#x7C7B;&#x4E2D;&#x5E26;&#x6709;&#x524D;&#x7F00;try&#x7684;&#x7248;&#x672C;&#x6765;&#x5224;&#x65AD;&#x67D0;&#x4E2A;&#x64CD;&#x4F5C;&#x662F;&#x5426;&#x80FD;&#x6267;&#x884C;&#x3002;&#x5728;&#x540C;&#x6B65;&#x5668;&#x7684;&#x5B50;&#x7C7B;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x5176;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#x548C;&#x91CA;&#x653E;&#x64CD;&#x4F5C;&#x7684;&#x8BED;&#x4E49;&#xFF0C;&#x4F7F;&#x7528;getState&#x3001;setState&#x4EE5;&#x53CA;compareAndSetState&#x6765;&#x68C0;&#x67E5;&#x548C;&#x66F4;&#x65B0;&#x72B6;&#x6001;&#xFF0C;&#x5E76;&#x901A;&#x8FC7;&#x8FD4;&#x56DE;&#x7684;&#x72B6;&#x6001;&#x503C;&#x6765;&#x544A;&#x8BC9;&#x57FA;&#x7C7B;&#x201C;&#x83B7;&#x53D6;&#x201D;&#x6216;&#x201C;&#x91CA;&#x653E;&#x201D;&#x540C;&#x6B65;&#x5668;&#x7684;&#x64CD;&#x4F5C;&#x662F;&#x5426;&#x6210;&#x529F;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5982;&#x679C;tryAcquireShared&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x8D1F;&#x503C;&#xFF0C;&#x90A3;&#x4E48;&#x8868;&#x793A;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#x5931;&#x8D25;&#xFF0C;&#x8FD4;&#x56DE;&#x96F6;&#x503C;&#x8868;&#x793A;&#x540C;&#x6B65;&#x5668;&#x901A;&#x8FC7;&#x72EC;&#x5360;&#x65B9;&#x5F0F;&#x88AB;&#x83B7;&#x53D6;&#xFF0C;&#x8FD4;&#x56DE;&#x6B63;&#x503C;&#x5219;&#x8868;&#x793A;&#x540C;&#x6B65;&#x5668;&#x901A;&#x8FC7;&#x975E;&#x72EC;&#x5360;&#x65B9;&#x5F0F;&#x88AB;&#x83B7;&#x53D6;&#x3002;&#x5BF9;&#x4E8E;tryRelease&#x548C;tryReleaseShared&#x65B9;&#x6CD5;&#x6765;&#x8BF4;&#xFF0C;&#x5982;&#x679C;&#x91CA;&#x653E;&#x64CD;&#x4F5C;&#x4F7F;&#x5F97;&#x6240;&#x6709;&#x5728;&#x83B7;&#x53D6;&#x540C;&#x6B65;&#x5668;&#x65F6;&#x88AB;&#x963B;&#x585E;&#x7684;&#x7EBF;&#x7A0B;&#x6062;&#x590D;&#x6267;&#x884C;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x5E94;&#x8BE5;&#x8FD4;&#x56DE;true&#x3002;</p>
+<pre><code class="lang-java">    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">acquire</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> InterruptedException </span>{
+        <span class="hljs-keyword">while</span> (&#x5F53;&#x524D;&#x72B6;&#x6001;&#x4E0D;&#x5141;&#x8BB8;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;) {
+            <span class="hljs-keyword">if</span> (&#x9700;&#x8981;&#x963B;&#x585E;&#x83B7;&#x53D6;&#x8BF7;&#x6C42;) {
+                &#x5982;&#x679C;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x4E0D;&#x5728;&#x7B49;&#x5F85;&#x961F;&#x5217;&#x4E2D;&#xFF0C;&#x5219;&#x5C06;&#x5176;&#x63D2;&#x5165;&#x7B49;&#x5F85;&#x961F;&#x5217;
+                &#x963B;&#x585E;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;        
+            } <span class="hljs-keyword">else</span> {
+                &#x8FD4;&#x56DE;&#x5931;&#x8D25;
+            }
+        }
+        &#x53EF;&#x80FD;&#x66F4;&#x65B0;&#x540C;&#x6B65;&#x5668;&#x7684;&#x72B6;&#x6001;
+        &#x5982;&#x679C;&#x7EBF;&#x7A0B;&#x4F4D;&#x4E8E;&#x7B49;&#x5F85;&#x961F;&#x5217;&#x4E2D;&#xFF0C;&#x5219;&#x5C06;&#x5176;&#x79FB;&#x9664;&#x961F;&#x5217;
+        &#x8FD4;&#x56DE;&#x6210;&#x529F;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">release</span><span class="hljs-params">()</span> </span>{
+        &#x66F4;&#x65B0;&#x540C;&#x6B65;&#x5668;&#x7684;&#x72B6;&#x6001;
+        <span class="hljs-keyword">if</span>(&#x65B0;&#x7684;&#x72B6;&#x6001;&#x5141;&#x8BB8;&#x67D0;&#x4E2A;&#x88AB;&#x963B;&#x585E;&#x7684;&#x7EBF;&#x7A0B;&#x83B7;&#x53D6;&#x6210;&#x529F;) {
+            &#x89E3;&#x9664;&#x7B49;&#x5F85;&#x961F;&#x5217;&#x4E2D;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x7684;&#x963B;&#x585E;&#x72B6;&#x6001;
+        }
+    }
+</code></pre>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OneShotLatch</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sync</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractQueuedSynchronizer</span> </span>{
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">int</span> <span class="hljs-title">tryAcquireShared</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arg)</span> </span>{
+            <span class="hljs-keyword">return</span> (getState() == <span class="hljs-number">1</span>) ? <span class="hljs-number">1</span> : -<span class="hljs-number">1</span>;
+        }
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">tryReleaseShared</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arg)</span> </span>{
+            setState(<span class="hljs-number">1</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+        }
+    }
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Sync sync = <span class="hljs-keyword">new</span> Sync();
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">await</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> InterruptedException </span>{
+        sync.acquireSharedInterruptibly(<span class="hljs-number">0</span>);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">signal</span><span class="hljs-params">()</span> </span>{
+        sync.releaseShared(<span class="hljs-number">0</span>);
+    }
+}
+</code></pre>
+<p>ReentrantLock&#x53EA;&#x652F;&#x6301;&#x72EC;&#x5360;&#x65B9;&#x5F0F;&#x7684;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#xFF0C;&#x56E0;&#x6B64;&#x5B83;&#x5B9E;&#x73B0;&#x4E86;tryAcquire&#x3001;tryRelease&#x548C;isHeldExclusively&#x3002;ReentrantLock&#x5C06;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x7528;&#x4E8E;&#x4FDD;&#x5B58;&#x9501;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#x7684;&#x6B21;&#x6570;&#xFF0C;&#x5E76;&#x4E14;&#x7EF4;&#x62A4;&#x4E86;&#x4E00;&#x4E2A;owner&#x53D8;&#x91CF;&#x6765;&#x4FDD;&#x5B58;&#x5F53;&#x524D;&#x6240;&#x6709;&#x8005;&#x7EBF;&#x7A0B;&#x7684;&#x6807;&#x8BC6;&#x7B26;&#xFF0C;&#x53EA;&#x6709;&#x5728;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x521A;&#x521A;&#x83B7;&#x53D6;&#x5230;&#x9501;&#xFF0C;&#x6216;&#x8005;&#x6B63;&#x8981;&#x91CA;&#x653E;&#x9501;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x624D;&#x4F1A;&#x4FEE;&#x6539;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x3002;&#x5728;tryRelease&#x4E2D;&#x68C0;&#x67E5;owner&#x57DF;&#xFF0C;&#x4ECE;&#x800C;&#x786E;&#x4FDD;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x5728;&#x6267;&#x884C;unlock&#x64CD;&#x4F5C;&#x4E4B;&#x524D;&#x5DF2;&#x7ECF;&#x83B7;&#x53D6;&#x4E86;&#x9501;&#xFF0C;&#x5728;tryAcquire&#x4E2D;&#x5C06;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x57DF;&#x6765;&#x533A;&#x5206;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#x662F;&#x91CD;&#x5165;&#x7684;&#x8FD8;&#x662F;&#x7ADE;&#x4E89;&#x7684;&#x3002;</p>
+<pre><code class="lang-java">    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">tryAcquire</span><span class="hljs-params">(<span class="hljs-keyword">int</span> ignored)</span> </span>{
+        <span class="hljs-keyword">final</span> Thread current = Thread.currentThread();
+        <span class="hljs-keyword">int</span> c = getState();
+        <span class="hljs-keyword">if</span> (c == <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">if</span> (compareAndSetState(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>)) {
+                owner = thread;
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+            }
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (current == owner) {
+            setState(c+<span class="hljs-number">1</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    }
+</code></pre>
+<p>Semaphore&#x5C06;AQS&#x7684;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x7528;&#x4E8E;&#x4FDD;&#x5B58;&#x5F53;&#x524D;&#x53EF;&#x7528;&#x8BB8;&#x53EF;&#x7684;&#x6570;&#x91CF;&#x3002;tryAcquireShared&#x9996;&#x5148;&#x8BA1;&#x7B97;&#x5269;&#x4F59;&#x8BB8;&#x53EF;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x8DB3;&#x591F;&#x7684;&#x8BB8;&#x53EF;&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x503C;&#x8868;&#x793A;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#x5931;&#x8D25;&#x3002;&#x5982;&#x679C;&#x8FD8;&#x6709;&#x5269;&#x4F59;&#x7684;&#x8BB8;&#x53EF;&#xFF0C;&#x90A3;&#x4E48;tryAcquireShared&#x4F1A;&#x901A;&#x8FC7;compareAndSetState&#x4EE5;&#x539F;&#x5B50;&#x65B9;&#x5F0F;&#x6765;&#x964D;&#x4F4E;&#x8BB8;&#x53EF;&#x7684;&#x8BA1;&#x6570;&#x3002;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#x6210;&#x529F;&#xFF08;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x8BB8;&#x53EF;&#x7684;&#x8BA1;&#x6570;&#x81EA;&#x4ECE;&#x4E0A;&#x4E00;&#x6B21;&#x8BFB;&#x53D6;&#x540E;&#x5C31;&#x6CA1;&#x6709;&#x88AB;&#x4FEE;&#x6539;&#x8FC7;&#xFF09;&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x503C;&#x8868;&#x793A;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#x6210;&#x529F;&#x3002;&#x5728;&#x8FD4;&#x56DE;&#x503C;&#x4E2D;&#x8FD8;&#x5305;&#x542B;&#x4E86;&#x8868;&#x793A;&#x5176;&#x4ED6;&#x5171;&#x4EAB;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#x80FD;&#x5426;&#x6210;&#x529F;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x5982;&#x679C;&#x6210;&#x529F;&#xFF0C;&#x90A3;&#x4E48;&#x5176;&#x4ED6;&#x7B49;&#x5F85;&#x7684;&#x7EBF;&#x7A0B;&#x540C;&#x6837;&#x4F1A;&#x89E3;&#x9664;&#x963B;&#x585E;&#x3002;&#x5F53;&#x6CA1;&#x6709;&#x8DB3;&#x591F;&#x7684;&#x8BB8;&#x53EF;&#xFF0C;&#x6216;&#x8005;&#x5F53;tryAcquireShared&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x539F;&#x5B50;&#x65B9;&#x5F0F;&#x6765;&#x66F4;&#x65B0;&#x8BB8;&#x53EF;&#x7684;&#x8BA1;&#x6570;&#x4EE5;&#x54CD;&#x5E94;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#x65F6;&#xFF0C;while&#x5FAA;&#x73AF;&#x5C06;&#x7EC8;&#x6B62;&#x3002;&#x867D;&#x7136;compareAndSetState&#x7684;&#x8C03;&#x7528;&#x53EF;&#x80FD;&#x7531;&#x4E8E;&#x4E0E;&#x53E6;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x53D1;&#x751F;&#x7ADE;&#x4E89;&#x800C;&#x5931;&#x8D25;&#xFF0C;&#x5E76;&#x4F7F;&#x5176;&#x91CD;&#x65B0;&#x5C1D;&#x8BD5;&#xFF0C;&#x4F46;&#x5728;&#x7ECF;&#x8FC7;&#x4E86;&#x4E00;&#x5B9A;&#x6B21;&#x6570;&#x7684;&#x91CD;&#x8BD5;&#x64CD;&#x4F5C;&#x4EE5;&#x540E;&#xFF0C;&#x5728;&#x8FD9;&#x4E24;&#x4E2A;&#x7ED3;&#x675F;&#x6761;&#x4EF6;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x4F1A;&#x53D8;&#x4E3A;&#x771F;&#x3002;&#x540C;&#x6837;tryReleaseShared&#x5C06;&#x589E;&#x52A0;&#x8BB8;&#x53EF;&#x8BA1;&#x6570;&#xFF0C;&#x8FD9;&#x53EF;&#x80FD;&#x4F1A;&#x89E3;&#x9664;&#x7B49;&#x5F85;&#x4E2D;&#x7EBF;&#x7A0B;&#x7684;&#x963B;&#x585E;&#x72B6;&#x6001;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x65AD;&#x5730;&#x91CD;&#x8BD5;&#x76F4;&#x5230;&#x66F4;&#x65B0;&#x64CD;&#x4F5C;&#x6210;&#x529F;&#x3002;tryReleaseShared&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x8868;&#x793A;&#x5728;&#x8FD9;&#x6B21;&#x91CA;&#x653E;&#x64CD;&#x4F5C;&#x4E2D;&#x89E3;&#x9664;&#x4E86;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x7684;&#x963B;&#x585E;&#x3002;</p>
+<p>CountDownLatch&#x4F7F;&#x7528;AQS&#x7684;&#x65B9;&#x5F0F;&#x4E0E;Semaphore&#x5F88;&#x76F8;&#x4F3C;&#xFF1A;&#x5728;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x4E2D;&#x4FDD;&#x5B58;&#x7684;&#x662F;&#x5F53;&#x524D;&#x7684;&#x8BA1;&#x6570;&#x503C;&#x3002;countDown&#x65B9;&#x6CD5;&#x8C03;&#x7528;release&#xFF0C;&#x4ECE;&#x800C;&#x5BFC;&#x81F4;&#x8BA1;&#x6570;&#x503C;&#x9012;&#x51CF;&#xFF0C;&#x5E76;&#x4E14;&#x5F53;&#x8BA1;&#x6570;&#x503C;&#x4E3A;&#x96F6;&#x65F6;&#xFF0C;&#x89E3;&#x9664;&#x6240;&#x6709;&#x7B49;&#x5F85;&#x7EBF;&#x7A0B;&#x7684;&#x963B;&#x585E;&#x3002;await&#x8C03;&#x7528;acquire&#xFF0C;&#x5F53;&#x8BA1;&#x6570;&#x503C;&#x4E3A;&#x96F6;&#x65F6;&#xFF0C;acquire&#x5C06;&#x7ACB;&#x5373;&#x8FD4;&#x56DE;&#xFF0C;&#x5426;&#x5219;&#x5C06;&#x963B;&#x585E;&#x3002;</p>
+<pre><code class="lang-java">    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">int</span> <span class="hljs-title">tryAcquireShared</span><span class="hljs-params">(<span class="hljs-keyword">int</span> acquires)</span> </span>{
+        <span class="hljs-keyword">while</span> (<span class="hljs-keyword">true</span>) {
+            <span class="hljs-keyword">int</span> available = getState();
+            <span class="hljs-keyword">int</span> remaining = available - acquires;
+            <span class="hljs-keyword">if</span> (remaining &lt; <span class="hljs-number">0</span> || compareAndSetState(available, remaining)) {
+                <span class="hljs-keyword">return</span> remaining;
+            }
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">tryReleaseShared</span><span class="hljs-params">(<span class="hljs-keyword">int</span> releases)</span> </span>{
+        <span class="hljs-keyword">while</span> (<span class="hljs-keyword">true</span>) {
+            <span class="hljs-keyword">int</span> p = getState();
+            <span class="hljs-keyword">if</span> (compareAndSetState(p, p+releases)) {
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+            }
+        }
+    }
+</code></pre>
+<p>ReadWriteLock&#x63A5;&#x53E3;&#x8868;&#x793A;&#x5B58;&#x5728;&#x4E24;&#x4E2A;&#x9501;&#xFF1A;&#x4E00;&#x4E2A;&#x8BFB;&#x53D6;&#x9501;&#x548C;&#x4E00;&#x4E2A;&#x5199;&#x5165;&#x9501;&#xFF0C;&#x4F46;&#x5728;&#x57FA;&#x4E8E;AQS&#x5B9E;&#x73B0;&#x7684;ReentrantReadWriteLock&#x4E2D;&#xFF0C;&#x5355;&#x4E2A;AQS&#x5B50;&#x7C7B;&#x5C06;&#x540C;&#x65F6;&#x7BA1;&#x7406;&#x8BFB;&#x53D6;&#x52A0;&#x9501;&#x548C;&#x5199;&#x5165;&#x52A0;&#x9501;&#x3002;ReentrantReadWriteLock&#x4F7F;&#x7528;&#x4E86;&#x4E00;&#x4E2A;16&#x4F4D;&#x7684;&#x72B6;&#x6001;&#x6765;&#x8868;&#x793A;&#x5199;&#x5165;&#x9501;&#x7684;&#x8BA1;&#x6570;&#xFF0C;&#x5E76;&#x4E14;&#x4F7F;&#x7528;&#x4E86;&#x53E6;&#x4E00;&#x4E2A;16&#x4F4D;&#x7684;&#x72B6;&#x6001;&#x6765;&#x8868;&#x793A;&#x8BFB;&#x53D6;&#x9501;&#x7684;&#x8BA1;&#x6570;&#x3002;&#x5728;&#x8BFB;&#x53D6;&#x9501;&#x4E0A;&#x7684;&#x64CD;&#x4F5C;&#x5C06;&#x4F7F;&#x7528;&#x5171;&#x4EAB;&#x7684;&#x83B7;&#x53D6;&#x65B9;&#x6CD5;&#x4E0E;&#x91CA;&#x653E;&#x65B9;&#x6CD5;&#xFF0C;&#x5728;&#x5199;&#x5165;&#x9501;&#x4E0A;&#x7684;&#x64CD;&#x4F5C;&#x5C06;&#x4F7F;&#x7528;&#x72EC;&#x5360;&#x7684;&#x83B7;&#x53D6;&#x65B9;&#x6CD5;&#x4E0E;&#x91CA;&#x653E;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>AQS&#x5728;&#x5185;&#x90E8;&#x7EF4;&#x62A4;&#x4E00;&#x4E2A;&#x7B49;&#x5F85;&#x7EBF;&#x7A0B;&#x961F;&#x5217;&#xFF0C;&#x5176;&#x4E2D;&#x8BB0;&#x5F55;&#x4E86;&#x67D0;&#x4E2A;&#x7EBF;&#x7A0B;&#x8BF7;&#x6C42;&#x7684;&#x4E8B;&#x72EC;&#x5360;&#x8BBF;&#x95EE;&#x8FD8;&#x662F;&#x5171;&#x4EAB;&#x8BBF;&#x95EE;&#x3002;&#x5728;ReentrantReadWriteLock&#x4E2D;&#xFF0C;&#x5F53;&#x9501;&#x53EF;&#x7528;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x4F4D;&#x4E8E;&#x961F;&#x5217;&#x5934;&#x90E8;&#x7684;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x5199;&#x5165;&#x64CD;&#x4F5C;&#xFF0C;&#x90A3;&#x4E48;&#x7EBF;&#x7A0B;&#x4F1A;&#x5F97;&#x5230;&#x8FD9;&#x4E2A;&#x9501;&#xFF0C;&#x5982;&#x679C;&#x4F4D;&#x4E8E;&#x961F;&#x5217;&#x5934;&#x90E8;&#x7684;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x8BFB;&#x53D6;&#x8BBF;&#x95EE;&#xFF0C;&#x90A3;&#x4E48;&#x961F;&#x5217;&#x4E2D;&#x5728;&#x7B2C;&#x4E00;&#x4E2A;&#x5199;&#x5165;&#x7EBF;&#x7A0B;&#x4E4B;&#x524D;&#x7684;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#x90FD;&#x5C06;&#x83B7;&#x5F97;&#x8FD9;&#x4E2A;&#x9501;&#x3002;</p>
 
                                 
                                 </section>
@@ -2006,7 +2239,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"14.构建自定义的同步工具","level":"1.3.14","depth":2,"next":{"title":"15.原子变量与非阻塞同步机制","level":"1.3.15","depth":2,"path":"jcip/ch15.md","ref":"jcip/ch15.md","articles":[]},"previous":{"title":"13.显式锁","level":"1.3.13","depth":2,"path":"jcip/ch13.md","ref":"jcip/ch13.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"jcip/ch14.md","mtime":"2018-07-26T08:33:58.138Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-01T07:45:09.676Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"14.构建自定义的同步工具","level":"1.3.14","depth":2,"next":{"title":"15.原子变量与非阻塞同步机制","level":"1.3.15","depth":2,"path":"jcip/ch15.md","ref":"jcip/ch15.md","articles":[]},"previous":{"title":"13.显式锁","level":"1.3.13","depth":2,"path":"jcip/ch13.md","ref":"jcip/ch13.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"jcip/ch14.md","mtime":"2019-08-08T16:20:32.561Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-08T16:21:28.776Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
