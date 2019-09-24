@@ -3166,7 +3166,53 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="7&#x7406;&#x89E3;context">7.&#x7406;&#x89E3;Context</h1>
+                                <h3 id="7&#x7406;&#x89E3;context">7.&#x7406;&#x89E3;Context</h3>
+<p>Context&#x7C7B;&#x672C;&#x8EAB;&#x662F;&#x4E00;&#x4E2A;&#x7EAF;abstract&#x7C7B;.&#x4E3A;&#x4E86;&#x4F7F;&#x7528;&#x65B9;&#x4FBF;,&#x53C8;&#x5B9A;&#x4E49;&#x4E86;ContextWrapper&#x7C7B;,&#x5982;&#x5176;&#x540D;&#x6240;&#x8A00;,&#x8FD9;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x5305;&#x88C5;&#x800C;&#x5DF2;,ContextWrapper&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x5FC5;&#x987B;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x771F;&#x6B63;&#x7684;Context&#x5F15;&#x7528;,&#x540C;&#x65F6;ContextWrapper&#x4E2D;&#x63D0;&#x4F9B;&#x4E86;attachBaseContext()&#x7528;&#x4E8E;&#x7ED9;ContextWrapper&#x5BF9;&#x8C61;&#x4E2D;&#x6307;&#x5B9A;&#x771F;&#x6B63;&#x7684;Context&#x5BF9;&#x8C61;,&#x8C03;&#x7528;ContextWrapper&#x7684;&#x65B9;&#x6CD5;&#x90FD;&#x4F1A;&#x88AB;&#x8F6C;&#x5411;&#x5176;&#x6240;&#x5305;&#x542B;&#x7684;&#x771F;&#x6B63;&#x7684;Context&#x5BF9;&#x8C61;.ContextThemeWrapper&#x7C7B;,&#x5982;&#x5176;&#x540D;&#x79F0;&#x6240;&#x793A;,&#x5176;&#x5185;&#x90E8;&#x5305;&#x542B;&#x4E86;&#x4E0E;&#x4E3B;&#x9898;theme&#x76F8;&#x5173;&#x7684;&#x63A5;&#x53E3;,&#x8FD9;&#x91CC;&#x6240;&#x8BF4;&#x7684;&#x4E3B;&#x9898;&#x5C31;&#x662F;&#x5728;manifest&#x4E2D;&#x901A;&#x8FC7;android:theme&#x4E3A;Application&#x5143;&#x7D20;&#x6216;&#x8005;Activity&#x5143;&#x7D20;&#x6307;&#x5B9A;&#x7684;&#x4E3B;&#x9898;.&#x53EA;&#x6709;Activity&#x624D;&#x9700;&#x8981;&#x4E3B;&#x9898;,Service&#x662F;&#x4E0D;&#x9700;&#x8981;&#x4E3B;&#x9898;&#x7684;,&#x6240;&#x4EE5;Service&#x76F4;&#x63A5;&#x7EE7;&#x627F;&#x4E8E;ContextWrapper.ContextImpl&#x7C7B;&#x771F;&#x6B63;&#x5B9E;&#x73B0;&#x4E86;Context&#x4E2D;&#x6240;&#x6709;&#x7684;&#x51FD;&#x6570;,&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x6240;&#x8C03;&#x7528;&#x7684;&#x5404;&#x79CD;Context&#x7C7B;&#x7684;&#x65B9;&#x6CD5;,&#x5176;&#x5B9E;&#x73B0;&#x5747;&#x6765;&#x81EA;&#x8BE5;&#x7C7B;.</p>
+<p>&#x521B;&#x5EFA;Context&#x5BF9;&#x8C61;&#x662F;&#x5728;ActivityThread&#x7C7B;&#x4E2D;&#x5B8C;&#x6210;&#x7684;,&#x5177;&#x4F53;&#x521B;&#x5EFA;ContextImpl&#x7C7B;&#x7684;&#x5730;&#x65B9;&#x4E00;&#x5171;&#x6709;7&#x5904;,&#x5206;&#x522B;&#x5982;&#x4E0B;:</p>
+<ul>
+<li>PackageInfo.makeApplication()</li>
+<li>performLaunchActivity()</li>
+<li>handleCreateBackupAgent()</li>
+<li>handleCreateService()</li>
+<li>handleBindApplication()</li>
+<li>&#x8FD8;&#x662F;&#x5728;handleBindApplication()&#x4E2D;</li>
+<li>attach()</li>
+</ul>
+<p><code>system_server</code>&#x8FDB;&#x7A0B;&#x672C;&#x8EAB;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;,&#x6240;&#x4EE5;&#x5176;&#x5165;&#x53E3;&#x4E5F;&#x662F;ActivityThread&#x7C7B;,&#x53EA;&#x662F;&#x8FD9;&#x4E2A;ActivityThread&#x548C;&#x4E00;&#x4E9B;&#x7CFB;&#x7EDF;&#x670D;&#x52A1;&#x8FD0;&#x884C;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x7A7A;&#x95F4;&#x4E2D;&#x800C;&#x5DF2;.</p>
+<p>Application&#x5BF9;&#x5E94;Context,Android Unit Test&#x5DE5;&#x7A0B;&#x4F1A;&#x521B;&#x5EFA;ContextImpl&#x5BF9;&#x8C61;,makeApplication()&#x65B9;&#x6CD5;&#x4E2D;&#x4F1A;&#x521B;&#x5EFA;ContextImpl.</p>
+<p>Activity&#x5BF9;&#x5E94;&#x7684;Context,ActivityThread&#x5185;&#x90E8;&#x4F1A;&#x4E3A;&#x6BCF;&#x4E00;&#x4E2A;Activity&#x521B;&#x5EFA;&#x4E00;&#x4E2A;ActivityRecord&#x5BF9;&#x8C61;,&#x5E76;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#x5BF9;&#x8C61;&#x6765;&#x7BA1;&#x7406;Activity.&#x63A5;&#x7740;&#x4F1A;&#x8C03;&#x7528;&#x5230;handleLaunchActivity()&#x7136;&#x540E;&#x518D;&#x8C03;&#x7528;&#x5230;performLaunchActivity()&#x5728;&#x8BE5;&#x65B9;&#x6CD5;&#x4E2D;&#x521B;&#x5EFA;ContextImpl.</p>
+<p>Service&#x5BF9;&#x5E94;&#x7684;Context,ActivityThread&#x7684;scheduleCreateService()&#x65B9;&#x6CD5;&#x4E2D;&#x4F1A;&#x6784;&#x9020;&#x4E00;&#x4E2A;CreateServiceData&#x7684;&#x6570;&#x636E;&#x5BF9;&#x8C61;,ActivityThread&#x4F1A;&#x4E3A;&#x5176;&#x6240;&#x5305;&#x542B;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;Service&#x521B;&#x5EFA;&#x8BE5;&#x6570;&#x636E;&#x5BF9;&#x8C61;,&#x5E76;&#x901A;&#x8FC7;&#x8FD9;&#x4E9B;&#x5BF9;&#x8C61;&#x6765;&#x7BA1;&#x7406;Service.&#x63A5;&#x7740;&#x4F1A;&#x6267;&#x884C;handleCreateService()&#x65B9;&#x6CD5;,&#x521B;&#x5EFA;ContextImpl.</p>
+<table>
+<thead>
+<tr>
+<th>&#x7C7B;&#x540D;</th>
+<th>&#x8FDC;&#x7A0B;&#x6570;&#x636E;&#x7C7B;</th>
+<th>&#x672C;&#x5730;&#x6570;&#x636E;&#x7C7B;</th>
+<th>&#x8D4B;&#x503C;&#x65B9;&#x5F0F;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application</td>
+<td>ApplicationInfo</td>
+<td>AppBindData</td>
+<td>getPackageInfoNoCheck()</td>
+</tr>
+<tr>
+<td>Activity</td>
+<td>ActivityInfo</td>
+<td>ActivityRecord</td>
+<td>getPackageInfo()</td>
+</tr>
+<tr>
+<td>Service</td>
+<td>ServiceInfo</td>
+<td>CreateServiceData</td>
+<td>getPackageInfoNoCheck()</td>
+</tr>
+</tbody>
+</table>
+<p>Context&#x4E2A;&#x6570;=Service&#x4E2A;&#x6570;+Activity&#x4E2A;&#x6570;+Application</p>
 
                                 
                                 </section>
@@ -3210,7 +3256,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"7.理解Context","level":"1.15.7","depth":2,"next":{"title":"8.创建窗口的过程","level":"1.15.8","depth":2,"path":"android-framework-pouxi/ch08.md","ref":"android-framework-pouxi/ch08.md","articles":[]},"previous":{"title":"6.Framework概述","level":"1.15.6","depth":2,"path":"android-framework-pouxi/ch06.md","ref":"android-framework-pouxi/ch06.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","github","baidu","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"solarex-blog"},"github":{"url":"https://github.com/flyfire/Notebook/"},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"baidu":{"token":"7637624af7cc95a136f2fa6b644b6197"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"读书笔记","language":"zh","gitbook":"*","description":"读书笔记"},"file":{"path":"android-framework-pouxi/ch07.md","mtime":"2019-09-12T06:56:18.968Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-13T15:07:16.060Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"7.理解Context","level":"1.15.7","depth":2,"next":{"title":"8.创建窗口的过程","level":"1.15.8","depth":2,"path":"android-framework-pouxi/ch08.md","ref":"android-framework-pouxi/ch08.md","articles":[]},"previous":{"title":"6.Framework概述","level":"1.15.6","depth":2,"path":"android-framework-pouxi/ch06.md","ref":"android-framework-pouxi/ch06.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","github","baidu","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"solarex-blog"},"github":{"url":"https://github.com/flyfire/Notebook/"},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"baidu":{"token":"7637624af7cc95a136f2fa6b644b6197"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"读书笔记","language":"zh","gitbook":"*","description":"读书笔记"},"file":{"path":"android-framework-pouxi/ch07.md","mtime":"2019-09-24T13:23:26.091Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-24T13:23:59.425Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
