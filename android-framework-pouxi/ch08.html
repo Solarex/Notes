@@ -3178,6 +3178,71 @@
 <p>&#x6240;&#x6709;Activity&#x9ED8;&#x8BA4;&#x7684;&#x7A97;&#x53E3;&#x7C7B;&#x578B;&#x90FD;&#x662F;TYPE_APPLICATION,WMS&#x518D;&#x8FDB;&#x884C;&#x7A97;&#x53E3;&#x53E0;&#x52A0;&#x65F6;,&#x4F1A;&#x52A8;&#x6001;&#x6539;&#x53D8;&#x5E94;&#x7528;&#x7A97;&#x53E3;&#x7684;&#x5C42;&#x503C;,&#x4F46;&#x5C42;&#x503C;&#x4E0D;&#x4F1A;&#x5927;&#x4E8E;99.</p>
 <p>&#x521B;&#x5EFA;&#x5B50;&#x7A97;&#x53E3;&#x65F6;,&#x5BA2;&#x6237;&#x7AEF;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x7A97;&#x53E3;&#x7C7B;&#x578B;&#x4ECB;&#x4E8E;1000~1999&#x4E4B;&#x95F4;,WMS&#x5728;&#x8FDB;&#x884C;&#x7A97;&#x53E3;&#x53E0;&#x52A0;&#x65F6;,&#x4F1A;&#x52A8;&#x6001;&#x8C03;&#x6574;&#x5C42;&#x503C;.</p>
 <p>&#x521B;&#x5EFA;&#x7CFB;&#x7EDF;&#x7A97;&#x53E3;&#x65F6;,&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x5C42;&#x503C;&#x5728;2000~2999&#x4E4B;&#x95F4;,WMS&#x5728;&#x8FDB;&#x884C;&#x7A97;&#x53E3;&#x53E0;&#x52A0;&#x65F6;,&#x4F1A;&#x52A8;&#x6001;&#x8C03;&#x6574;&#x8BE5;&#x5C42;&#x503C;.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x4F4D;&#x7F6E;</th>
+<th style="text-align:left">&#x5B9A;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Activity</td>
+<td style="text-align:left">IBinder mToken</td>
+</tr>
+<tr>
+<td style="text-align:left">Window</td>
+<td style="text-align:left">IBinder mAppToken</td>
+</tr>
+<tr>
+<td style="text-align:left">WindowManager.LayoutParams</td>
+<td style="text-align:left">IBinder token</td>
+</tr>
+<tr>
+<td style="text-align:left">ViewRootImpl</td>
+<td style="text-align:left">View.AttachInfo mAttachInfo</td>
+</tr>
+<tr>
+<td style="text-align:left">View</td>
+<td style="text-align:left">View.AttachInfo mAttachInfo</td>
+</tr>
+<tr>
+<td style="text-align:left">View.AttachInfo</td>
+<td style="text-align:left">IBinder mWindowToken;IBinder mPanelParentWindowToken;IWindow mWindow;</td>
+</tr>
+</tbody>
+</table>
+<p>WindowMangerImpl&#x59D4;&#x6258;WindowManagerGlobal&#x8FDB;&#x884C;addView,WindowManagerGlobal&#x4E2D;&#x7EF4;&#x62A4;&#x4E86;&#x4E09;&#x4E2A;&#x6570;&#x7EC4;,&#x7528;&#x4E8E;&#x4FDD;&#x5B58;&#x8BE5;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x6240;&#x62E5;&#x6709;&#x7684;&#x7A97;&#x53E3;&#x7684;&#x72B6;&#x6001;,&#x5B83;&#x4EEC;&#x5206;&#x522B;&#x662F;:</p>
+<ul>
+<li><code>ArrayList&lt;View&gt; mViews</code>&#x8FD9;&#x91CC;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;View&#x5BF9;&#x8C61;&#x90FD;&#x5C06;&#x6210;&#x4E3A;WMS&#x6240;&#x8BA4;&#x4E3A;&#x7684;&#x4E00;&#x4E2A;&#x7A97;&#x53E3;</li>
+<li><code>ArrayList&lt;ViewRootImpl&gt; mRoots</code>&#x6240;&#x6709;&#x7684;ViewRootImpl&#x5BF9;&#x8C61;,mViews&#x4E2D;&#x6BCF;&#x4E2A;View&#x5BF9;&#x8C61;&#x90FD;&#x5BF9;&#x5E94;&#x7684;ViewRootImpl&#x5BF9;&#x8C61;.</li>
+<li><code>ArrayList&lt;WindowManager.LayoutParams&gt; mParams</code>&#x5F53;&#x628A;mViews&#x4E2D;&#x7684;View&#x5BF9;&#x8C61;&#x5F53;&#x505A;&#x4E00;&#x4E2A;&#x7A97;&#x53E3;&#x6DFB;&#x52A0;&#x8FDB;WMS&#x4E2D;,WMS&#x8981;&#x6C42;&#x6BCF;&#x4E2A;&#x88AB;&#x6DFB;&#x52A0;&#x7684;&#x7A97;&#x53E3;&#x90FD;&#x8981;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;LayoutParams&#x5BF9;&#x8C61;,mParams&#x6B63;&#x662F;&#x4FDD;&#x5B58;&#x4E86;&#x6BCF;&#x4E2A;&#x7A97;&#x53E3;&#x5BF9;&#x5E94;&#x7684;&#x53C2;&#x6570;&#x5BF9;&#x8C61;.</li>
+</ul>
+<p>&#x7CFB;&#x7EDF;&#x7A97;&#x53E3;&#x7684;&#x542B;&#x4E49;&#x6709;&#x4E24;&#x4E2A;&#x65B9;&#x9762;:</p>
+<ul>
+<li>&#x7CFB;&#x7EDF;&#x7A97;&#x53E3;&#x4E0D;&#x4F9D;&#x8D56;&#x4E8E;&#x5E94;&#x7528;,&#x800C;&#x5E94;&#x7528;&#x7C7B;&#x7A97;&#x53E3;&#x90FD;&#x5FC5;&#x987B;&#x6709;&#x4E00;&#x4E2A;&#x5E94;&#x7528;Activity&#x4E0E;&#x4E4B;&#x5BF9;&#x5E94;.</li>
+<li>&#x7CFB;&#x7EDF;&#x7A97;&#x53E3;&#x662F;&#x7531;&#x7CFB;&#x7EDF;&#x521B;&#x5EFA;&#x7684;,&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6CA1;&#x6709;&#x6743;&#x9650;&#x521B;&#x5EFA;.&#x4F46;&#x6709;&#x4E09;&#x4E2A;&#x7CFB;&#x7EDF;&#x7A97;&#x53E3;&#x9664;&#x5916;,&#x8FD9;&#x4E09;&#x4E2A;&#x7CFB;&#x7EDF;&#x7A97;&#x53E3;&#x5206;&#x522B;&#x4E3A;<code>TYPE_TOAST</code>,<code>TYPE_INPUT_METHOD</code>,<code>TYPE_WALLPAPER</code>.</li>
+</ul>
+<pre><code class="lang-java">IBinder token = view.getWindowToken();
+WindowManager.LayoutParams params = <span class="hljs-keyword">new</span> WindowManager.LayoutParams();
+params.type = WindowManager.LayoutParams.TYPE_APPLICATION_PANEL;
+params.token = token;
+View popup = LayoutInflater.from(context).inflate(layoutId, <span class="hljs-keyword">null</span>);
+mWm = (WindowManager)mContext.getSystemService(<span class="hljs-string">&quot;window&quot;</span>);
+mWm.addView(popup, params);
+OnKeyListener mKeyListener = <span class="hljs-keyword">new</span> OnKeyListener(){
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onKey</span><span class="hljs-params">(View v, <span class="hljs-keyword">int</span> keyCode, KeyEvent event)</span> </span>{
+        <span class="hljs-keyword">if</span>(keyCode == KeyEvent.KEYCODE_BACK) {
+            mWm.removeView(popup);
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    }
+};
+popup.setOnKeyListener(mKeyListener);
+</code></pre>
+<p>Activity/Dialog <code>setContentView</code>&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x521B;&#x5EFA;PhoneWindow.PopupWindow&#x662F;framework&#x63D0;&#x4F9B;&#x7684;&#x4E00;&#x79CD;UI&#x63A7;&#x4EF6;,PopupWindow&#x5E76;&#x4E0D;&#x7EE7;&#x627F;&#x4E8E;Window&#x7C7B;,&#x6240;&#x4EE5;,&#x8BE5;&#x7C7B;&#x672C;&#x8EAB;&#x5E76;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x7A97;&#x53E3;&#x7C7B;.PopupWindow&#x5E76;&#x6CA1;&#x6709;&#x521B;&#x5EFA;&#x4EFB;&#x4F55;Window&#x5BF9;&#x8C61;,&#x6362;&#x53E5;&#x8BDD;&#x8BF4;,&#x5B83;&#x6DFB;&#x52A0;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x7EAF;&#x7CB9;&#x7684;&#x7A97;&#x53E3;,&#x800C;&#x4E0D;&#x6DFB;&#x52A0;&#x4EFB;&#x4F55;&quot;&#x6742;&#x8D28;&quot;.&#x7A97;&#x53E3;&#x662F;&#x6307;&#x771F;&#x6B63;&#x770B;&#x5F97;&#x89C1;&#x7684;&#x4E1C;&#x897F;,&#x800C;Window&#x7C7B;&#x4EC5;&#x4EC5;&#x662F;&#x4E00;&#x4E2A;&#x9488;&#x5BF9;&#x7A97;&#x53E3;&#x4EA4;&#x4E92;&#x7684;&#x62BD;&#x8C61;&#x800C;&#x5DF2;,&#x6BD4;&#x5982;Window&#x7C7B;&#x4E2D;&#x6709;&#x83DC;&#x5355;&#x7684;&#x6982;&#x5FF5;,&#x8FD8;&#x53EF;&#x4EE5;&#x5904;&#x7406;&#x7CFB;&#x7EDF;&#x6309;&#x952E;,&#x6BD4;&#x5982;&quot;HOME&quot;,&quot;BACK&quot;&#x7B49;,&#x800C;&#x7EAF;&#x7CB9;&#x7684;&#x7A97;&#x53E3;&#x662F;&#x6CA1;&#x6709;&#x8FD9;&#x4E9B;&#x7684;,&#x7EAF;&#x7CB9;&#x7684;&#x7A97;&#x53E3;&#x4F1A;&#x628A;&#x6240;&#x6709;&#x5904;&#x7406;&#x7528;&#x6237;&#x6D88;&#x606F;&#x7684;&#x5DE5;&#x4F5C;&#x4EA4;&#x7ED9;&#x6240;&#x5305;&#x542B;&#x7684;View/ViewGroup&#x53BB;&#x5904;&#x7406;,&#x5373;&#x4E0D;&#x5305;&#x542B;&#x4EFB;&#x4F55;&quot;&#x6742;&#x8D28;&quot;.&#x5728;WMS&#x773C;&#x91CC;,&#x6240;&#x6709;&#x7684;&#x7A97;&#x53E3;&#x90FD;&#x662F;&#x7EAF;&#x7CB9;&#x7684;&#x7A97;&#x53E3;.</p>
+<p>PhoneWindow&#x6709;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x7684;&#x5185;&#x90E8;&#x7C7B;PanelFeatureState,&#x8BE5;&#x7C7B;&#x5305;&#x542B;&#x4E86;PhoneWindow&#x4E2D;&#x6240;&#x6709;&#x7684;&#x5B50;&#x7A97;&#x53E3;.&#x9009;&#x9879;&#x83DC;&#x5355;&#x7A97;&#x53E3;&#x53EA;&#x662F;&#x4E00;&#x79CD;&#x7279;&#x8272;feature&#x800C;&#x5DF2;,&#x4E8B;&#x5B9E;&#x4E0A;,&#x7A0B;&#x5E8F;&#x5458;&#x53EF;&#x4EE5;&#x4E3A;Activity&#x4E2D;Window&#x7C7B;&#x6DFB;&#x52A0;&#x4EFB;&#x610F;&#x591A;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x7279;&#x8272;&#x7A97;&#x53E3;,&#x800C;&#x6240;&#x6709;&#x8FD9;&#x4E9B;&#x7279;&#x8272;&#x7A97;&#x53E3;&#x7684;&#x4FE1;&#x606F;&#x4FDD;&#x5B58;&#x5728;<code>PanelFeatureState[] mPanels</code>&#x53D8;&#x91CF;&#x4E2D;.</p>
+<p>&#x5728;WMS&#x4E2D;,&#x5F53;&#x8FDB;&#x884C;&#x7A97;&#x53E3;&#x91CD;&#x65B0;&#x6392;&#x5E8F;&#x65F6;,&#x5C31;&#x7B97;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x7A97;&#x53E3;,&#x5982;&#x679C;&#x5176;token&#x503C;&#x662F;&#x5176;&#x7236;&#x7A97;&#x53E3;&#x7684;token&#x503C;,&#x90A3;&#x4E48;&#x5F53;&#x5176;&#x7236;&#x7A97;&#x53E3;&#x9690;&#x85CF;&#x540E;,&#x8BE5;&#x7CFB;&#x7EDF;&#x7A97;&#x53E3;&#x4E5F;&#x4F1A;&#x88AB;&#x9690;&#x85CF;.&#x5728;Activity&#x4E2D;&#x6DFB;&#x52A0;&#x7CFB;&#x7EDF;&#x7A97;&#x53E3;&#x65F6;,&#x4F7F;&#x7528;&#x7236;&#x7A97;&#x53E3;&#x7684;token&#x503C;,&#x4F8B;&#x5982;<code>view.getWindowToken()</code>&#x4F5C;&#x4E3A;&#x7CFB;&#x7EDF;&#x7A97;&#x53E3;&#x7684;token,&#x8FD9;&#x6837;&#x505A;&#x7684;&#x7ED3;&#x679C;&#x662F;,&#x5F53;&#x8BE5;Activity&#x6CA1;&#x6709;&#x505C;&#x6B62;&#x65F6;,&#x7CFB;&#x7EDF;&#x7A97;&#x53E3;&#x4F1A;&#x5904;&#x4E8E;&#x5C4F;&#x5E55;&#x6700;&#x4E0A;&#x65B9;,&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x8986;&#x76D6;&#x6389;&#x7CFB;&#x7EDF;&#x72B6;&#x6001;&#x680F;&#x7A97;&#x53E3;,&#x800C;&#x4E00;&#x65E6;&#x8BE5;Activity&#x5904;&#x4E8E;&#x9690;&#x85CF;&#x72B6;&#x6001;&#x65F6;,&#x65B0;&#x52A0;&#x7684;&#x7CFB;&#x7EDF;&#x7A97;&#x53E3;&#x4E5F;&#x4F1A;&#x88AB;&#x9690;&#x85CF;&#x8D77;&#x6765;.&#x5728;WMS&#x5185;&#x90E8;,&#x5F53;&#x5224;&#x65AD;&#x7CFB;&#x7EDF;&#x7A97;&#x53E3;&#x7684;token&#x6CA1;&#x6709;&#x7236;&#x7A97;&#x53E3;&#x65F6;,&#x624D;&#x4F1A;&#x628A;&#x8BE5;&#x7A97;&#x53E3;&#x7684;&#x5C42;&#x503C;&#x8C03;&#x6574;&#x5230;&#x5C4F;&#x5E55;&#x4E0A;&#x65B9;,&#x4F7F;&#x4E4B;&#x663E;&#x793A;&#x51FA;&#x6765;.</p>
 
                                 
                                 </section>
@@ -3221,7 +3286,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"8.创建窗口的过程","level":"1.15.8","depth":2,"next":{"title":"9.Framework的启动过程","level":"1.15.9","depth":2,"path":"android-framework-pouxi/ch09.md","ref":"android-framework-pouxi/ch09.md","articles":[]},"previous":{"title":"7.理解Context","level":"1.15.7","depth":2,"path":"android-framework-pouxi/ch07.md","ref":"android-framework-pouxi/ch07.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","github","baidu","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"solarex-blog"},"github":{"url":"https://github.com/flyfire/Notebook/"},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"baidu":{"token":"7637624af7cc95a136f2fa6b644b6197"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"读书笔记","language":"zh","gitbook":"*","description":"读书笔记"},"file":{"path":"android-framework-pouxi/ch08.md","mtime":"2019-09-24T13:23:26.096Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-24T13:23:59.425Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"8.创建窗口的过程","level":"1.15.8","depth":2,"next":{"title":"9.Framework的启动过程","level":"1.15.9","depth":2,"path":"android-framework-pouxi/ch09.md","ref":"android-framework-pouxi/ch09.md","articles":[]},"previous":{"title":"7.理解Context","level":"1.15.7","depth":2,"path":"android-framework-pouxi/ch07.md","ref":"android-framework-pouxi/ch07.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","github","baidu","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"solarex-blog"},"github":{"url":"https://github.com/flyfire/Notebook/"},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"baidu":{"token":"7637624af7cc95a136f2fa6b644b6197"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"读书笔记","language":"zh","gitbook":"*","description":"读书笔记"},"file":{"path":"android-framework-pouxi/ch08.md","mtime":"2019-09-29T13:34:07.201Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-29T13:34:39.288Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
