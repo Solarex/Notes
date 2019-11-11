@@ -3167,6 +3167,67 @@
                                 <section class="normal markdown-section">
                                 
                                 <h3 id="6android&#x7684;drawable">6.Android&#x7684;Drawable</h3>
+<p>Drawable&#x8868;&#x793A;&#x7684;&#x662F;&#x4E00;&#x79CD;&#x53EF;&#x4EE5;&#x5728;Canvas&#x4E0A;&#x8FDB;&#x884C;&#x7ED8;&#x5236;&#x7684;&#x62BD;&#x8C61;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x5B83;&#x7684;&#x79CD;&#x7C7B;&#x6709;&#x5F88;&#x591A;&#xFF0C;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x989C;&#x8272;&#x548C;&#x56FE;&#x7247;&#x90FD;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;Drawable&#x3002;&#x5728;Android&#x7684;&#x8BBE;&#x8BA1;&#x4E2D;&#xFF0C;Drawable&#x662F;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x7C7B;&#xFF0C;&#x5B83;&#x662F;&#x6240;&#x6709;Drawable&#x5BF9;&#x8C61;&#x7684;&#x57FA;&#x7C7B;&#xFF0C;&#x6BCF;&#x4E2A;&#x5177;&#x4F53;&#x7684;Drawable&#x90FD;&#x662F;&#x5B83;&#x7684;&#x5B50;&#x7C7B;&#x3002;</p>
+<p>Drawable&#x7684;&#x5185;&#x90E8;&#x5BBD;/&#x9AD8;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x6BD4;&#x8F83;&#x91CD;&#x8981;&#xFF0C;&#x901A;&#x8FC7;getIntrinsicWidth/getIntrinsicHeight&#x8FD9;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;&#x5B83;&#x4EEC;&#x3002;&#x4F46;&#x662F;&#x5E76;&#x4E0D;&#x662F;&#x6240;&#x6709;&#x7684;Drawable&#x90FD;&#x6709;&#x5185;&#x90E8;&#x5BBD;/&#x9AD8;&#x3002;&#x53E6;&#x5916;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;Drawable&#x7684;&#x5185;&#x90E8;&#x5BBD;/&#x9AD8;&#x4E0D;&#x7B49;&#x540C;&#x4E8E;&#x5B83;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x4E00;&#x822C;&#x6765;&#x8BF4;&#xFF0C;Drawable&#x662F;&#x6CA1;&#x6709;&#x5927;&#x5C0F;&#x6982;&#x5FF5;&#x7684;&#xFF0C;&#x5F53;&#x7528;&#x4F5C;View&#x7684;&#x80CC;&#x666F;&#x65F6;&#xFF0C;Drawable&#x4F1A;&#x88AB;&#x62C9;&#x4F38;&#x81F3;View&#x7684;&#x540C;&#x7B49;&#x5927;&#x5C0F;&#x3002;</p>
+<p>shape drawable&#x662F;&#x4E00;&#x79CD;&#x5F88;&#x5E38;&#x89C1;&#x7684;Drawable&#xFF0C;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x901A;&#x8FC7;&#x989C;&#x8272;&#x6765;&#x6784;&#x9020;&#x7684;&#x56FE;&#x5F62;&#xFF0C;&#x5B83;&#x65E2;&#x53EF;&#x4EE5;&#x662F;&#x7EAF;&#x8272;&#x7684;&#x56FE;&#x5F62;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x5177;&#x6709;&#x6E10;&#x53D8;&#x6548;&#x679C;&#x7684;&#x56FE;&#x5F62;&#x3002;</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">shape</span>
+       <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">&quot;....&quot;</span>
+       <span class="hljs-attr">android:shape</span>=<span class="hljs-string">[&quot;rectangle&quot;</span> | &quot;<span class="hljs-attr">oval</span>&quot; | &quot;<span class="hljs-attr">line</span>&quot; | &quot;<span class="hljs-attr">ring</span>&quot;]&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">corners</span>
+           <span class="hljs-attr">android:radius</span>=<span class="hljs-string">&quot;integer&quot;</span>
+           <span class="hljs-attr">android:topLeftRadius</span>=<span class="hljs-string">&quot;integer&quot;</span>
+           <span class="hljs-attr">android:topRightRadius</span>=<span class="hljs-string">&quot;integer&quot;</span>
+           <span class="hljs-attr">android:bottomLeftRadius</span>=<span class="hljs-string">&quot;integer&quot;</span>
+           <span class="hljs-attr">android:bottomRightRadius</span>=<span class="hljs-string">&quot;integer&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">gradient</span>
+           <span class="hljs-attr">android:angle</span>=<span class="hljs-string">&quot;integer&quot;</span>
+           <span class="hljs-attr">android:centerX</span>=<span class="hljs-string">&quot;integer&quot;</span>
+           <span class="hljs-attr">android:centerY</span>=<span class="hljs-string">&quot;integer&quot;</span>
+           <span class="hljs-attr">android:centerColor</span>=<span class="hljs-string">&quot;color&quot;</span>
+           <span class="hljs-attr">android:startColor</span>=<span class="hljs-string">&quot;color&quot;</span>
+           <span class="hljs-attr">android:endColor</span>=<span class="hljs-string">&quot;color&quot;</span>
+           <span class="hljs-attr">android:gradientRadius</span>=<span class="hljs-string">&quot;integer&quot;</span>
+           <span class="hljs-attr">android:type</span>=<span class="hljs-string">[&quot;linear&quot;</span> | &quot;<span class="hljs-attr">radial</span>&quot; | &quot;<span class="hljs-attr">sweep</span>&quot;]
+           <span class="hljs-attr">android:useLevel</span>=<span class="hljs-string">[&quot;true&quot;</span> | &quot;<span class="hljs-attr">false</span>&quot;] /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">padding</span>
+           <span class="hljs-attr">android:left</span>=<span class="hljs-string">&quot;integer&quot;</span>
+           <span class="hljs-attr">android:top</span>=<span class="hljs-string">&quot;integer&quot;</span>
+           <span class="hljs-attr">android:right</span>=<span class="hljs-string">&quot;integer&quot;</span>
+           <span class="hljs-attr">android:bottom</span>=<span class="hljs-string">&quot;integer&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">size</span>
+        <span class="hljs-attr">android:width</span>=<span class="hljs-string">&quot;integer&quot;</span>
+        <span class="hljs-attr">android:height</span>=<span class="hljs-string">&quot;integer&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">solid</span>
+         <span class="hljs-attr">android:color</span>=<span class="hljs-string">&quot;color&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">stroke</span>
+          <span class="hljs-attr">android:width</span>=<span class="hljs-string">&quot;integer&quot;</span>
+          <span class="hljs-attr">android:color</span>=<span class="hljs-string">&quot;color&quot;</span>
+          <span class="hljs-attr">android:dashWidth</span>=<span class="hljs-string">&quot;integer&quot;</span>
+          <span class="hljs-attr">android:dashGap</span>=<span class="hljs-string">&quot;integer&quot;</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">shape</span>&gt;</span>
+</code></pre>
+<p><code>&lt;shape&gt;</code>&#x6807;&#x7B7E;&#x521B;&#x5EFA;&#x7684;drawable&#xFF0C;&#x5176;&#x5B9E;&#x4F53;&#x7C7B;&#x662F;GradientDrawable&#x3002;</p>
+<p><code>&lt;gradient&gt;</code>&#x6807;&#x7B7E;&#x548C;<code>&lt;solid&gt;</code>&#x6807;&#x7B7E;&#x662F;&#x4E92;&#x76F8;&#x6392;&#x65A5;&#x7684;&#xFF0C;solid&#x8868;&#x793A;&#x7EAF;&#x8272;&#x586B;&#x5145;&#xFF0C;gradient&#x8868;&#x793A;&#x6E10;&#x53D8;&#x6548;&#x679C;&#x3002;</p>
+<ul>
+<li><code>android:angel</code> &#x6E10;&#x53D8;&#x7684;&#x89D2;&#x5EA6;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;0&#xFF0C;&#x5176;&#x503C;&#x5FC5;&#x987B;&#x4E3A;45&#x7684;&#x500D;&#x6570;&#xFF0C;0&#x8868;&#x793A;&#x4ECE;&#x5DE6;&#x5230;&#x53F3;&#xFF0C;90&#x8868;&#x793A;&#x4ECE;&#x4E0B;&#x5230;&#x4E0A;&#x3002;</li>
+</ul>
+<p>StateListDrawable&#x5BF9;&#x5E94;&#x4E8E;<code>&lt;selector&gt;</code>&#x6807;&#x7B7E;&#xFF0C;&#x5B83;&#x4E5F;&#x662F;&#x8868;&#x793A;Drawable&#x96C6;&#x5408;&#xFF0C;&#x6BCF;&#x4E2A;Drawable&#x90FD;&#x5BF9;&#x5E94;&#x7740;View&#x7684;&#x4E00;&#x79CD;&#x72B6;&#x6001;&#xFF0C;&#x8FD9;&#x6837;&#x7CFB;&#x7EDF;&#x5C31;&#x4F1A;&#x6839;&#x636E;View&#x7684;&#x72B6;&#x6001;&#x6765;&#x9009;&#x62E9;&#x5408;&#x9002;&#x7684;Drawable&#x3002;</p>
+<p>LevelListDrawable&#x5BF9;&#x5E94;&#x4E8E;<code>&lt;level-list&gt;</code>&#x6807;&#x7B7E;&#xFF0C;&#x5B83;&#x540C;&#x6837;&#x8868;&#x793A;&#x4E00;&#x4E2A;Drawable&#x96C6;&#x5408;&#xFF0C;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;Drawable&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x7B49;&#x7EA7;level&#x7684;&#x6982;&#x5FF5;&#x3002;&#x6839;&#x636E;&#x4E0D;&#x540C;&#x7684;&#x7B49;&#x7EA7;&#xFF0C;LevelListDrawable&#x4F1A;&#x5207;&#x6362;&#x4E3A;&#x5BF9;&#x5E94;&#x7684;Drawable&#x3002;</p>
+<pre><code class="lang-xml">&lt;level-list
+      xmlns:android=&quot;...&quot;
+      &lt;item
+                    android:drawable=&quot;@drawable/drawable_resource&quot;
+                    android:maxLevel=&quot;integer&quot;
+                    android:minLevel=&quot;integer&quot; /&gt;
+&lt;/level-list&gt;
+</code></pre>
+<p>&#x5728;&#x6700;&#x5C0F;&#x503C;&#x548C;&#x6700;&#x5927;&#x503C;&#x4E4B;&#x95F4;&#x7684;&#x7B49;&#x7EA7;&#x4F1A;&#x5BF9;&#x5E94;&#x6B64;item&#x4E2D;&#x7684;Drawable&#x3002;Drawable&#x7684;&#x7B49;&#x7EA7;&#x662F;&#x6709;&#x8303;&#x56F4;&#x7684;&#xFF0C;&#x5373;0~10000&#xFF0C;&#x6700;&#x5C0F;&#x7B49;&#x7EA7;&#x662F;0&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x6700;&#x5927;&#x7B49;&#x7EA7;&#x662F;10000&#x3002;</p>
+<p>TransitionDrawable&#x5BF9;&#x5E94;&#x4E8E;<code>&lt;transition&gt;</code>&#x6807;&#x7B7E;&#xFF0C;&#x5B83;&#x7528;&#x4E8E;&#x5B9E;&#x73B0;&#x4E24;&#x4E2A;Drawable&#x4E4B;&#x95F4;&#x7684;&#x6DE1;&#x5165;&#x6DE1;&#x51FA;&#x6548;&#x679C;&#x3002;&#x5C06;TransitionDrawable&#x8BBE;&#x7F6E;&#x4E3A;View&#x7684;&#x80CC;&#x666F;&#xFF0C;&#x7136;&#x540E;&#xFF0C;&#x901A;&#x8FC7;&#x5B83;&#x7684;startTransition&#x548C;reverseTransition&#x65B9;&#x6CD5;&#x6765;&#x5B9E;&#x73B0;&#x6DE1;&#x5165;&#x6DE1;&#x51FA;&#x7684;&#x6548;&#x679C;&#x4EE5;&#x53CA;&#x5B83;&#x7684;&#x9006;&#x8FC7;&#x7A0B;&#x3002;</p>
+<p>InsetDrawable&#x5BF9;&#x5E94;&#x4E8E;<code>&lt;inset&gt;</code>&#x6807;&#x7B7E;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x4ED6;Drawable&#x5185;&#x5D4C;&#x5230;&#x81EA;&#x5DF1;&#x5F53;&#x4E2D;&#xFF0C;&#x5E76;&#x53EF;&#x4EE5;&#x5728;&#x56DB;&#x5468;&#x7559;&#x51FA;&#x4E00;&#x5B9A;&#x7684;&#x95F4;&#x8DDD;&#x3002;&#x5F53;&#x4E00;&#x4E2A;View&#x5E0C;&#x671B;&#x81EA;&#x5DF1;&#x7684;&#x80CC;&#x666F;&#x6BD4;&#x81EA;&#x5DF1;&#x7684;&#x5B9E;&#x9645;&#x533A;&#x57DF;&#x5C0F;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x4EE5;&#x91C7;&#x7528;InsetDrawable&#x6765;&#x5B9E;&#x73B0;&#xFF0C;&#x540C;&#x65F6;&#xFF0C;&#x901A;&#x8FC7;LayerDrawable&#x4E5F;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x8FD9;&#x79CD;&#x6548;&#x679C;&#x3002;</p>
+<p>ScaleDrawable&#x5BF9;&#x5E94;&#x4E8E;<code>&lt;scale&gt;</code>&#x6807;&#x7B7E;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x81EA;&#x5DF1;&#x7684;&#x7B49;&#x7EA7;level&#x5C06;&#x6307;&#x5B9A;&#x7684;Drawable&#x7F29;&#x653E;&#x5230;&#x4E00;&#x5B9A;&#x6BD4;&#x4F8B;&#x3002;</p>
+<p>ClipDrawable&#x5BF9;&#x5E94;&#x4E8E;<code>&lt;clip&gt;</code>&#x6807;&#x7B7E;&#xFF0C;&#x4ED6;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x81EA;&#x5DF1;&#x5F53;&#x524D;&#x7684;&#x7B49;&#x7EA7;level&#x6765;&#x88C1;&#x526A;&#x53E6;&#x4E00;&#x4E2A;Drawable&#xFF0C;&#x88C1;&#x526A;&#x65B9;&#x5411;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>android:clipOrientation</code>&#x548C;<code>android:gravity</code>&#x8FD9;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;&#x6765;&#x5171;&#x540C;&#x63A7;&#x5236;&#x3002;</p>
+<p>Drawable&#x7684;&#x5B9E;&#x9645;&#x533A;&#x57DF;&#x5927;&#x5C0F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5B83;&#x7684;getBounds&#x65B9;&#x6CD5;&#x6765;&#x5F97;&#x5230;&#xFF0C;&#x4E00;&#x822C;&#x6765;&#x8BF4;&#x5B83;&#x548C;View&#x7684;&#x5C3A;&#x5BF8;&#x76F8;&#x540C;&#x3002;</p>
 
                                 
                                 </section>
@@ -3210,7 +3271,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"6.Android的Drawable","level":"1.8.6","depth":2,"next":{"title":"7.Android动画深入分析","level":"1.8.7","depth":2,"path":"the-art-of-android-develop/ch07.md","ref":"the-art-of-android-develop/ch07.md","articles":[]},"previous":{"title":"5.理解RemoteViews","level":"1.8.5","depth":2,"path":"the-art-of-android-develop/ch05.md","ref":"the-art-of-android-develop/ch05.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","github","baidu","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"solarex-blog"},"github":{"url":"https://github.com/flyfire/Notebook/"},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"baidu":{"token":"7637624af7cc95a136f2fa6b644b6197"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"读书笔记","language":"zh","gitbook":"*","description":"读书笔记"},"file":{"path":"the-art-of-android-develop/ch06.md","mtime":"2019-10-09T13:47:55.395Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-03T13:43:08.684Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"6.Android的Drawable","level":"1.8.6","depth":2,"next":{"title":"7.Android动画深入分析","level":"1.8.7","depth":2,"path":"the-art-of-android-develop/ch07.md","ref":"the-art-of-android-develop/ch07.md","articles":[]},"previous":{"title":"5.理解RemoteViews","level":"1.8.5","depth":2,"path":"the-art-of-android-develop/ch05.md","ref":"the-art-of-android-develop/ch05.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","github","baidu","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"solarex-blog"},"github":{"url":"https://github.com/flyfire/Notebook/"},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"baidu":{"token":"7637624af7cc95a136f2fa6b644b6197"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"读书笔记","language":"zh","gitbook":"*","description":"读书笔记"},"file":{"path":"the-art-of-android-develop/ch06.md","mtime":"2019-11-06T12:54:37.414Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-11T12:55:22.055Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
